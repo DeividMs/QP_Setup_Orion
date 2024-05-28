@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-05-28T00:28:19.924Z",
+  "updatedAt": "2024-05-28T13:01:33.684Z",
   "id": "1008",
   "name": "ChatwootToQuepasa",
   "active": true,
@@ -1690,7 +1690,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -3200,
+        -3280,
         1320
       ],
       "webhookId": "ae8993fc-1ab0-4de5-90ce-0eb59a2b5c7d",
@@ -2555,159 +2555,8 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "From ChatWoot": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookdemo.brsolucoesjf.com.br",
-            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.2.2p53",
-            "content-length": "3661",
-            "accept": "application/json",
-            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhookdemo.brsolucoesjf.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "f33e4b439241",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {
-            "identifier": "nRKtMtd4GYQCjYhM1ZQLoNgH",
-            "utoken": "VYzEWPDr3CYwukoMekkBZ4DB",
-            "atoken": "f6d75d1858f785cc87e4f66"
-          },
-          "body": {
-            "account": {
-              "id": 1,
-              "name": "Brsolucoesjf"
-            },
-            "additional_attributes": {},
-            "content_attributes": {
-              "in_reply_to": 2936,
-              "in_reply_to_external_id": null
-            },
-            "content_type": "text",
-            "content": "Respondendo msg envidada por mim no chatwoot",
-            "conversation": {
-              "additional_attributes": {},
-              "can_reply": true,
-              "channel": "Channel::Api",
-              "contact_inbox": {
-                "id": 310,
-                "contact_id": 1057,
-                "inbox_id": 11,
-                "source_id": "e0faecbe-891e-4759-b96f-8f2bc88f74ff",
-                "created_at": "2024-05-18T20:51:45.348Z",
-                "updated_at": "2024-05-18T20:51:45.348Z",
-                "hmac_verified": false,
-                "pubsub_token": "sG39oyoUfq2RVyHJvybq3HQ1"
-              },
-              "id": 135,
-              "inbox_id": 11,
-              "messages": [
-                {
-                  "id": 2941,
-                  "content": "Respondendo msg envidada por mim no chatwoot",
-                  "account_id": 1,
-                  "inbox_id": 11,
-                  "conversation_id": 135,
-                  "message_type": 1,
-                  "created_at": 1716067548,
-                  "updated_at": "2024-05-18T21:25:48.977Z",
-                  "private": false,
-                  "status": "sent",
-                  "source_id": null,
-                  "content_type": "text",
-                  "content_attributes": {
-                    "in_reply_to": 2936,
-                    "in_reply_to_external_id": null
-                  },
-                  "sender_type": "User",
-                  "sender_id": 3,
-                  "external_source_ids": {},
-                  "additional_attributes": {},
-                  "processed_message_content": "Respondendo msg envidada por mim no chatwoot",
-                  "sentiment": {},
-                  "conversation": {
-                    "assignee_id": null,
-                    "unread_count": 0,
-                    "last_activity_at": 1716067548,
-                    "contact_inbox": {
-                      "source_id": "e0faecbe-891e-4759-b96f-8f2bc88f74ff"
-                    }
-                  },
-                  "sender": {
-                    "id": 3,
-                    "name": "Deivid Santos",
-                    "available_name": "Deivid Santos",
-                    "avatar_url": "https://appdemo.brsolucoesjf.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
-                    "type": "user",
-                    "availability_status": null,
-                    "thumbnail": "https://appdemo.brsolucoesjf.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
-                  }
-                }
-              ],
-              "labels": [],
-              "meta": {
-                "sender": {
-                  "additional_attributes": {},
-                  "custom_attributes": {
-                    "skipgreetings": true,
-                    "skipagenttitle": false,
-                    "skipevaluation": false
-                  },
-                  "email": null,
-                  "id": 1057,
-                  "identifier": "556193743824@s.whatsapp.net",
-                  "name": "Deivid Santos ( Irmão / Sócio)",
-                  "phone_number": null,
-                  "thumbnail": "https://appdemo.brsolucoesjf.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdlFDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6fafdfd44346c373a9afc37fdf573709036c59f4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/217326938_5613522131996588_7268782841462315352_n.jpg",
-                  "type": "contact"
-                },
-                "assignee": null,
-                "team": null,
-                "hmac_verified": false
-              },
-              "status": "open",
-              "custom_attributes": {},
-              "snoozed_until": null,
-              "unread_count": 0,
-              "first_reply_created_at": "2024-05-18T20:52:09.618Z",
-              "priority": null,
-              "waiting_since": 0,
-              "agent_last_seen_at": 1716067549,
-              "contact_last_seen_at": 0,
-              "timestamp": 1716067548,
-              "created_at": 1716065505
-            },
-            "created_at": "2024-05-18T21:25:48.977Z",
-            "id": 2941,
-            "inbox": {
-              "id": 11,
-              "name": "Quepasa"
-            },
-            "message_type": "outgoing",
-            "status": "sent",
-            "private": false,
-            "sender": {
-              "id": 3,
-              "name": "Deivid Santos",
-              "email": "deivid.amsantos@gmail.com",
-              "type": "user"
-            },
-            "source_id": null,
-            "event": "message_created"
-          },
-          "webhookUrl": "https://webhookdemo.brsolucoesjf.com.br/webhook/from-chatwoot",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "be5e5626-63b0-4bc1-bb21-0408234a8ffb",
+  "pinData": {},
+  "versionId": "41e143b0-8077-48df-9043-2c76fe93054f",
   "triggerCount": 1,
   "tags": [
     {
