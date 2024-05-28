@@ -1,0 +1,355 @@
+{
+  "createdAt": "2024-04-24T01:25:11.568Z",
+  "updatedAt": "2024-05-17T12:56:24.527Z",
+  "id": "1005",
+  "name": "PostToWebCallBack",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "955a1a7d-b01a-4242-948b-723f9d4f80fd",
+      "name": "Execute Workflow Trigger",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## (1.0.1) \n* forwarding error message\n\n## Recommendations \n* Remember set timeout to 15 seconds ",
+        "width": 395
+      },
+      "id": "ae1cb05a-d306-4f71-90ce-65310190f41c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1860,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "payload.content",
+              "value": "=error on place a call for that inbox:\n* {{ $json.error.message }}\n\nmake sure you have configured with:\nsend a msg to Inbox Control Contact {{ $env[\"C8Q_QP_CONTACT\"] ?? \"control@quepasa.io\" }}\n\n/webcallback {destination}\n\nwhere {destination} => +552140627711 like E164 format telephony number.\nmust start with an +"
+            },
+            {
+              "name": "payload.message_type",
+              "value": "incoming"
+            },
+            {
+              "name": "conversation",
+              "value": "={{$json.conversation}}"
+            },
+            {
+              "name": "extra",
+              "value": "={{$json.extra}}"
+            },
+            {
+              "name": "payload.content_type",
+              "value": "text"
+            }
+          ],
+          "boolean": [
+            {
+              "name": "payload.private",
+              "value": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Chatwoot Message Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        3080,
+        720
+      ],
+      "id": "70752bbd-2205-41ba-a46e-458adead5c71"
+    },
+    {
+      "parameters": {
+        "workflowId": "={{ $env['C8Q_POSTTOCHATWOOT'] }}",
+        "options": {}
+      },
+      "id": "43f8d397-97b5-4fc7-a9ea-086eb019d109",
+      "name": "Execute Workflow Post To Chatwoot",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        720
+      ],
+      "alwaysOutputData": true,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.success }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "d5f91c09-d3dd-4921-b27f-779ad405ff9f",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        2880,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "7fa8f55d-4de8-4c80-a8a3-e317a947505b",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        2700,
+        640
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "868cc097-3bde-4541-87dd-c9bcc7b70d38",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2140,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://endpoints.sufficit.com.br/gateway/chatwoot/webcallback",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "0c899938-0a8f-4ede-afdb-f13e1fe89794",
+      "name": "Request Call Back",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        2500,
+        540
+      ],
+      "alwaysOutputData": false,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "destination",
+              "value": "={{ $json.chat.id }}"
+            },
+            {
+              "name": "externalid",
+              "value": "={{ $json.extra.identifier }}"
+            },
+            {
+              "name": "label",
+              "value": "WhatsApp"
+            }
+          ],
+          "number": [
+            {
+              "name": "delay",
+              "value": 5
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b21b7d23-23ea-415d-bacb-6d511c7f6b0f",
+      "name": "Set Parameters",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2320,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "extra",
+              "value": "={{$json.extra}}"
+            },
+            {
+              "name": "chat.id",
+              "value": "={{ $json.chat.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Chatwoot Message Payload For Success",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        3080,
+        560
+      ],
+      "id": "3ea8584d-41cc-44fe-b66d-3e0e3bef8fe6"
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{$json.extra.qphost}}",
+        "token": "={{ $json.extra.qptoken ?? $json.extra.identifier }}",
+        "text": "Por favor aguarde, estamos retornando sua chamada por telefone.",
+        "chatId": "={{$json.chat.id}}"
+      },
+      "id": "d7a14629-887f-4be5-adbe-24d5060358db",
+      "name": "Quepasa",
+      "type": "n8n-nodes-quepasa.quepasa",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        560
+      ]
+    }
+  ],
+  "connections": {
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chatwoot Message Payload": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow Post To Chatwoot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "Chatwoot Message Payload For Success",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Chatwoot Message Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Set Parameters",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Request Call Back": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Parameters": {
+      "main": [
+        [
+          {
+            "node": "Request Call Back",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chatwoot Message Payload For Success": {
+      "main": [
+        [
+          {
+            "node": "Quepasa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": 15
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
+  },
+  "pinData": {},
+  "versionId": "77184d36-256b-4627-afd5-fab15858a521",
+  "triggerCount": 0,
+  "tags": [],
+  "NOME": "PostToWebCallBack"
+}
