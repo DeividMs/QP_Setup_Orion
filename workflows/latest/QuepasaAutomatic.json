@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-05-28T00:28:49.453Z",
+  "updatedAt": "2024-06-19T01:09:23.422Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -418,7 +418,8 @@
           "id": "NSSYN4EOlkv5kmYY",
           "name": "DB_CHATWOOT"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {},
@@ -461,7 +462,8 @@
           "id": "NSSYN4EOlkv5kmYY",
           "name": "DB_CHATWOOT"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -767,8 +769,8 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "06a7c13c-5b9d-43a7-b374-5a064f1fce0d",
-  "triggerCount": 3,
+  "versionId": "fe28e187-287e-4c69-bd3b-2d85f722f2c5",
+  "triggerCount": 1,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
@@ -789,5 +791,6 @@
       "name": "EngajamentoFlow"
     }
   ],
-  "NOME": "QuepasaAutomatic"
+  "NOME": "QuepasaAutomatic",
+  "PASTA": "latest"
 }
