@@ -1,0 +1,796 @@
+{
+  "createdAt": "2024-04-24T01:25:11.568Z",
+  "updatedAt": "2024-06-19T01:09:23.422Z",
+  "id": "1011",
+  "name": "QuepasaAutomatic",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"contacts\" (\"name\", \"identifier\", \"account_id\", \"created_at\", \"updated_at\", \"last_activity_at\") VALUES ('{{ $node[\"execdata\"].json.bottitle }}', '{{ $node[\"execdata\"].json.contact }}', {{ $json.account }}, NOW(), NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "76342324-45cd-4d44-be95-397ae14553e1",
+      "name": "Cria o Contato",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1120
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"automation_rules\" (\"account_id\", \"name\", \"description\", \"event_name\", \"conditions\", \"actions\", \"created_at\", \"updated_at\", \"active\") VALUES ({{ $json.account }}, '{{ $node[\"execdata\"].json.bottitle }}', '{{ $node[\"execdata\"].json.bottitle }}', 'message_created', '[{\"values\": [\"{{ $node[\"execdata\"].json.contact }}\"], \"attribute_key\": \"identifier\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"outgoing\"], \"attribute_key\": \"message_type\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"/qrcode\"], \"attribute_key\": \"content\", \"filter_operator\": \"contains\", \"custom_attribute_type\": \"\"}]', '[{\"action_name\": \"send_webhook_event\", \"action_params\": [\"{{ $node[\"execdata\"].json.n8nurl }}/webhook/quepasa\"]}]', NOW(), NOW(), 'true');",
+        "additionalFields": {}
+      },
+      "id": "eb89068f-64e8-450d-9bdf-7e95d5572930",
+      "name": "Cria Automação",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        840,
+        960
+      ],
+      "alwaysOutputData": false,
+      "notesInFlow": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"automation_rules\" ON \"accounts\".\"id\" = \"automation_rules\".\"account_id\" AND \"automation_rules\".\"name\" = '{{ $node[\"execdata\"].json.bottitle }}' WHERE \"automation_rules\".\"name\" IS NULL;",
+        "additionalFields": {}
+      },
+      "id": "56223755-8311-4ed8-9f36-c3887a244033",
+      "name": "Missing Automations",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        940
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"contacts\" ON \"accounts\".\"id\" = \"contacts\".\"account_id\" AND \"contacts\".\"identifier\" = '{{ $node[\"execdata\"].json.contact }}' WHERE \"contacts\".\"identifier\" IS NULL;",
+        "additionalFields": {}
+      },
+      "id": "5769c5f9-41b8-40f1-8f27-45c79f3e4b26",
+      "name": "Missing Quepasa Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1120
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipgreetings' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "38d8310c-0a18-42e5-a7ea-c5fb5e6a7013",
+      "name": "Missing Greetings For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1520
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Saudação', 'skipgreetings', 7, 1, {{ $json.account }}, 'Não utilizar a saudação programada para este contato', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "5027365f-2b73-461f-8ae8-fda0a7a8e53f",
+      "name": "Insert Skip Greetings Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1520
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "e2d27c22-2743-45e0-a5a0-a8365c8b0c26",
+      "name": "Schedule Daily",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        1520
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "c00fbb73-1d58-4c43-87b9-c08c24b60e04",
+      "name": "Missing Evaluation For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1720
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Avaliação', 'skipevaluation', 7, 1, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para este contato !', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "76c02a96-9fcb-4880-bfa5-0996b88edf70",
+      "name": "Insert Skip Evaluation For Contact Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1720
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 0);",
+        "additionalFields": {}
+      },
+      "id": "93bde65b-b941-4495-ad1c-18e69fd30e12",
+      "name": "Missing Evaluation For Conversation",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1920
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Avaliação', 'skipevaluation', 7, 0, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para esta conversa !', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "f8745e33-2348-4c11-b7ac-415b5148059d",
+      "name": "Insert Skip Evaluation For Conversation Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1920
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "content": "## (1.0.4) Recommendations \n* exec data position\n",
+        "width": 425.48157586978226
+      },
+      "id": "855f2a87-27e8-4394-aa7d-4dc87e465dde",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1060,
+        1260
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "n8nurl",
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+            },
+            {
+              "name": "bottitle",
+              "value": "={{ $env['C8Q_QP_BOTTITLE'] ?? 'Quepasa Control' }}"
+            },
+            {
+              "name": "contact",
+              "value": "={{ $env['C8Q_QP_CONTACT'] ?? 'control@quepasa.io' }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "eee7b21b-f32a-44ab-9e75-92fd51640602",
+      "name": "execdata",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -300,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar o nome do Atendente', 'skipagenttitle', 7, 1, {{ $json.account }}, 'Não incluir o titulo do agente antes da mensagem para este contato', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "48d58467-e4dc-415f-98ce-66d71a53361a",
+      "name": "Insert Skip Agent Title Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        460,
+        1320
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipagenttitle' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "68bdc99c-6a1b-4ccd-a6c2-17438079d6b4",
+      "name": "Missing Agent Title For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        220,
+        1320
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "={{ $json }}",
+        "options": {}
+      },
+      "id": "f3cf7184-11b9-4c86-b305-3a163227ec6b",
+      "name": "Split Out",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        660,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "08fabf93-0038-48cb-abf2-013a924db497",
+              "leftValue": "={{ Object.prototype.toString.call($json) === '[object Array]' }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "9a43447a-6c45-4166-be06-46164f45231a",
+      "name": "If Array",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        460,
+        940
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "tableName": {
+          "__rl": true,
+          "value": "accounts",
+          "mode": "list",
+          "cachedResultName": "accounts"
+        },
+        "additionalFields": {},
+        "options": {}
+      },
+      "id": "a1f7c311-dfc4-4a39-81db-814f60751593",
+      "name": "Postgres Trigger",
+      "type": "n8n-nodes-base.postgresTrigger",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        1320
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "be0df11e-911d-4caa-a5b3-e11523fc2f5b",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        1420
+      ]
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "tableName": {
+          "__rl": true,
+          "value": "channel_api",
+          "mode": "list",
+          "cachedResultName": "channel_api"
+        },
+        "firesOn": "DELETE",
+        "additionalFields": {},
+        "options": {}
+      },
+      "id": "a7fa5e27-e8d9-475f-a623-f389cf118a66",
+      "name": "When API Inbox Deleted",
+      "type": "n8n-nodes-base.postgresTrigger",
+      "typeVersion": 1,
+      "position": [
+        -440,
+        2260
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "NSSYN4EOlkv5kmYY",
+          "name": "DB_CHATWOOT"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "={{ $json.extra.qphost }}/info",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-QUEPASA-TOKEN",
+              "value": "={{ $json.payload.identifier }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a4033c1b-c870-483e-9618-9ecb1c146478",
+      "name": "Delete Quepasa Inbox If Exists",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        460,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
+        "options": {}
+      },
+      "id": "e5f85b49-5aaa-41f4-b81a-e4377e1fc350",
+      "name": "Execute ChatWootExtra Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        60,
+        2340
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "2dab7639-dcff-4206-85cc-45dc6a684d05",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        220,
+        2280
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9890dc5d-f10d-41fd-9d0f-35db8d2c6cb2",
+              "name": "event",
+              "value": "api_inbox_delete",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "2aa86984-d749-4a51-aa9f-b1612f42046c",
+      "name": "Set Event Name",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -140,
+        2260
+      ]
+    }
+  ],
+  "connections": {
+    "Missing Automations": {
+      "main": [
+        [
+          {
+            "node": "If Array",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Quepasa Contact": {
+      "main": [
+        [
+          {
+            "node": "Cria o Contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Greetings For Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Greetings Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Daily": {
+      "main": [
+        [
+          {
+            "node": "execdata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Evaluation For Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Evaluation For Contact Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Evaluation For Conversation": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Evaluation For Conversation Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Agent Title For Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Agent Title Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Cria Automação",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Array": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Cria Automação",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "Missing Evaluation For Conversation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Evaluation For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Greetings For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Agent Title For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Quepasa Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Automations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Postgres Trigger": {
+      "main": [
+        [
+          {
+            "node": "execdata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When API Inbox Deleted": {
+      "main": [
+        [
+          {
+            "node": "Set Event Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute ChatWootExtra Workflow": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Delete Quepasa Inbox If Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Event Name": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute ChatWootExtra Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "execdata": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": {
+    "node:Schedule Daily": {
+      "recurrencyRules": []
+    }
+  },
+  "meta": {
+    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e",
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "fe28e187-287e-4c69-bd3b-2d85f722f2c5",
+  "triggerCount": 1,
+  "tags": [
+    {
+      "createdAt": "2022-10-13T15:26:11.519Z",
+      "updatedAt": "2023-08-25T18:50:53.269Z",
+      "id": "5",
+      "name": "quepasa"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2023-05-18T18:59:53.449Z",
+      "updatedAt": "2023-05-18T18:59:53.449Z",
+      "id": "7",
+      "name": "EngajamentoFlow"
+    }
+  ],
+  "NOME": "QuepasaAutomatic",
+  "PASTA": "3.24.617.1651"
+}
