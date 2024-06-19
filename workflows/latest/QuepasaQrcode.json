@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-05-28T00:29:01.751Z",
+  "updatedAt": "2024-06-19T00:32:54.428Z",
   "id": "1010",
   "name": "QuepasaQrcode",
   "active": true,
@@ -757,8 +757,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        1347,
-        170
+        1300,
+        160
       ],
       "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
     }
@@ -1160,140 +1160,22 @@
     }
   },
   "settings": {
-    "saveManualExecutions": false,
+    "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 60,
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
   },
   "staticData": null,
   "meta": {
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e",
     "templateCredsSetupCompleted": true
   },
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhookdemo.brsolucoesjf.com.br",
-            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.2.2p53",
-            "content-length": "1783",
-            "accept": "application/json",
-            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhookdemo.brsolucoesjf.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "f33e4b439241",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "additional_attributes": {
-              "mail_subject": ""
-            },
-            "can_reply": true,
-            "channel": "Channel::Api",
-            "contact_inbox": {
-              "id": 303,
-              "contact_id": 988,
-              "inbox_id": 11,
-              "source_id": "0b8d5b09-af73-4ea5-9bc4-dd2399577a4f",
-              "created_at": "2024-05-16T23:53:50.408Z",
-              "updated_at": "2024-05-16T23:53:50.408Z",
-              "hmac_verified": false,
-              "pubsub_token": "YbppQg1DAb3FYx6rqJcrwyZx"
-            },
-            "id": 129,
-            "inbox_id": 11,
-            "messages": [
-              {
-                "id": 2763,
-                "content": "/qrcode",
-                "account_id": 1,
-                "inbox_id": 11,
-                "conversation_id": 129,
-                "message_type": 1,
-                "created_at": 1715948608,
-                "updated_at": "2024-05-17T12:23:28.243Z",
-                "private": false,
-                "status": "sent",
-                "source_id": null,
-                "content_type": "text",
-                "content_attributes": {},
-                "sender_type": "User",
-                "sender_id": 2,
-                "external_source_ids": {},
-                "additional_attributes": {},
-                "processed_message_content": "/qrcode",
-                "sentiment": {},
-                "conversation": {
-                  "assignee_id": 2,
-                  "unread_count": 0,
-                  "last_activity_at": 1715948608,
-                  "contact_inbox": {
-                    "source_id": "0b8d5b09-af73-4ea5-9bc4-dd2399577a4f"
-                  }
-                },
-                "sender": {
-                  "id": 2,
-                  "name": "Bruno Rafael",
-                  "available_name": "Bruno Rafael",
-                  "avatar_url": "",
-                  "type": "user",
-                  "availability_status": "online",
-                  "thumbnail": ""
-                }
-              }
-            ],
-            "labels": [],
-            "meta": {
-              "sender": {
-                "additional_attributes": {},
-                "custom_attributes": {},
-                "email": null,
-                "id": 988,
-                "identifier": "brsolucoesjf@brsolucoesjf.com.br",
-                "name": "BRSoluções",
-                "phone_number": null,
-                "thumbnail": "",
-                "type": "contact"
-              },
-              "assignee": {
-                "id": 2,
-                "name": "Bruno Rafael",
-                "available_name": "Bruno Rafael",
-                "avatar_url": "",
-                "type": "user",
-                "availability_status": "online",
-                "thumbnail": ""
-              },
-              "team": null,
-              "hmac_verified": false
-            },
-            "status": "open",
-            "custom_attributes": {},
-            "snoozed_until": null,
-            "unread_count": 0,
-            "first_reply_created_at": "2024-05-17T12:23:28.243Z",
-            "priority": null,
-            "waiting_since": 0,
-            "agent_last_seen_at": 0,
-            "contact_last_seen_at": 0,
-            "timestamp": 1715948608,
-            "created_at": 1715948608,
-            "event": "automation_event.message_created"
-          },
-          "webhookUrl": "https://webhookdemo.brsolucoesjf.com.br/webhook/quepasa",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "394cad5a-541d-4d52-9356-9b9765beb949",
+  "pinData": {},
+  "versionId": "52296948-a447-496c-a1e8-ac5e992d2102",
   "triggerCount": 1,
   "tags": [],
-  "NOME": "QuepasaQrcode"
+  "NOME": "QuepasaQrcode",
+  "PASTA": "latest"
 }
