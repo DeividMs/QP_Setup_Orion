@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-06-19T01:09:23.422Z",
+  "updatedAt": "2024-06-19T02:20:54.046Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -418,8 +418,7 @@
           "id": "NSSYN4EOlkv5kmYY",
           "name": "DB_CHATWOOT"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {},
@@ -462,8 +461,7 @@
           "id": "NSSYN4EOlkv5kmYY",
           "name": "DB_CHATWOOT"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -769,8 +767,8 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "fe28e187-287e-4c69-bd3b-2d85f722f2c5",
-  "triggerCount": 1,
+  "versionId": "9b87ac71-d7f5-4287-b94e-85ed9e12942b",
+  "triggerCount": 3,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
