@@ -1,6 +1,6 @@
 {
-  "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-05-28T00:27:21.859Z",
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:06:40.515Z",
   "id": "iiEsUj7ybtzEZAFj",
   "name": "ChatwootExtra",
   "active": false,
@@ -11,13 +11,13 @@
         "height": 160.8587546061882,
         "width": 505.65878958512553
       },
-      "id": "6fe14679-04d6-42ae-b5b1-60b9b0ae5c41",
+      "id": "a92f50ec-df96-45d7-b0f6-64f4bbe8ffa0",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        3000,
-        340
+        760,
+        60
       ]
     },
     {
@@ -31,13 +31,13 @@
           ]
         }
       },
-      "id": "5eb0e1b5-dbbf-454c-a5a1-cccbb5d0704d",
+      "id": "953f4ed0-3197-43df-8606-21d594845741",
       "name": "If Missing Account",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3660,
-        560
+        1420,
+        280
       ]
     },
     {
@@ -46,18 +46,18 @@
         "query": "=SELECT account_id FROM inboxes WHERE id = '{{ $json.extra.inbox }}'",
         "additionalFields": {}
       },
-      "id": "15838faf-b675-42c9-a02e-3a480ccf3f56",
+      "id": "0fea566f-7dec-400c-ac3f-03ae11f9e67c",
       "name": "Get Account From Inbox",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        3860,
-        440
+        1620,
+        160
       ],
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -74,13 +74,13 @@
         },
         "options": {}
       },
-      "id": "5f6cc13f-9843-4f5c-9648-c42dd5020475",
+      "id": "7e9cbd9a-3a32-4f32-a46c-683e6bfe71a4",
       "name": "Set Account",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        4020,
-        440
+        1780,
+        160
       ]
     },
     {
@@ -89,19 +89,19 @@
         "query": "=INSERT INTO \"public\".\"agent_bots\" (\"name\", \"account_id\", \"created_at\", \"updated_at\")\nSELECT '{{ $env[\"C8Q_QP_BOTTITLE\"] ?? \"quepasabot\" }}', {{ $json.extra.account }}, NOW(), NOW() \nWHERE NOT EXISTS (SELECT NULL FROM \"public\".\"agent_bots\" WHERE \"bot_type\" = '0' AND \"name\" LIKE '{{ $env[\"C8Q_QP_BOTTITLE\"] ?? \"quepasabot\" }}' AND \"account_id\" = {{ $json.extra.account }});\nSELECT \"id\" FROM \"public\".\"agent_bots\" WHERE \"bot_type\" = '0' AND \"name\" LIKE '{{ $env[\"C8Q_QP_BOTTITLE\"] ?? \"quepasabot\" }}' AND \"account_id\" = {{ $json.extra.account }} LIMIT 1;",
         "additionalFields": {}
       },
-      "id": "f2b20af4-bd8f-4258-a377-d7cb724aaccd",
+      "id": "9318c4b3-e8e5-4f3a-a255-bf2cd5999d72",
       "name": "GetOrCreate AgentBot",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        4600,
-        480
+        2360,
+        200
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -124,13 +124,13 @@
         },
         "options": {}
       },
-      "id": "fc2652a7-d226-46d5-b932-e3c9359dc8f6",
+      "id": "9c613574-3aa4-4935-8f69-a864b1855dfb",
       "name": "Set AToken",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        4960,
-        480
+        2720,
+        200
       ]
     },
     {
@@ -139,13 +139,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "835c06c1-f145-4a15-9d88-913ff2a5bc1c",
+      "id": "1fb1f596-3cdf-41ba-b28b-57e7a0b43e38",
       "name": "Merge Extra AToken",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        5160,
-        560
+        2920,
+        280
       ]
     },
     {
@@ -154,13 +154,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "2b96e146-b081-49cc-81b8-b64a3fe4ea90",
+      "id": "e1db846a-67ac-4c50-aa65-d36991e7b2de",
       "name": "Merge Extra Account",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        4200,
-        520
+        1960,
+        240
       ]
     },
     {
@@ -169,19 +169,19 @@
         "query": "=INSERT INTO \"public\".\"access_tokens\" (\"owner_type\", \"owner_id\", \"token\", \"created_at\", \"updated_at\")\nSELECT 'AgentBot', '{{ $json.id }}', SUBSTRING(md5(random()::text),0,24), NOW(), NOW() \nWHERE NOT EXISTS (SELECT NULL FROM \"public\".\"access_tokens\" WHERE \"owner_type\" = 'AgentBot' AND \"owner_id\" = {{ $json.id }});\nSELECT \"token\" AS \"atoken\", \"owner_id\" AS \"aid\" FROM \"public\".\"access_tokens\" WHERE \"owner_type\" = 'AgentBot' AND \"owner_id\" = {{ $json.id }} LIMIT 1;",
         "additionalFields": {}
       },
-      "id": "c2a2e4af-b9a8-4eaa-a0d1-2c65cdc66482",
+      "id": "4fe3be30-4ef2-404d-b0ce-75b2db78e086",
       "name": "GetOrCreate Agent Token",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        4780,
-        480
+        2540,
+        200
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -191,19 +191,19 @@
         "query": "=INSERT INTO \"agent_bot_inboxes\" (\"inbox_id\", \"agent_bot_id\", \"status\", \"account_id\", \"created_at\", \"updated_at\")\nSELECT {{ $json.extra.inbox }}, {{ $json.extra.aid }}, 0, {{ $json.extra.account }}, NOW(), NOW() WHERE NOT EXISTS(SELECT NULL FROM \"agent_bot_inboxes\" WHERE \"inbox_id\" = {{ $json.extra.inbox }} AND \"agent_bot_id\" = {{ $json.extra.aid }} AND \"account_id\" = {{ $json.extra.account }});",
         "additionalFields": {}
       },
-      "id": "de21b606-594d-4324-9846-150dae1bf836",
+      "id": "f0042c96-2144-4749-a51d-cf7a1cc1ffca",
       "name": "Ensure Rights For AgentBot At Account",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        5360,
-        460
+        3120,
+        180
       ],
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -213,19 +213,19 @@
         "query": "=SELECT \"access_tokens\".\"token\" AS \"utoken\" FROM \"account_users\" INNER JOIN \"access_tokens\" ON \"access_tokens\".\"owner_id\" = \"account_users\".\"user_id\" WHERE \"account_users\".\"account_id\" = {{ $json.extra.account }} AND \"access_tokens\".\"owner_type\" = 'User' AND \"account_users\".\"role\" = 1 ORDER BY \"account_users\".\"id\" LIMIT 1;",
         "additionalFields": {}
       },
-      "id": "359d201c-7982-4d8a-b5b6-6d81018ace45",
+      "id": "1cf3c711-c065-4c71-a328-b6e01d6cd93c",
       "name": "Get Admin User Token",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        5760,
-        460
+        3520,
+        180
       ],
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -242,13 +242,13 @@
         },
         "options": {}
       },
-      "id": "b447b2a6-b556-4f0f-a701-57c6dc0f7fee",
+      "id": "4c67e58d-23c3-4c22-b50b-341a7b73d943",
       "name": "Set UToken",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        5940,
-        460
+        3700,
+        180
       ]
     },
     {
@@ -257,13 +257,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "ad5a872d-db77-45e1-85d4-9c20244f2537",
+      "id": "7ebdea8e-5e36-47a9-a09a-31a15790c595",
       "name": "Merge Extra UToken",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        6140,
-        540
+        3900,
+        260
       ]
     },
     {
@@ -272,19 +272,19 @@
         "query": "=SELECT \"public\".\"channel_api\".\"identifier\", \"public\".\"inboxes\".\"channel_id\" FROM \"public\".\"channel_api\" INNER JOIN \"public\".\"inboxes\" ON \"public\".\"channel_api\".\"id\" = \"public\".\"inboxes\".\"channel_id\" WHERE \"public\".\"channel_api\".\"account_id\"='{{$json.extra.account}}' AND \"public\".\"inboxes\".\"id\" = '{{$json.extra.inbox}}';",
         "additionalFields": {}
       },
-      "id": "5acb27f3-9f5a-4213-9d5e-7bd006b3316f",
+      "id": "f7264298-539a-4a04-918f-3380756b4571",
       "name": "Get Identifier",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        6340,
-        460
+        4100,
+        180
       ],
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -294,46 +294,46 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "a006da12-70a3-4555-a139-597a553f5288",
+      "id": "18489a4f-ce5b-4687-b36b-c67914cbaf2b",
       "name": "Merge Extra Identifier",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        6720,
-        520
+        4480,
+        240
       ]
     },
     {
       "parameters": {},
-      "id": "a47eb699-e473-42a1-9fdb-6c1ba9751012",
+      "id": "261237c6-f3e5-4e56-8bdf-1c3fbecc84e0",
       "name": "Account & Inbox",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4400,
-        580
+        2160,
+        300
       ]
     },
     {
       "parameters": {},
-      "id": "25156e3d-0e40-416b-8c7f-43e7b527f30d",
+      "id": "0cb36b41-e9c7-4f1a-8cb0-6499f9c438ba",
       "name": "AToken",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5560,
-        560
+        3320,
+        280
       ]
     },
     {
       "parameters": {},
-      "id": "b504aee7-6b63-45cf-87f3-88d2f4a308c0",
+      "id": "bf8f8aa8-39a4-4895-8f6a-551b9b13a857",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        3020,
-        540
+        780,
+        260
       ]
     },
     {
@@ -357,15 +357,15 @@
             },
             {
               "name": "extra.qphost",
-              "value": "={{ $env[\"C8Q_QUEPASA_HOST\"] }}"
+              "value": "http://127.0.0.1:31000"
             },
             {
               "name": "extra.cwhost",
-              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
+              "value": "http://127.0.0.1:3000"
             },
             {
               "name": "extra.n8nhost",
-              "value": "={{ $env[\"C8Q_N8N_HOST\"] }}"
+              "value": "http://127.0.0.1:5678"
             },
             {
               "name": "extra.qpuser",
@@ -379,13 +379,13 @@
         },
         "options": {}
       },
-      "id": "1e9663e9-431a-42d8-8a89-167c2e205c6d",
+      "id": "c9d82916-d71d-44fe-955d-868fe7040ef0",
       "name": "Defaults",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        3220,
-        540
+        980,
+        260
       ]
     },
     {
@@ -407,13 +407,13 @@
         },
         "options": {}
       },
-      "id": "0c1e17f1-6efb-4471-8cd8-48372b15aee2",
+      "id": "0301f8da-ee25-486e-8138-9c8b2d56282f",
       "name": "Set Identifier & Channel",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        6520,
-        460
+        4280,
+        180
       ]
     },
     {
@@ -441,13 +441,13 @@
           "looseTypeValidation": true
         }
       },
-      "id": "3cea66a9-7e74-4f42-af67-a380ad5060e8",
+      "id": "ed4d1ec4-aa3a-406c-b2c0-c7c0debc43eb",
       "name": "From Inbox Delete ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        3420,
-        540
+        1180,
+        260
       ]
     }
   ],
@@ -691,11 +691,11 @@
   },
   "staticData": null,
   "meta": {
-    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e",
-    "templateCredsSetupCompleted": true
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "de84bcd8-4254-4b52-b3ca-01316e87a381",
+  "versionId": "ee3d7d90-fcb8-496f-984b-61cf0e8d8e2d",
   "triggerCount": 0,
   "tags": [
     {
@@ -704,6 +704,5 @@
       "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     }
-  ],
-  "NOME": "ChatwootExtra"
+  ]
 }
