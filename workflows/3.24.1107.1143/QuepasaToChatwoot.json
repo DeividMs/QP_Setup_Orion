@@ -1,5 +1,9 @@
 {
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:28:48.571Z",
+  "id": "1009",
   "name": "QuepasaToChatwoot",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -568,8 +572,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "continueOnFail": true
@@ -764,8 +768,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -999,8 +1003,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1041,8 +1045,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1086,7 +1090,7 @@
           "string": [
             {
               "name": "extra.cwhost",
-              "value": "={{ $json.extra.cwhost ?? \"http://127.0.0.1:3000\" }}"
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
             },
             {
               "name": "params",
@@ -1384,7 +1388,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Create a Conversation": {
       "main": [
@@ -2136,24 +2139,25 @@
       ]
     }
   },
-  "active": true,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 30,
     "executionOrder": "v1"
   },
-  "versionId": "015f6d88-9be8-4618-b637-9df2e2b536ca",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1009",
+  "pinData": {},
+  "versionId": "f0e21c17-cbfe-4cdd-adf1-689af99392bd",
+  "triggerCount": 1,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
