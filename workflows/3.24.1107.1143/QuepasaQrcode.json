@@ -1,10 +1,14 @@
 {
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:23:16.699Z",
+  "id": "1010",
   "name": "QuepasaQrcode",
+  "active": true,
   "nodes": [
     {
       "parameters": {
         "requestMethod": "POST",
-        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages",
         "allowUnauthorizedCerts": true,
         "jsonParameters": true,
         "options": {
@@ -47,7 +51,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -87,11 +91,11 @@
     },
     {
       "parameters": {
-        "baseUrl": "={{ $json.extra.qphost}}",
+        "baseUrl": "={{ $json[\"URL DO QUEPASA\"] }}",
         "token": "={{$json.extra.identifier}}",
         "resource": "webhook",
         "operation": "setup",
-        "url": "={{$json.extra.n8nhost}}/webhook/to-chatwoot",
+        "url": "={{ $json[\"URL DO WEBHOOK N8N\"] }}/webhook/to-chatwoot",
         "trackid": "chatwoot",
         "extraAttributes": {
           "attribute": [
@@ -223,7 +227,7 @@
     },
     {
       "parameters": {
-        "url": "={{ $json.extra.qphost }}/scan",
+        "url": "={{ $json['URL DO QUEPASA'] }}/scan",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -276,28 +280,6 @@
     },
     {
       "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "number": [
-            {
-              "name": "conversation",
-              "value": "={{$json.body.id ?? json.body.messages[0].conversation_id}}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "a3efed4b-9dc0-417d-aeea-184469be2edf",
-      "name": "Set Conversation Id",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        1120,
-        240
-      ]
-    },
-    {
-      "parameters": {
         "mode": "combine",
         "combinationMode": "multiplex",
         "options": {}
@@ -339,7 +321,7 @@
     },
     {
       "parameters": {
-        "amount": 50,
+        "amount": 20,
         "unit": "seconds"
       },
       "id": "93c2873a-73ac-46fe-97b0-229e80dd5d12",
@@ -354,7 +336,7 @@
     },
     {
       "parameters": {
-        "baseUrl": "={{$json.extra.qphost}}",
+        "baseUrl": "={{ $json[\"URL DO QUEPASA\"] }}",
         "token": "={{$json.extra.identifier }}",
         "resource": "information"
       },
@@ -419,7 +401,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -497,7 +479,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -576,8 +558,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -608,7 +590,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{$json.extra.qphost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -649,7 +631,7 @@
     {
       "parameters": {
         "mode": "runOnceForEachItem",
-        "jsCode": "const extra = $input.item.json.extra;\n\nlet webhook = extra.n8nhost + \"/webhook/from-chatwoot?\";\nwebhook += \"identifier=\" + extra.identifier + \"&\";\nwebhook += \"utoken=\" + extra.utoken + \"&\";\nwebhook += \"atoken=\" + extra.atoken + \"&\";\n\nif (extra.qphost !== \"http://127.0.0.1:31000\"){\n  webhook += \"qphost=\" + extra.qphost + \"&\";\n}\n\nif (extra.cwhost !== \"http://127.0.0.1:3000\"){\n  webhook += \"cwhost=\" + extra.cwhost + \"&\";\n}\n\n//if (extra.cwpublic){\n//  webhook += \"cwpublic=\" + extra.cwpublic + \"&\";\n//}\n\nwebhook = webhook.replace(/\\&+$/, '');\n\n$input.item.json.webhook = webhook;\nreturn $input.item;"
+        "jsCode": "const extra = $input.item.json.extra;\n\nlet webhook = extra.URL_DO_WEBHOOK_N8N + \"/webhook/from-chatwoot?\";\nwebhook += \"identifier=\" + extra.identifier + \"&\";\nwebhook += \"utoken=\" + extra.utoken + \"&\";\nwebhook += \"atoken=\" + extra.atoken + \"&\";\n\nif (extra.qphost !== \"http://127.0.0.1:31000\"){\n  webhook += \"qphost=\" + extra.qphost + \"&\";\n}\n\nif (extra.cwhost !== \"http://127.0.0.1:3000\"){\n  webhook += \"cwhost=\" + extra.cwhost + \"&\";\n}\n\n//if (extra.cwpublic){\n//  webhook += \"cwpublic=\" + extra.cwpublic + \"&\";\n//}\n\nwebhook = webhook.replace(/\\&+$/, '');\n\n$input.item.json.webhook = webhook;\nreturn $input.item;"
       },
       "id": "d56afd1c-5518-4307-9ccd-9981d04a9866",
       "name": "Code",
@@ -663,7 +645,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
+        "url": "={{ $json[\"URL DO CHATWOOT\"] }}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.conversation}}/messages ",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -739,9 +721,48 @@
         1120,
         440
       ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [
+            {
+              "name": "conversation",
+              "value": "={{$json.body.id ?? json.body.messages[0].conversation_id}}"
+            }
+          ],
+          "string": [
+            {
+              "name": "URL DO QUEPASA",
+              "value": "={{ $env[\"C8Q_QUEPASA_HOST\"] }}"
+            },
+            {
+              "name": "URL DO CHATWOOT",
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
+            },
+            {
+              "name": "URL DO WEBHOOK N8N",
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+            },
+            {
+              "name": "extra.URL_DO_WEBHOOK_N8N",
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed77e15a-16e9-40ae-8a15-1f072a86dae1",
+      "name": "Set Conversation Id",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        240
+      ]
     }
   ],
-  "pinData": {},
   "connections": {
     "IF": {
       "main": [
@@ -805,12 +826,12 @@
       "main": [
         [
           {
-            "node": "Set Conversation Id",
+            "node": "Execute ChatWootExtra Workflow",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Execute ChatWootExtra Workflow",
+            "node": "Set Conversation Id",
             "type": "main",
             "index": 0
           }
@@ -849,17 +870,6 @@
           },
           {
             "node": "Merge2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Conversation Id": {
-      "main": [
-        [
-          {
-            "node": "Merge1",
             "type": "main",
             "index": 0
           }
@@ -1136,20 +1146,32 @@
           }
         ]
       ]
+    },
+    "Set Conversation Id": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": true,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 60,
     "executionOrder": "v1"
   },
-  "versionId": "f002916f-d623-4cea-8867-5a82ddf5bf2a",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1010",
+  "pinData": {},
+  "versionId": "e43fc1db-b056-42b3-8575-d2d23a47e54f",
+  "triggerCount": 1,
   "tags": []
 }
