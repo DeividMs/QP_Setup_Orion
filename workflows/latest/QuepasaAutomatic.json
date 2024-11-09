@@ -1,6 +1,6 @@
 {
-  "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-06-19T02:20:54.046Z",
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:41:10.536Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -11,19 +11,19 @@
         "query": "=INSERT INTO \"contacts\" (\"name\", \"identifier\", \"account_id\", \"created_at\", \"updated_at\", \"last_activity_at\") VALUES ('{{ $node[\"execdata\"].json.bottitle }}', '{{ $node[\"execdata\"].json.contact }}', {{ $json.account }}, NOW(), NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "76342324-45cd-4d44-be95-397ae14553e1",
+      "id": "9ae73ae2-b057-42ab-aec2-2eb07432b666",
       "name": "Cria o Contato",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        460,
-        1120
+        720,
+        700
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -34,20 +34,20 @@
         "query": "=INSERT INTO \"automation_rules\" (\"account_id\", \"name\", \"description\", \"event_name\", \"conditions\", \"actions\", \"created_at\", \"updated_at\", \"active\") VALUES ({{ $json.account }}, '{{ $node[\"execdata\"].json.bottitle }}', '{{ $node[\"execdata\"].json.bottitle }}', 'message_created', '[{\"values\": [\"{{ $node[\"execdata\"].json.contact }}\"], \"attribute_key\": \"identifier\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"outgoing\"], \"attribute_key\": \"message_type\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"/qrcode\"], \"attribute_key\": \"content\", \"filter_operator\": \"contains\", \"custom_attribute_type\": \"\"}]', '[{\"action_name\": \"send_webhook_event\", \"action_params\": [\"{{ $node[\"execdata\"].json.n8nurl }}/webhook/quepasa\"]}]', NOW(), NOW(), 'true');",
         "additionalFields": {}
       },
-      "id": "eb89068f-64e8-450d-9bdf-7e95d5572930",
+      "id": "e1822cbf-efbc-47dd-8ad7-afa92d4c3b85",
       "name": "Cria Automação",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        840,
-        960
+        1100,
+        540
       ],
       "alwaysOutputData": false,
       "notesInFlow": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -58,19 +58,19 @@
         "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"automation_rules\" ON \"accounts\".\"id\" = \"automation_rules\".\"account_id\" AND \"automation_rules\".\"name\" = '{{ $node[\"execdata\"].json.bottitle }}' WHERE \"automation_rules\".\"name\" IS NULL;",
         "additionalFields": {}
       },
-      "id": "56223755-8311-4ed8-9f36-c3887a244033",
+      "id": "2a75e8f4-7539-4d0a-88e2-561d0deabac7",
       "name": "Missing Automations",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        220,
-        940
+        480,
+        520
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -81,19 +81,19 @@
         "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"contacts\" ON \"accounts\".\"id\" = \"contacts\".\"account_id\" AND \"contacts\".\"identifier\" = '{{ $node[\"execdata\"].json.contact }}' WHERE \"contacts\".\"identifier\" IS NULL;",
         "additionalFields": {}
       },
-      "id": "5769c5f9-41b8-40f1-8f27-45c79f3e4b26",
+      "id": "fb3f0031-6bca-4ef2-b154-3c02bb575e84",
       "name": "Missing Quepasa Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        220,
-        1120
+        480,
+        700
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -104,19 +104,19 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipgreetings' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "38d8310c-0a18-42e5-a7ea-c5fb5e6a7013",
+      "id": "f961e1b4-0cd9-4052-8ae1-3d8aface8820",
       "name": "Missing Greetings For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        220,
-        1520
+        480,
+        1100
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -124,22 +124,22 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Saudação', 'skipgreetings', 7, 1, {{ $json.account }}, 'Não utilizar a saudação programada para este contato', '[]', NOW(), NOW());",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Greetings', 'skipgreetings', 7, 1, {{ $json.account }}, 'Não utilizar a saudação programada para este contato', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "5027365f-2b73-461f-8ae8-fda0a7a8e53f",
+      "id": "43dacfa8-f16b-4a9f-99ce-4a16471f24df",
       "name": "Insert Skip Greetings Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        460,
-        1520
+        720,
+        1100
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -152,13 +152,13 @@
           ]
         }
       },
-      "id": "e2d27c22-2743-45e0-a5a0-a8365c8b0c26",
+      "id": "1566ac58-35b2-4505-9d31-adba3ccb9cc3",
       "name": "Schedule Daily",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        -520,
-        1520
+        -260,
+        1100
       ]
     },
     {
@@ -167,19 +167,19 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "c00fbb73-1d58-4c43-87b9-c08c24b60e04",
+      "id": "cf25755f-6580-41f2-814c-79a3e4f7202f",
       "name": "Missing Evaluation For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        220,
-        1720
+        480,
+        1300
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -187,84 +187,38 @@
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Avaliação', 'skipevaluation', 7, 1, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para este contato !', '[]', NOW(), NOW());",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Evaluation', 'skipevaluation', 7, 1, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para este contato !', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "76c02a96-9fcb-4880-bfa5-0996b88edf70",
+      "id": "efd2d67c-4a32-4fd4-aea0-b216b59739a9",
       "name": "Insert Skip Evaluation For Contact Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        460,
-        1720
+        720,
+        1300
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 0);",
-        "additionalFields": {}
-      },
-      "id": "93bde65b-b941-4495-ad1c-18e69fd30e12",
-      "name": "Missing Evaluation For Conversation",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 1,
-      "position": [
-        220,
-        1920
-      ],
-      "alwaysOutputData": false,
-      "credentials": {
-        "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
-        }
-      },
-      "notes": "Sucesso"
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar Avaliação', 'skipevaluation', 7, 0, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para esta conversa !', '[]', NOW(), NOW());",
-        "additionalFields": {}
-      },
-      "id": "f8745e33-2348-4c11-b7ac-415b5148059d",
-      "name": "Insert Skip Evaluation For Conversation Attribute",
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 1,
-      "position": [
-        460,
-        1920
-      ],
-      "alwaysOutputData": false,
-      "credentials": {
-        "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
-        }
-      },
-      "notes": "Sucesso"
-    },
-    {
-      "parameters": {
-        "content": "## (1.0.4) Recommendations \n* exec data position\n",
+        "content": "## (1.0.6) Recommendations \n* added skip audio transcript\n",
         "width": 425.48157586978226
       },
-      "id": "855f2a87-27e8-4394-aa7d-4dc87e465dde",
+      "id": "d7872589-290c-4614-868f-fabe6b64ca52",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1060,
-        1260
+        -320,
+        700
       ]
     },
     {
@@ -273,7 +227,7 @@
           "string": [
             {
               "name": "n8nurl",
-              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+              "value": "{{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
             },
             {
               "name": "bottitle",
@@ -287,34 +241,34 @@
         },
         "options": {}
       },
-      "id": "eee7b21b-f32a-44ab-9e75-92fd51640602",
+      "id": "cc3544d1-6ab9-49b3-a456-88c2ab01897c",
       "name": "execdata",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -300,
-        1420
+        -40,
+        1000
       ]
     },
     {
       "parameters": {
         "operation": "executeQuery",
-        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Ignorar o nome do Atendente', 'skipagenttitle', 7, 1, {{ $json.account }}, 'Não incluir o titulo do agente antes da mensagem para este contato', '[]', NOW(), NOW());",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Agent Title', 'skipagenttitle', 7, 1, {{ $json.account }}, 'Não incluir o titulo do agente antes da mensagem para este contato', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "48d58467-e4dc-415f-98ce-66d71a53361a",
+      "id": "af945b1c-13bf-4b93-8acb-17262665d5ab",
       "name": "Insert Skip Agent Title Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        460,
-        1320
+        720,
+        900
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -325,19 +279,19 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipagenttitle' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "68bdc99c-6a1b-4ccd-a6c2-17438079d6b4",
+      "id": "9cc54e5f-8656-4591-9515-9f4645c6d294",
       "name": "Missing Agent Title For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        220,
-        1320
+        480,
+        900
       ],
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -347,13 +301,13 @@
         "fieldToSplitOut": "={{ $json }}",
         "options": {}
       },
-      "id": "f3cf7184-11b9-4c86-b305-3a163227ec6b",
+      "id": "2f9b163a-3e1b-411f-aaed-d66e0222538c",
       "name": "Split Out",
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        660,
-        860
+        920,
+        440
       ]
     },
     {
@@ -380,13 +334,13 @@
         },
         "options": {}
       },
-      "id": "9a43447a-6c45-4166-be06-46164f45231a",
+      "id": "0b23bf08-9404-45b7-87ce-985370f7fd04",
       "name": "If Array",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        460,
-        940
+        720,
+        520
       ]
     },
     {
@@ -405,30 +359,30 @@
         "additionalFields": {},
         "options": {}
       },
-      "id": "a1f7c311-dfc4-4a39-81db-814f60751593",
+      "id": "135e04e0-3b91-4a61-adf8-95c20aacc1e5",
       "name": "Postgres Trigger",
       "type": "n8n-nodes-base.postgresTrigger",
       "typeVersion": 1,
       "position": [
-        -520,
-        1320
+        -260,
+        900
       ],
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
     {
       "parameters": {},
-      "id": "be0df11e-911d-4caa-a5b3-e11523fc2f5b",
+      "id": "70d1c661-c6f0-4d3a-9177-7df81270a4ab",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -120,
-        1420
+        140,
+        1000
       ]
     },
     {
@@ -448,18 +402,18 @@
         "additionalFields": {},
         "options": {}
       },
-      "id": "a7fa5e27-e8d9-475f-a623-f389cf118a66",
+      "id": "5cec24ef-8743-448d-849f-c39b1aaa72e6",
       "name": "When API Inbox Deleted",
       "type": "n8n-nodes-base.postgresTrigger",
       "typeVersion": 1,
       "position": [
-        -440,
-        2260
+        -200,
+        2280
       ],
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -478,27 +432,28 @@
         },
         "options": {}
       },
-      "id": "a4033c1b-c870-483e-9618-9ecb1c146478",
+      "id": "8eeea2fb-68e5-4747-8b83-3acbba86d38f",
       "name": "Delete Quepasa Inbox If Exists",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        460,
-        2280
-      ]
+        720,
+        2300
+      ],
+      "alwaysOutputData": false
     },
     {
       "parameters": {
         "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
         "options": {}
       },
-      "id": "e5f85b49-5aaa-41f4-b81a-e4377e1fc350",
+      "id": "b50096a3-336b-4ff2-88ab-ed6454990737",
       "name": "Execute ChatWootExtra Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        60,
-        2340
+        280,
+        2360
       ]
     },
     {
@@ -507,13 +462,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "2dab7639-dcff-4206-85cc-45dc6a684d05",
+      "id": "5cad8397-87fb-409d-a17c-9892ff861682",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        220,
-        2280
+        460,
+        2300
       ]
     },
     {
@@ -531,14 +486,152 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "2aa86984-d749-4a51-aa9f-b1612f42046c",
+      "id": "10d3f831-10d7-40f4-884f-27b2ff569958",
       "name": "Set Event Name",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -140,
-        2260
+        100,
+        2280
       ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipcontact' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "a4ea12de-2217-4ab0-82fb-cb25c3fba14c",
+      "name": "Missing Skip For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1500
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Contact', 'skipcontact', 7, 1, {{ $json.account }}, 'Não utilizar este contato ! Ignora a criação de novas conversas.', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "f49e4ca4-96ab-4093-96cf-9ded94bb1454",
+      "name": "Insert Skip For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1500
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Evaluation', 'skipevaluation', 7, 0, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para esta conversa !', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "9b246bfb-2e7d-420f-9573-63a6162e4062",
+      "name": "Insert Skip Evaluation For Conversation Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1700
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 0);",
+        "additionalFields": {}
+      },
+      "id": "b4a2fdf9-bd37-4957-869c-ee6aacda073f",
+      "name": "Missing Evaluation For Conversation",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1700
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipaudiotranscript' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "701e9e46-9403-4627-8ac0-29c82a9018c3",
+      "name": "Missing Audio Transcript For Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        480,
+        1920
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Audio Transcript', 'skipaudiotranscript', 7, 1, {{ $json.account }}, 'Não utilizar sistema de transcrição de áudio para este contato !', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "cf85e049-4ad2-46b0-8181-7aa19c5d0b40",
+      "name": "Insert Skip Audio Transcript For Contact Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1920
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
     }
   ],
   "connections": {
@@ -597,17 +690,6 @@
         ]
       ]
     },
-    "Missing Evaluation For Conversation": {
-      "main": [
-        [
-          {
-            "node": "Insert Skip Evaluation For Conversation Attribute",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Missing Agent Title For Contact": {
       "main": [
         [
@@ -652,11 +734,6 @@
       "main": [
         [
           {
-            "node": "Missing Evaluation For Conversation",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Missing Evaluation For Contact",
             "type": "main",
             "index": 0
@@ -678,6 +755,21 @@
           },
           {
             "node": "Missing Automations",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Skip For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Evaluation For Conversation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Audio Transcript For Contact",
             "type": "main",
             "index": 0
           }
@@ -754,20 +846,53 @@
           }
         ]
       ]
+    },
+    "Missing Skip For Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip For Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Evaluation For Conversation": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Evaluation For Conversation Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Audio Transcript For Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Audio Transcript For Contact Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {},
   "staticData": {
     "node:Schedule Daily": {
-      "recurrencyRules": []
+      "recurrenceRules": []
     }
   },
   "meta": {
-    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e",
-    "templateCredsSetupCompleted": true
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "9b87ac71-d7f5-4287-b94e-85ed9e12942b",
+  "versionId": "7b99cbf0-eab1-49ac-82fd-f1b4d1bdfa44",
   "triggerCount": 3,
   "tags": [
     {
@@ -777,18 +902,16 @@
       "name": "quepasa"
     },
     {
-      "createdAt": "2023-05-19T22:54:38.266Z",
-      "updatedAt": "2023-05-19T22:54:38.266Z",
-      "id": "13",
-      "name": "github.com/nocodeleaks"
-    },
-    {
       "createdAt": "2023-05-18T18:59:53.449Z",
       "updatedAt": "2023-05-18T18:59:53.449Z",
       "id": "7",
       "name": "EngajamentoFlow"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
     }
-  ],
-  "NOME": "QuepasaAutomatic",
-  "PASTA": "latest"
+  ]
 }
