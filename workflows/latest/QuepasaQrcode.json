@@ -1,6 +1,6 @@
 {
-  "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-06-19T00:32:54.428Z",
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:23:16.699Z",
   "id": "1010",
   "name": "QuepasaQrcode",
   "active": true,
@@ -23,10 +23,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2907,
-        10
+        2480,
+        180
       ],
-      "id": "78f8e210-9fd3-4977-94c6-f05881ff8229"
+      "id": "de09a5bb-daf2-4e4e-94aa-ab2284a14291"
     },
     {
       "parameters": {
@@ -39,13 +39,13 @@
           ]
         }
       },
-      "id": "a2e4484c-d4f8-4540-b54a-03162f24582d",
+      "id": "208b5c27-fbf0-4d83-97b5-885c633ff802",
       "name": "IF",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        5907,
-        150
+        5480,
+        320
       ]
     },
     {
@@ -80,13 +80,13 @@
         },
         "options": {}
       },
-      "id": "e78e09f3-5c1c-42ca-83e4-c4e8ba0264c2",
+      "id": "254b989c-4df0-490a-9fa3-3a2cfbb36f79",
       "name": "Qrcode gerado com sucesso!",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3307,
-        50
+        2880,
+        220
       ]
     },
     {
@@ -96,7 +96,7 @@
         "resource": "webhook",
         "operation": "setup",
         "url": "={{ $json[\"URL DO WEBHOOK N8N\"] }}/webhook/to-chatwoot",
-        "trackId": "chatwoot",
+        "trackid": "chatwoot",
         "extraAttributes": {
           "attribute": [
             {
@@ -130,13 +130,13 @@
           ]
         }
       },
-      "id": "d373133f-a207-4382-9f5b-4e8f06ad6697",
+      "id": "e62600de-cd7e-4d56-a749-ace7bc8c5223",
       "name": "Webhook Update",
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        5727,
-        150
+        5300,
+        320
       ],
       "continueOnFail": true
     },
@@ -155,13 +155,13 @@
           ]
         }
       },
-      "id": "c3123583-1d9d-433b-bc69-74f255f39c40",
+      "id": "362ef182-cb62-414b-9368-57a6d973e10b",
       "name": "Success QrCode",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4287,
-        70
+        3860,
+        240
       ]
     },
     {
@@ -170,13 +170,13 @@
         "height": 452.28384346711937,
         "width": 1583.889895748937
       },
-      "id": "29e8c28e-3535-442d-9e85-40d4d22b5b19",
+      "id": "2b534124-6675-4a96-894c-837ec541912c",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2060,
-        -180
+        1633.1967472883757,
+        -10.097757167552459
       ]
     },
     {
@@ -185,42 +185,44 @@
         "height": 634.3499448215342,
         "width": 1617.8746514622399
       },
-      "id": "946441bd-9e43-4494-a711-bf177588a3a5",
+      "id": "3600221f-8331-4dcd-9f09-984d70cff360",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        3827,
-        -160
+        3400,
+        10.451326908436158
       ]
     },
     {
       "parameters": {
-        "content": "## (1.0.1) Updates\n* new workflow",
+        "httpMethod": "POST",
+        "path": "quepasa",
+        "options": {}
+      },
+      "id": "d85c8283-445d-453b-ae05-08323a792174",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        920,
+        340
+      ],
+      "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
+    },
+    {
+      "parameters": {
+        "content": "## (1.0.2) Updates\n* missing trackid after the quepasa node update",
         "height": 203.09211018757583,
         "width": 641.796471588546
       },
-      "id": "ec30b058-93b8-42f3-bdb8-66fb93d5f0b8",
+      "id": "19ff712d-3c95-45e9-afff-90b869168f8a",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1287,
-        -170
-      ]
-    },
-    {
-      "parameters": {
-        "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
-        "options": {}
-      },
-      "id": "b707278f-23e4-4fb4-b6e8-3f05242b9c91",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        1547,
-        270
+        860,
+        0
       ]
     },
     {
@@ -241,13 +243,13 @@
         },
         "options": {}
       },
-      "id": "132383f4-9946-4e63-94e1-15e88c6793e5",
+      "id": "0137732d-3742-4bdc-b8ce-106971f5c144",
       "name": "QrCode Gerenerator",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2327,
-        30
+        1900,
+        200
       ]
     },
     {
@@ -256,64 +258,24 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "8ce86cef-306f-4ffc-842b-62b9da2ae80a",
+      "id": "55003042-6c38-4386-bffb-54104db66b22",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        2727,
-        10
+        2300,
+        180
       ]
     },
     {
       "parameters": {},
-      "id": "08885cec-fcc0-49da-a141-cf2dad5d630a",
+      "id": "b0ab0e99-43a6-4967-a350-8aa9b82b103f",
       "name": "No Operation, do nothing1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2527,
-        -70
-      ]
-    },
-    {
-      "parameters": {
-        "keepOnlySet": true,
-        "values": {
-          "number": [
-            {
-              "name": "conversation",
-              "value": "={{$json.body.id ?? json.body.messages[0].conversation_id}}"
-            }
-          ],
-          "string": [
-            {
-              "name": "URL DO QUEPASA",
-              "value": "={{ $env[\"C8Q_QUEPASA_HOST\"] }}"
-            },
-            {
-              "name": "URL DO CHATWOOT",
-              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
-            },
-            {
-              "name": "URL DO WEBHOOK N8N",
-              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
-            },
-            {
-              "name": "extra.URL_DO_WEBHOOK_N8N",
-              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "009a8d03-a696-4945-9cc4-fee0e2b46055",
-      "name": "Set Conversation Id",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        1540,
-        60
+        2100,
+        100
       ]
     },
     {
@@ -322,39 +284,39 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "feca3935-e578-4076-8b97-509bc7f94f92",
+      "id": "5ebf2b0c-b194-4a45-b98a-7127c1fe6dae",
       "name": "Merge1",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1747,
-        170
+        1320,
+        340
       ]
     },
     {
       "parameters": {
         "mode": "chooseBranch"
       },
-      "id": "2d3170bd-95f2-4b25-857b-164d16ef7f6a",
+      "id": "56645c81-db44-4eb2-b801-014f55df77bf",
       "name": "Merge2",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3107,
-        -50
+        2680,
+        120
       ]
     },
     {
       "parameters": {
         "mode": "chooseBranch"
       },
-      "id": "d0fc2855-03fe-41aa-a5a5-2942ec367ad0",
+      "id": "6079eaa5-04bf-47d9-a9fc-0162ee17b0ba",
       "name": "Merge3",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3507,
-        -30
+        3080,
+        140
       ]
     },
     {
@@ -362,13 +324,13 @@
         "amount": 20,
         "unit": "seconds"
       },
-      "id": "eeea6b55-7a25-4c24-9135-8d806273a625",
+      "id": "93c2873a-73ac-46fe-97b0-229e80dd5d12",
       "name": "Waiting For Scanner",
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        3687,
-        -30
+        3260,
+        140
       ],
       "webhookId": "b8706931-81cb-4f18-93e0-0a5d5416734b"
     },
@@ -378,36 +340,36 @@
         "token": "={{$json.extra.identifier }}",
         "resource": "information"
       },
-      "id": "16d4af88-9c74-4432-8d0c-f6df3eb20c04",
+      "id": "b2a4cda0-d995-4e4a-9bf9-2c488ffe67de",
       "name": "Retrieving Info",
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        4107,
-        70
+        3680,
+        240
       ],
       "continueOnFail": true
     },
     {
       "parameters": {},
-      "id": "4db95315-d2e9-44e8-a946-ffe200364449",
+      "id": "47d7dc8c-a8f9-441d-bec1-93b73cf605dc",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3907,
-        -30
+        3480,
+        140
       ]
     },
     {
       "parameters": {},
-      "id": "2f33da23-d443-45fb-a76b-c9e516da64de",
+      "id": "29032f79-5759-4742-b84e-959e8b0df5ed",
       "name": "No Operation, do nothing2",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4667,
-        -30
+        4240,
+        140
       ]
     },
     {
@@ -416,24 +378,24 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "533e31e8-cd1c-4e30-b57b-33b54665e2c4",
+      "id": "5c404bb2-f850-4a11-8fcd-4514c209ddad",
       "name": "Merge4",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        4487,
-        210
+        4060,
+        380
       ]
     },
     {
       "parameters": {},
-      "id": "4b1329b9-c24c-4d2b-ad67-90c694b53fa6",
+      "id": "45f5c0ef-5f53-4533-8463-d2cc97f072a2",
       "name": "No Operation, do nothing3",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3907,
-        230
+        3480,
+        400
       ]
     },
     {
@@ -468,13 +430,13 @@
         },
         "options": {}
       },
-      "id": "da64a79e-6277-43c0-825b-1446d0373e22",
+      "id": "03a98dc4-7c36-4f10-86c9-f3acce0edd7f",
       "name": "Fail Scanner",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        4667,
-        210
+        4240,
+        380
       ]
     },
     {
@@ -490,13 +452,13 @@
         },
         "options": {}
       },
-      "id": "fb189c70-0146-4615-bde6-8e7dd7dcffd0",
+      "id": "4c39524b-c4fe-4232-93be-0c5a126fbb75",
       "name": "Set Whatsapp Id",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        4487,
-        50
+        4060,
+        220
       ]
     },
     {
@@ -505,13 +467,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "fc63e8a4-30ed-4f66-a810-c5835069d25d",
+      "id": "63b4118c-ea30-4b1f-9aa4-5f8445899e5f",
       "name": "Merge5",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        4867,
-        30
+        4440,
+        200
       ]
     },
     {
@@ -546,37 +508,37 @@
         },
         "options": {}
       },
-      "id": "63b9f9ca-77ba-4ee8-81c2-aafb5a4d8c0f",
+      "id": "773a7eec-94f5-449a-bf02-66f673963947",
       "name": "Confirming Results",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        5067,
-        130
+        4640,
+        300
       ]
     },
     {
       "parameters": {
         "mode": "chooseBranch"
       },
-      "id": "85391ac2-ec1f-40e4-849f-2b24e5b07d83",
+      "id": "6efc7e05-9715-4e2a-8f89-72b46fa3193a",
       "name": "Merge6",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        5267,
-        50
+        4840,
+        220
       ]
     },
     {
       "parameters": {},
-      "id": "70109cba-9361-4c85-b671-d00a36ffb20b",
+      "id": "6bceb549-1d1c-4107-addd-64c1326f0d8b",
       "name": "No Operation, do nothing5",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2127,
-        -70
+        1700,
+        100
       ]
     },
     {
@@ -585,44 +547,44 @@
         "query": "=UPDATE \"public\".\"channel_api\" SET \"webhook_url\"='{{$json.webhook}}' WHERE \"id\"='{{$json.extra.channel}}';",
         "additionalFields": {}
       },
-      "id": "95fd2d1e-9c90-4f89-976b-0bc400b8ba74",
+      "id": "8873d282-0d1a-4d9a-bd28-dffa33decf6e",
       "name": "Database Webhook Update",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        2307,
-        430
+        1880,
+        600
       ],
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "NSSYN4EOlkv5kmYY",
-          "name": "DB_CHATWOOT"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
     {
       "parameters": {},
-      "id": "afb57f3e-5e7a-4a25-8e1a-0cb49db7084e",
+      "id": "2c5c14ab-326d-427b-af37-23152f7c4586",
       "name": "No Operation, do nothing4",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5527,
-        50
+        5100,
+        220
       ]
     },
     {
       "parameters": {
         "mode": "chooseBranch"
       },
-      "id": "0ba6e095-8cf1-4803-af34-f8a8c10bed75",
+      "id": "f2105bc0-2dc3-40ea-b3fb-0b1883489d5f",
       "name": "Merge7",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        6107,
-        70
+        5680,
+        240
       ]
     },
     {
@@ -657,13 +619,13 @@
         },
         "options": {}
       },
-      "id": "7419da25-7a38-42dc-a4a2-539020cff9b4",
+      "id": "f9795657-a6a3-4de2-9fe9-1b72dce54ed6",
       "name": "Fail On Updating Quepasa Webhook",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        6287,
-        290
+        5860,
+        460
       ]
     },
     {
@@ -671,13 +633,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const extra = $input.item.json.extra;\n\nlet webhook = extra.URL_DO_WEBHOOK_N8N + \"/webhook/from-chatwoot?\";\nwebhook += \"identifier=\" + extra.identifier + \"&\";\nwebhook += \"utoken=\" + extra.utoken + \"&\";\nwebhook += \"atoken=\" + extra.atoken + \"&\";\n\nif (extra.qphost !== \"http://127.0.0.1:31000\"){\n  webhook += \"qphost=\" + extra.qphost + \"&\";\n}\n\nif (extra.cwhost !== \"http://127.0.0.1:3000\"){\n  webhook += \"cwhost=\" + extra.cwhost + \"&\";\n}\n\n//if (extra.cwpublic){\n//  webhook += \"cwpublic=\" + extra.cwpublic + \"&\";\n//}\n\nwebhook = webhook.replace(/\\&+$/, '');\n\n$input.item.json.webhook = webhook;\nreturn $input.item;"
       },
-      "id": "f2997430-0044-4617-9a19-8899696bd3ed",
+      "id": "d56afd1c-5518-4307-9ccd-9981d04a9866",
       "name": "Code",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2127,
-        430
+        1700,
+        600
       ]
     },
     {
@@ -712,24 +674,24 @@
         },
         "options": {}
       },
-      "id": "90a8aff1-3787-40ea-9386-ee3f4a4cebf8",
+      "id": "22785cb8-0400-4c14-8495-d2dff8e40b68",
       "name": "All Ready",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        6287,
-        70
+        5860,
+        240
       ]
     },
     {
       "parameters": {},
-      "id": "2c10c69d-a230-4554-a3d7-61f8fe20084e",
+      "id": "e1bf049f-84bf-48c4-af93-5d1ab3b7daa0",
       "name": "No Operation, do nothing6",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5527,
-        310
+        5100,
+        480
       ]
     },
     {
@@ -737,30 +699,68 @@
         "mode": "chooseBranch",
         "output": "input2"
       },
-      "id": "4772c936-05c5-4c13-8ea7-b1781ae970e3",
+      "id": "daa1d309-a0f9-4a79-9651-5ef977c231e7",
       "name": "Merge8",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        6107,
-        290
+        5680,
+        460
       ]
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "quepasa",
+        "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
         "options": {}
       },
-      "id": "9710242a-ea13-41c5-b009-f86b9738df97",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
+      "id": "2324fb52-8471-4169-99c8-2ca91e6b7412",
+      "name": "Execute ChatWootExtra Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        1300,
-        160
-      ],
-      "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
+        1120,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "number": [
+            {
+              "name": "conversation",
+              "value": "={{$json.body.id ?? json.body.messages[0].conversation_id}}"
+            }
+          ],
+          "string": [
+            {
+              "name": "URL DO QUEPASA",
+              "value": "={{ $env[\"C8Q_QUEPASA_HOST\"] }}"
+            },
+            {
+              "name": "URL DO CHATWOOT",
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
+            },
+            {
+              "name": "URL DO WEBHOOK N8N",
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+            },
+            {
+              "name": "extra.URL_DO_WEBHOOK_N8N",
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ed77e15a-16e9-40ae-8a15-1f072a86dae1",
+      "name": "Set Conversation Id",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        240
+      ]
     }
   ],
   "connections": {
@@ -822,13 +822,18 @@
         ]
       ]
     },
-    "Execute Workflow": {
+    "Webhook": {
       "main": [
         [
           {
-            "node": "Merge1",
+            "node": "Execute ChatWootExtra Workflow",
             "type": "main",
-            "index": 1
+            "index": 0
+          },
+          {
+            "node": "Set Conversation Id",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -865,17 +870,6 @@
           },
           {
             "node": "Merge2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Set Conversation Id": {
-      "main": [
-        [
-          {
-            "node": "Merge1",
             "type": "main",
             "index": 0
           }
@@ -1142,16 +1136,22 @@
         ]
       ]
     },
-    "Webhook": {
+    "Execute ChatWootExtra Workflow": {
       "main": [
         [
           {
-            "node": "Set Conversation Id",
+            "node": "Merge1",
             "type": "main",
-            "index": 0
-          },
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Conversation Id": {
+      "main": [
+        [
           {
-            "node": "Execute Workflow",
+            "node": "Merge1",
             "type": "main",
             "index": 0
           }
@@ -1160,22 +1160,18 @@
     }
   },
   "settings": {
-    "saveManualExecutions": true,
+    "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 60,
-    "executionOrder": "v1",
-    "saveDataErrorExecution": "all",
-    "saveDataSuccessExecution": "all"
+    "executionOrder": "v1"
   },
   "staticData": null,
   "meta": {
-    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e",
-    "templateCredsSetupCompleted": true
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "52296948-a447-496c-a1e8-ac5e992d2102",
+  "versionId": "e43fc1db-b056-42b3-8575-d2d23a47e54f",
   "triggerCount": 1,
-  "tags": [],
-  "NOME": "QuepasaQrcode",
-  "PASTA": "latest"
+  "tags": []
 }
