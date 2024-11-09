@@ -1,5 +1,9 @@
 {
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:41:10.536Z",
+  "id": "1011",
   "name": "QuepasaAutomatic",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -18,8 +22,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -42,8 +46,8 @@
       "notesInFlow": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -65,8 +69,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -88,8 +92,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -111,8 +115,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -134,8 +138,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -174,8 +178,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -197,8 +201,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -223,7 +227,7 @@
           "string": [
             {
               "name": "n8nurl",
-              "value": "http://127.0.0.1:5678"
+              "value": "{{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
             },
             {
               "name": "bottitle",
@@ -263,8 +267,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -286,8 +290,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -365,8 +369,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -408,8 +412,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -508,8 +512,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -531,8 +535,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -554,8 +558,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -577,8 +581,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -600,8 +604,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
@@ -623,14 +627,13 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "notes": "Sucesso"
     }
   ],
-  "pinData": {},
   "connections": {
     "Missing Automations": {
       "main": [
@@ -878,14 +881,19 @@
       ]
     }
   },
-  "active": true,
   "settings": {},
-  "versionId": "463430e1-c1b3-464f-b3ae-7fa4639ac3b6",
+  "staticData": {
+    "node:Schedule Daily": {
+      "recurrenceRules": []
+    }
+  },
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1011",
+  "pinData": {},
+  "versionId": "7b99cbf0-eab1-49ac-82fd-f1b4d1bdfa44",
+  "triggerCount": 3,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
