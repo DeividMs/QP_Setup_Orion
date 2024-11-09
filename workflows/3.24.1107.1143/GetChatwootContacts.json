@@ -1,5 +1,9 @@
 {
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:06:58.347Z",
+  "id": "1002",
   "name": "GetChatwootContacts",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -534,8 +538,8 @@
       "maxTries": 2,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -559,8 +563,8 @@
       "maxTries": 2,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -674,7 +678,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Create Chat Contact": {
       "main": [
@@ -1025,23 +1028,24 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 30
   },
-  "versionId": "8c772b0c-980b-4a0a-94f7-0458874ba30e",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1002",
+  "pinData": {},
+  "versionId": "9351b9d1-0e80-4fe7-94b9-0ae270372928",
+  "triggerCount": 0,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
