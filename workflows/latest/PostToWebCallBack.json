@@ -1,33 +1,33 @@
 {
-  "createdAt": "2024-04-24T01:25:11.568Z",
-  "updatedAt": "2024-05-17T12:56:24.527Z",
+  "createdAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-09T01:03:21.122Z",
   "id": "1005",
   "name": "PostToWebCallBack",
   "active": false,
   "nodes": [
     {
       "parameters": {},
-      "id": "955a1a7d-b01a-4242-948b-723f9d4f80fd",
+      "id": "d45f05a2-d01a-4c90-9f24-85a34f0e60dc",
       "name": "Execute Workflow Trigger",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        1940,
-        640
+        740,
+        480
       ]
     },
     {
       "parameters": {
-        "content": "## (1.0.1) \n* forwarding error message\n\n## Recommendations \n* Remember set timeout to 15 seconds ",
+        "content": "## (1.0.3) \n* update quepasa node\n\n## Recommendations \n* Remember set timeout to 15 seconds ",
         "width": 395
       },
-      "id": "ae1cb05a-d306-4f71-90ce-65310190f41c",
+      "id": "307f281c-cc6c-44ef-aec1-9eca91b677b1",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1860,
-        460
+        660,
+        300
       ]
     },
     {
@@ -69,23 +69,23 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3080,
-        720
+        1880,
+        560
       ],
-      "id": "70752bbd-2205-41ba-a46e-458adead5c71"
+      "id": "bf012488-d27a-4f25-abfe-89805133563f"
     },
     {
       "parameters": {
         "workflowId": "={{ $env['C8Q_POSTTOCHATWOOT'] }}",
         "options": {}
       },
-      "id": "43f8d397-97b5-4fc7-a9ea-086eb019d109",
+      "id": "09e8ef4a-b67b-48a8-99ee-034f6e048dea",
       "name": "Execute Workflow Post To Chatwoot",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        3280,
-        720
+        2080,
+        560
       ],
       "alwaysOutputData": true,
       "continueOnFail": true
@@ -101,13 +101,13 @@
           ]
         }
       },
-      "id": "d5f91c09-d3dd-4921-b27f-779ad405ff9f",
+      "id": "10615f9e-0961-41d8-99b1-0764be07fba6",
       "name": "IF",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2880,
-        640
+        1680,
+        480
       ]
     },
     {
@@ -116,24 +116,24 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "7fa8f55d-4de8-4c80-a8a3-e317a947505b",
+      "id": "fb15dba0-332f-4415-a4da-bf4c697e9107",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        2700,
-        640
+        1500,
+        480
       ]
     },
     {
       "parameters": {},
-      "id": "868cc097-3bde-4541-87dd-c9bcc7b70d38",
+      "id": "b0d2aa6c-077e-4c3f-8102-a305600ae2af",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2140,
-        640
+        940,
+        480
       ]
     },
     {
@@ -145,13 +145,13 @@
         "jsonBody": "={{ $json }}",
         "options": {}
       },
-      "id": "0c899938-0a8f-4ede-afdb-f13e1fe89794",
+      "id": "d0c592f4-a6e0-4af0-ad8f-9794b5c7b24b",
       "name": "Request Call Back",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        2500,
-        540
+        1300,
+        380
       ],
       "alwaysOutputData": false,
       "continueOnFail": true
@@ -183,13 +183,13 @@
         },
         "options": {}
       },
-      "id": "b21b7d23-23ea-415d-bacb-6d511c7f6b0f",
+      "id": "ee7c441b-16d7-4ce0-be4a-bb65c8f907dc",
       "name": "Set Parameters",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2320,
-        540
+        1120,
+        380
       ]
     },
     {
@@ -213,25 +213,27 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3080,
-        560
+        1880,
+        400
       ],
-      "id": "3ea8584d-41cc-44fe-b66d-3e0e3bef8fe6"
+      "id": "873900a3-5409-4151-b348-f4f34a2d0597"
     },
     {
       "parameters": {
         "baseUrl": "={{$json.extra.qphost}}",
         "token": "={{ $json.extra.qptoken ?? $json.extra.identifier }}",
+        "method": "sendtext",
         "text": "Por favor aguarde, estamos retornando sua chamada por telefone.",
-        "chatId": "={{$json.chat.id}}"
+        "chatid": "={{$json.chat.id}}",
+        "inreply": "="
       },
-      "id": "d7a14629-887f-4be5-adbe-24d5060358db",
+      "id": "da39cfe8-6370-496e-b83c-58a8a9db1866",
       "name": "Quepasa",
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        3280,
-        560
+        2080,
+        400
       ]
     }
   ],
@@ -340,7 +342,8 @@
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
-    "executionTimeout": 15
+    "executionTimeout": 15,
+    "executionOrder": "v1"
   },
   "staticData": null,
   "meta": {
@@ -348,8 +351,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "77184d36-256b-4627-afd5-fab15858a521",
+  "versionId": "9c0f636a-9209-49a2-88d9-b6865034f848",
   "triggerCount": 0,
-  "tags": [],
-  "NOME": "PostToWebCallBack"
+  "tags": []
 }
