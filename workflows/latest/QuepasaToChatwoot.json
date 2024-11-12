@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-09T01:28:48.571Z",
+  "updatedAt": "2024-11-12T00:11:33.714Z",
   "id": "1009",
   "name": "QuepasaToChatwoot",
   "active": true,
@@ -150,7 +150,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        6240,
+        5900,
         -340
       ],
       "webhookId": "f0d0e1da-e8cf-4956-8715-dccf5fe3c892"
@@ -701,8 +701,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        6220,
-        -580
+        6020,
+        -860
       ]
     },
     {
@@ -1386,6 +1386,65 @@
         13160,
         -340
       ]
+    },
+    {
+      "parameters": {
+        "respondWith": "noData",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "f446337b-32e6-44a1-af9c-6f234edd4df0",
+      "name": "Edited Contact (Not Implemented)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        6380,
+        -560
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "510fae79-4d90-4ddd-93a4-4201cba493a1",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "contact",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "0b649b71-4626-47f6-a483-36a505f13c86",
+              "leftValue": "={{ $json.body.edited }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cfbb1f77-5f44-48ff-8e26-3e59be73fa27",
+      "name": "Not Implemented ?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        6160,
+        -340
+      ]
     }
   ],
   "connections": {
@@ -1444,7 +1503,7 @@
       "main": [
         [
           {
-            "node": "Not Broadcast ?",
+            "node": "Not Implemented ?",
             "type": "main",
             "index": 0
           }
@@ -2137,6 +2196,24 @@
           }
         ]
       ]
+    },
+    "Not Implemented ?": {
+      "main": [
+        [
+          {
+            "node": "Edited Contact (Not Implemented)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Not Broadcast ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -2151,7 +2228,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "f0e21c17-cbfe-4cdd-adf1-689af99392bd",
+  "versionId": "1adf4882-7c97-4a4f-a3d0-f25a87eb0f26",
   "triggerCount": 1,
   "tags": [
     {
