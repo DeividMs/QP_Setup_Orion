@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-09T01:03:21.122Z",
+  "updatedAt": "2024-11-20T02:34:56.808Z",
   "id": "1005",
   "name": "PostToWebCallBack",
   "active": false,
@@ -12,7 +12,7 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        740,
+        660,
         480
       ]
     },
@@ -37,7 +37,7 @@
           "string": [
             {
               "name": "payload.content",
-              "value": "=error on place a call for that inbox:\n* {{ $json.error.message }}\n\nmake sure you have configured with:\nsend a msg to Inbox Control Contact {{ $env[\"C8Q_QP_CONTACT\"] ?? \"control@quepasa.io\" }}\n\n/webcallback {destination}\n\nwhere {destination} => +552140627711 like E164 format telephony number.\nmust start with an +"
+              "value": "=Teste"
             },
             {
               "name": "payload.message_type",
@@ -45,15 +45,19 @@
             },
             {
               "name": "conversation",
-              "value": "={{$json.conversation}}"
+              "value": "={{$json.body.conversation}}"
             },
             {
               "name": "extra",
-              "value": "={{$json.extra}}"
+              "value": "={{$json.body.extra}}"
             },
             {
               "name": "payload.content_type",
               "value": "text"
+            },
+            {
+              "name": "chat",
+              "value": "={{ $json.body.chat }}"
             }
           ],
           "boolean": [
@@ -163,11 +167,11 @@
           "string": [
             {
               "name": "destination",
-              "value": "={{ $json.chat.id }}"
+              "value": "={{ $json.body.chat.id }}"
             },
             {
               "name": "externalid",
-              "value": "={{ $json.extra.identifier }}"
+              "value": "={{ $json.body.extra.identifier }}"
             },
             {
               "name": "label",
@@ -223,7 +227,7 @@
         "baseUrl": "={{$json.extra.qphost}}",
         "token": "={{ $json.extra.qptoken ?? $json.extra.identifier }}",
         "method": "sendtext",
-        "text": "Por favor aguarde, estamos retornando sua chamada por telefone.",
+        "text": "Não aceitamos Ligação",
         "chatid": "={{$json.chat.id}}",
         "inreply": "="
       },
@@ -238,28 +242,6 @@
     }
   ],
   "connections": {
-    "Execute Workflow Trigger": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Chatwoot Message Payload": {
-      "main": [
-        [
-          {
-            "node": "Execute Workflow Post To Chatwoot",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "IF": {
       "main": [
         [
@@ -272,17 +254,6 @@
         [
           {
             "node": "Chatwoot Message Payload",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "IF",
             "type": "main",
             "index": 0
           }
@@ -305,11 +276,11 @@
         ]
       ]
     },
-    "Request Call Back": {
+    "Chatwoot Message Payload": {
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "Execute Workflow Post To Chatwoot",
             "type": "main",
             "index": 0
           }
@@ -327,11 +298,44 @@
         ]
       ]
     },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request Call Back": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "Chatwoot Message Payload For Success": {
       "main": [
         [
           {
             "node": "Quepasa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow Trigger": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
             "type": "main",
             "index": 0
           }
@@ -351,7 +355,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "9c0f636a-9209-49a2-88d9-b6865034f848",
-  "triggerCount": 0,
+  "versionId": "ecc7de44-3b0c-49d4-bc5c-75e3615f1b65",
+  "triggerCount": 1,
   "tags": []
 }
