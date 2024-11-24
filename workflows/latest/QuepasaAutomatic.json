@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-09T01:41:10.536Z",
+  "updatedAt": "2024-11-24T20:22:59.307Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -39,8 +39,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        1100,
-        540
+        740,
+        520
       ],
       "alwaysOutputData": false,
       "notesInFlow": false,
@@ -227,7 +227,7 @@
           "string": [
             {
               "name": "n8nurl",
-              "value": "{{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
             },
             {
               "name": "bottitle",
@@ -295,53 +295,6 @@
         }
       },
       "notes": "Sucesso"
-    },
-    {
-      "parameters": {
-        "fieldToSplitOut": "={{ $json }}",
-        "options": {}
-      },
-      "id": "2f9b163a-3e1b-411f-aaed-d66e0222538c",
-      "name": "Split Out",
-      "type": "n8n-nodes-base.splitOut",
-      "typeVersion": 1,
-      "position": [
-        920,
-        440
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict"
-          },
-          "conditions": [
-            {
-              "id": "08fabf93-0038-48cb-abf2-013a924db497",
-              "leftValue": "={{ Object.prototype.toString.call($json) === '[object Array]' }}",
-              "rightValue": "=",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "id": "0b23bf08-9404-45b7-87ce-985370f7fd04",
-      "name": "If Array",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        720,
-        520
-      ]
     },
     {
       "parameters": {
@@ -639,7 +592,7 @@
       "main": [
         [
           {
-            "node": "If Array",
+            "node": "Cria Automação",
             "type": "main",
             "index": 0
           }
@@ -695,35 +648,6 @@
         [
           {
             "node": "Insert Skip Agent Title Attribute",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Split Out": {
-      "main": [
-        [
-          {
-            "node": "Cria Automação",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If Array": {
-      "main": [
-        [
-          {
-            "node": "Split Out",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Cria Automação",
             "type": "main",
             "index": 0
           }
@@ -892,7 +816,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "7b99cbf0-eab1-49ac-82fd-f1b4d1bdfa44",
+  "versionId": "77b67547-8c6d-4fbd-9e25-9e7bff119197",
   "triggerCount": 3,
   "tags": [
     {
@@ -913,5 +837,6 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "latest"
 }
