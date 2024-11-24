@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-20T00:56:08.459Z",
-  "updatedAt": "2024-11-20T03:16:57.203Z",
+  "updatedAt": "2024-11-24T21:00:44.466Z",
   "id": "GIPTrjgdT9vuOSlN",
   "name": "MsgRejectCall",
   "active": true,
@@ -52,22 +52,6 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "reject-call",
-        "options": {}
-      },
-      "id": "61147ec8-bfd3-4d2e-a36e-5b8a60f1e6eb",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        380,
-        440
-      ],
-      "webhookId": "ba328413-09d5-4941-af25-bd9a7c8dd7d6"
-    },
-    {
-      "parameters": {
         "baseUrl": "={{ $('Chatwoot Message Payload').item.json.extra.qphost }}",
         "token": "={{ $('Webhook').item.json.body.extra.identifier ?? $('Get Info').item.json.server.webhooks[0].extra.identifier }}",
         "method": "sendtext",
@@ -90,13 +74,13 @@
           "options": {
             "caseSensitive": true,
             "leftValue": "",
-            "typeValidation": "strict",
+            "typeValidation": "loose",
             "version": 2
           },
           "conditions": [
             {
               "id": "0dd65134-4d17-43f5-aa91-a74d7a4191ce",
-              "leftValue": "={{ $json.server.calls }}",
+              "leftValue": "={{ $json.server.calls ?? $env[\"C8Q_QP_DEFAULT_CALL\"] }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -107,6 +91,7 @@
           ],
           "combinator": "and"
         },
+        "looseTypeValidation": true,
         "options": {}
       },
       "id": "fab6414e-f985-4b1e-9830-f4b5e089c817",
@@ -117,6 +102,22 @@
         1100,
         440
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "reject-call",
+        "options": {}
+      },
+      "id": "61147ec8-bfd3-4d2e-a36e-5b8a60f1e6eb",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        380,
+        440
+      ],
+      "webhookId": "ba328413-09d5-4941-af25-bd9a7c8dd7d6"
     }
   ],
   "connections": {
@@ -142,22 +143,22 @@
         ]
       ]
     },
-    "Webhook": {
+    "Call-False?": {
       "main": [
         [
           {
-            "node": "Chatwoot Message Payload",
+            "node": "Send-Msg",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Call-False?": {
+    "Webhook": {
       "main": [
         [
           {
-            "node": "Send-Msg",
+            "node": "Chatwoot Message Payload",
             "type": "main",
             "index": 0
           }
@@ -172,52 +173,9 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhook.developermaster.com.br",
-            "user-agent": "axios/1.7.4",
-            "content-length": "363",
-            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
-            "accept-encoding": "gzip, compress, deflate, br",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhook.developermaster.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "d23d0d1d0da6",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "extra": {
-              "qphost": "https://apiqp2.developermaster.com.br",
-              "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-              "account": 1,
-              "atoken": "6a6b3d80818cc9eb9ba914b",
-              "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
-              "cwhots": "https://app.developermaster.com.br"
-            },
-            "chat": {
-              "title": "Deivid Martins",
-              "id": "556193743824@s.whatsapp.net",
-              "phone": "+556193743824"
-            },
-            "conversation": {
-              "id": 34,
-              "status": "open"
-            }
-          },
-          "webhookUrl": "https://webhook.developermaster.com.br/webhook/call",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "5f5d5c51-31f2-4a8f-8ca2-2bc3cfb72d80",
+  "pinData": {},
+  "versionId": "425988a9-ca03-4544-b8d7-cee5f21983e7",
   "triggerCount": 1,
-  "tags": []
+  "tags": [],
+  "versao-qp": "3.24.1107.1143"
 }
