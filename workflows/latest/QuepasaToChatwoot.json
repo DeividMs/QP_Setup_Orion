@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-24T00:05:56.102Z",
+  "updatedAt": "2024-11-24T20:36:58.639Z",
   "id": "1009",
   "name": "QuepasaToChatwoot",
   "active": true,
@@ -1437,7 +1437,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://webhook.developermaster.com.br/webhook/reject-call",
+        "url": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}/webhook/reject-call",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -2301,7 +2301,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "ee93fd13-35cb-4ca8-ad69-4b89e680da3b",
+  "versionId": "df0f95b7-429d-492e-a5c5-08d8d6c521ea",
   "triggerCount": 1,
   "tags": [
     {
