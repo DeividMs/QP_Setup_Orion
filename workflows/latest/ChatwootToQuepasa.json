@@ -1,27 +1,10 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-20T01:20:56.279Z",
+  "updatedAt": "2024-11-24T00:08:03.176Z",
   "id": "1008",
   "name": "ChatwootToQuepasa",
   "active": true,
   "nodes": [
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "from-chatwoot",
-        "responseMode": "responseNode",
-        "options": {}
-      },
-      "name": "From ChatWoot",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        -9140,
-        4840
-      ],
-      "webhookId": "ae8993fc-1ab0-4de5-90ce-0eb59a2b5c7d",
-      "id": "1961c420-8077-4de8-85f6-374deac1c76b"
-    },
     {
       "parameters": {
         "respondWith": "text",
@@ -1976,20 +1959,26 @@
         }
       },
       "disabled": true
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "from-chatwoot",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "From ChatWoot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -9140,
+        4840
+      ],
+      "webhookId": "ae8993fc-1ab0-4de5-90ce-0eb59a2b5c7d",
+      "id": "1961c420-8077-4de8-85f6-374deac1c76b"
     }
   ],
   "connections": {
-    "From ChatWoot": {
-      "main": [
-        [
-          {
-            "node": "Defaults",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Message Created Event": {
       "main": [
         [
@@ -2966,6 +2955,17 @@
           }
         ]
       ]
+    },
+    "From ChatWoot": {
+      "main": [
+        [
+          {
+            "node": "Defaults",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -2979,157 +2979,8 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "From ChatWoot": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhook.developermaster.com.br",
-            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
-            "content-length": "3709",
-            "accept": "application/json",
-            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhook.developermaster.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "d23d0d1d0da6",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {
-            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
-            "atoken": "6a6b3d80818cc9eb9ba914b"
-          },
-          "body": {
-            "account": {
-              "id": 1,
-              "name": "Chatwoot"
-            },
-            "additional_attributes": {},
-            "content_attributes": {
-              "external_created_at": 1732063583,
-              "items": {
-                "quepasa": {
-                  "msgid": "B44709496C85A033B6532AB50FB3A68E"
-                }
-              }
-            },
-            "content_type": "text",
-            "content": "\\u2699 O usuário requisitou uma chamada de voz !\n____________________________________________________\n✉ ",
-            "conversation": {
-              "additional_attributes": {},
-              "can_reply": true,
-              "channel": "Channel::Api",
-              "contact_inbox": {
-                "id": 29,
-                "contact_id": 15,
-                "inbox_id": 1,
-                "source_id": "3bd01573-8b2f-49fe-906a-1b51a274130a",
-                "created_at": "2024-11-20T00:41:11.844Z",
-                "updated_at": "2024-11-20T00:41:11.844Z",
-                "hmac_verified": false,
-                "pubsub_token": "TawqSwrTStHgusSz14rSyLCX"
-              },
-              "id": 33,
-              "inbox_id": 1,
-              "messages": [
-                {
-                  "id": 4659,
-                  "content": "Saudação da caixa de entrada daQuepasa",
-                  "account_id": 1,
-                  "inbox_id": 1,
-                  "conversation_id": 33,
-                  "message_type": 3,
-                  "created_at": 1732063273,
-                  "updated_at": "2024-11-20T00:41:13.384Z",
-                  "private": false,
-                  "status": "sent",
-                  "source_id": null,
-                  "content_type": "text",
-                  "content_attributes": {},
-                  "sender_type": null,
-                  "sender_id": null,
-                  "external_source_ids": {},
-                  "additional_attributes": {},
-                  "processed_message_content": "Saudação da caixa de entrada daQuepasa",
-                  "sentiment": {},
-                  "conversation": {
-                    "assignee_id": null,
-                    "unread_count": 1,
-                    "last_activity_at": 1732065409,
-                    "contact_inbox": {
-                      "source_id": "3bd01573-8b2f-49fe-906a-1b51a274130a"
-                    }
-                  }
-                }
-              ],
-              "labels": [],
-              "meta": {
-                "sender": {
-                  "additional_attributes": {},
-                  "custom_attributes": {},
-                  "email": null,
-                  "id": 15,
-                  "identifier": "553288189440@s.whatsapp.net",
-                  "name": "Bruno Rafael 💻🤓",
-                  "phone_number": "+553288189440",
-                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0567f8d9c70b45acb6ff9a3a593976137ffb00f6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/456049693_1547143055895640_4250543560944986978_n.jpg",
-                  "type": "contact"
-                },
-                "assignee": null,
-                "team": null,
-                "hmac_verified": false
-              },
-              "status": "open",
-              "custom_attributes": {},
-              "snoozed_until": null,
-              "unread_count": 1,
-              "first_reply_created_at": null,
-              "priority": null,
-              "waiting_since": 1732063271,
-              "agent_last_seen_at": 1732065082,
-              "contact_last_seen_at": 0,
-              "last_activity_at": 1732065409,
-              "timestamp": 1732065409,
-              "created_at": 1732063271
-            },
-            "created_at": "2024-11-20T01:16:49.811Z",
-            "id": 4671,
-            "inbox": {
-              "id": 1,
-              "name": "Quepasa"
-            },
-            "message_type": "incoming",
-            "status": "sent",
-            "private": true,
-            "sender": {
-              "account": {
-                "id": 1,
-                "name": "Chatwoot"
-              },
-              "additional_attributes": {},
-              "avatar": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0567f8d9c70b45acb6ff9a3a593976137ffb00f6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/456049693_1547143055895640_4250543560944986978_n.jpg",
-              "custom_attributes": {},
-              "email": null,
-              "id": 15,
-              "identifier": "553288189440@s.whatsapp.net",
-              "name": "Bruno Rafael 💻🤓",
-              "phone_number": "+553288189440",
-              "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBidz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0567f8d9c70b45acb6ff9a3a593976137ffb00f6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/456049693_1547143055895640_4250543560944986978_n.jpg"
-            },
-            "source_id": "B44709496C85A033B6532AB50FB3A68E",
-            "event": "message_created"
-          },
-          "webhookUrl": "https://webhook.developermaster.com.br/webhook/from-chatwoot",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "c7a207f0-e296-4335-bbcc-84325217bfc9",
+  "pinData": {},
+  "versionId": "58091d7a-89cd-401a-9faf-b82af53f0aec",
   "triggerCount": 1,
   "tags": [
     {
