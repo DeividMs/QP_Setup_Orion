@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-20T00:48:25.515Z",
+  "updatedAt": "2024-11-24T00:08:27.651Z",
   "id": "1006",
   "name": "PostToChatwoot",
   "active": false,
@@ -1880,63 +1880,8 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "When Called By Another Workflow": [
-      {
-        "json": {
-          "payload": {
-            "private": true,
-            "edited": false,
-            "content": "\\u2699 O usuário requisitou uma chamada de voz !\n____________________________________________________\n✉ ",
-            "message_type": "incoming",
-            "source_id": "B44709496C85A033B6532AB50FB3A68E",
-            "echo_id": "B44709496C85A033B6532AB50FB3A68E",
-            "content_attributes": {
-              "items": {
-                "quepasa": {
-                  "msgid": "B44709496C85A033B6532AB50FB3A68E"
-                }
-              }
-            },
-            "external_created_at": 1732063583,
-            "content_type": "text"
-          },
-          "chatid": "553288189440@s.whatsapp.net",
-          "chat": {
-            "id": "553288189440@s.whatsapp.net",
-            "title": "Bruno Rafael",
-            "phone": "+553288189440",
-            "hex": "35353332383831383934343040732e77686174736170702e6e6574",
-            "chatwoot": {
-              "skipgreetings": false,
-              "skipcontact": false,
-              "skipevaluation": false,
-              "skipaudiotranscript": false,
-              "id": 15,
-              "source_id": "35353332383831383934343040732e77686174736170702e6e6574"
-            }
-          },
-          "conversation": {
-            "id": 33,
-            "status": "open"
-          },
-          "extra": {
-            "account": 1,
-            "atoken": "6a6b3d80818cc9eb9ba914b",
-            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "inbox": 1,
-            "qphost": "http://127.0.0.1:31000",
-            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
-            "cwhost": "https://app.developermaster.com.br"
-          },
-          "hex": "35353332383831383934343040732e77686174736170702e6e6574",
-          "participant": {},
-          "event": "call"
-        }
-      }
-    ]
-  },
-  "versionId": "1396dc11-0254-45a5-94c5-6978f2f1aa86",
+  "pinData": {},
+  "versionId": "6ba8eb66-e33b-4efd-a6e2-f4b3d7a395ff",
   "triggerCount": 0,
   "tags": [
     {
