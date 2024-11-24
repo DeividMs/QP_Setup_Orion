@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-20T00:37:59.120Z",
+  "updatedAt": "2024-11-24T00:08:35.075Z",
   "id": "1002",
   "name": "GetChatwootContacts",
   "active": false,
@@ -1123,42 +1123,8 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "When Called By Another Workflow": [
-      {
-        "json": {
-          "body": {
-            "id": "3EB035172C7C3BB256670D",
-            "timestamp": "2024-11-19T21:28:51-03:00",
-            "type": "text",
-            "chat": {
-              "id": "120363346479450345@g.us",
-              "title": "Teste"
-            },
-            "participant": {
-              "id": "556193743824@s.whatsapp.net",
-              "title": "Deivid Martins"
-            },
-            "text": "teste",
-            "fromme": false,
-            "frominternal": false
-          },
-          "webhookUrl": "https://webhook.developermaster.com.br/webhook/to-chatwoot",
-          "executionMode": "production",
-          "extra": {
-            "account": 1,
-            "atoken": "6a6b3d80818cc9eb9ba914b",
-            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "inbox": 1,
-            "qphost": "http://127.0.0.1:31000",
-            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
-            "cwhost": "https://app.developermaster.com.br"
-          }
-        }
-      }
-    ]
-  },
-  "versionId": "5a8464fc-f77f-4045-8936-9ed8d9a59e51",
+  "pinData": {},
+  "versionId": "225072a0-9f03-4354-93d0-de0541351059",
   "triggerCount": 0,
   "tags": [
     {
