@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-20T03:12:53.594Z",
+  "updatedAt": "2024-11-24T20:36:58.639Z",
   "id": "1009",
   "name": "QuepasaToChatwoot",
   "active": true,
@@ -1436,24 +1436,8 @@
     },
     {
       "parameters": {
-        "httpMethod": "POST",
-        "path": "to-chatwoot",
-        "options": {}
-      },
-      "id": "2c0ab730-04c4-4ed6-bee6-a8fa1e1390c6",
-      "name": "Webhook Chatwoot",
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 1,
-      "position": [
-        5900,
-        -340
-      ],
-      "webhookId": "f0d0e1da-e8cf-4956-8715-dccf5fe3c892"
-    },
-    {
-      "parameters": {
         "method": "POST",
-        "url": "https://webhook.developermaster.com.br/webhook/reject-call",
+        "url": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}/webhook/reject-call",
         "sendBody": true,
         "bodyParameters": {
           "parameters": [
@@ -1513,6 +1497,22 @@
         13900,
         -740
       ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "to-chatwoot",
+        "options": {}
+      },
+      "id": "2c0ab730-04c4-4ed6-bee6-a8fa1e1390c6",
+      "name": "Webhook Chatwoot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        5900,
+        -340
+      ],
+      "webhookId": "f0d0e1da-e8cf-4956-8715-dccf5fe3c892"
     }
   ],
   "connections": {
@@ -2300,52 +2300,8 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "Webhook Chatwoot": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhook.developermaster.com.br",
-            "user-agent": "Quepasa",
-            "content-length": "375",
-            "accept-encoding": "gzip",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhook.developermaster.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "d23d0d1d0da6",
-            "x-quepasa-wid": "556137702634:66@s.whatsapp.net",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "id": "B44709496C85A033B6532AB50FB3A68E",
-            "timestamp": "2024-11-19T21:46:23-03:00",
-            "type": "call",
-            "chat": {
-              "id": "553288189440@s.whatsapp.net",
-              "title": "Bruno Rafael"
-            },
-            "fromme": false,
-            "frominternal": false,
-            "extra": {
-              "account": 1,
-              "atoken": "6a6b3d80818cc9eb9ba914b",
-              "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-              "inbox": 1,
-              "qphost": "http://127.0.0.1:31000",
-              "utoken": "Wx832mMujwGsPXcKEhbCpf3n"
-            }
-          },
-          "webhookUrl": "https://webhook.developermaster.com.br/webhook/to-chatwoot",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "8e6f630f-2d52-4003-a27e-7b1acb3c7ee2",
+  "pinData": {},
+  "versionId": "df0f95b7-429d-492e-a5c5-08d8d6c521ea",
   "triggerCount": 1,
   "tags": [
     {
@@ -2360,5 +2316,6 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "3.24.1107.1143"
 }
