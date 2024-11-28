@@ -1,0 +1,1622 @@
+{
+  "createdAt": "2024-11-24T21:32:47.210Z",
+  "updatedAt": "2024-11-28T00:54:58.903Z",
+  "id": "1Wuh5H8cwz1iRErM",
+  "name": "IA",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f8e1fbf-9134-4b48-be29-066509e021f5",
+              "name": "telefone",
+              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "59fd3a53-08be-41db-b91e-9abccd7ef4ad",
+              "name": "Audio",
+              "value": "={{ $json.text || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "1f3efabc-087b-4843-8766-742b9109e955",
+              "name": "WhatsWeb",
+              "value": "={{ $json.pergunta || ''}}",
+              "type": "string"
+            },
+            {
+              "id": "60d6b895-fea6-4d7f-932a-b8771c97242e",
+              "name": "WhatsAppApp",
+              "value": "={{ $json.mensagem || '' }}",
+              "type": "string"
+            },
+            {
+              "id": "f45d0d25-8456-4a53-9290-69eed044964e",
+              "name": "Imagem",
+              "value": "={{ $json.content || ''}}",
+              "type": "string"
+            },
+            {
+              "id": "0d9377f3-acbb-49ed-9254-ef9e3e561465",
+              "name": "Documento",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8e20b8aa-cd53-4140-9155-3db8ee234c93",
+      "name": "Filtra Webhook",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -600,
+        952
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "86166663-19e1-474e-8f9e-86efb6d7b6e2",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        946
+      ],
+      "webhookId": "9eb0071e-439e-4b83-acfe-63c88528baf6"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "propertyName": "mensagem",
+        "key": "={{ $json.telefone }}",
+        "options": {}
+      },
+      "id": "5760592e-9b7b-4ba2-8793-fd83c60d7732",
+      "name": "Puxar as Mensagens",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        1192
+      ],
+      "credentials": {
+        "redis": {
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "9e9b4155-e399-4936-a5db-2d79c8cb871f",
+              "leftValue": "={{ $json.mensagem.last() }}",
+              "rightValue": "={{ $('Filtra Webhook').item.json.Audio || $('Filtra Webhook').item.json.WhatsWeb || $('Filtra Webhook').item.json.WhatsAppApp || $('Filtra Webhook').item.json.Imagem }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "6855c06c-73da-462e-927e-4e1ab91b28ef",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        1072
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bce70488-3d4e-412d-9c28-4858906bc722",
+              "name": "mensagem",
+              "value": "={{ $('Puxar as Mensagens').item.json.mensagem.join('\\n') }}",
+              "type": "string"
+            },
+            {
+              "id": "abca95c7-60a4-474b-95ed-a22557fa8af7",
+              "name": "telefone",
+              "value": "={{ $('Wait').item.json.telefone }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a32eab13-1a55-4af7-afc7-402509239007",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        952
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "95fd9b76-f304-42b4-85b8-f1bf1c278324",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        0,
+        1212
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "key": "={{ $json.telefone }}"
+      },
+      "id": "1a4f1edb-fa5e-43a6-ba8a-59b9f7f3c58f",
+      "name": "Redis",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        220,
+        946
+      ],
+      "credentials": {
+        "redis": {
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "96d9caa4-4d45-47ef-a44f-51ed23469319",
+      "name": "Calculator",
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        600,
+        1166
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "57486812-7d59-43e0-bbd9-21e6d7608a9e",
+      "name": "OpenAI Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        400,
+        1166
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Credenciais').item.json.baseUrl }}/chat/getBase64FromMediaMessage/{{ $('Credenciais').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"message\": {\n        \"key\": {\n            \"id\":  \"{{ $json.body.data.key.id }}\"\n        }\n    },\n    \"convertToMp4\": true\n} ",
+        "options": {}
+      },
+      "id": "831a532f-1972-4251-b691-3e86596f05e0",
+      "name": "Mensagem de Audio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1100,
+        712
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base64",
+        "options": {
+          "fileName": "audio",
+          "mimeType": "={{ $json.mimetype }}"
+        }
+      },
+      "id": "5e6bb941-d0af-4794-a693-5f9a0395bc78",
+      "name": "Converter Áudio",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -960,
+        712
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "6b7bef37-abbe-4207-aae0-5447388019a3",
+              "name": "baseUrl",
+              "value": "( SUA BASE URL )",
+              "type": "string"
+            },
+            {
+              "id": "67c50f2f-89e2-4a5c-84c2-c2ac76962f6e",
+              "name": "apikey",
+              "value": "( SUA API KEY )",
+              "type": "string"
+            },
+            {
+              "id": "9177d222-437a-4284-a96f-115fba66662c",
+              "name": "instancia",
+              "value": "( SUA INSTANCIA )",
+              "type": "string"
+            },
+            {
+              "id": "8d6c586e-0f00-4100-bc40-231cda7f93b7",
+              "name": "WhatsApp",
+              "value": "={{ $json.body.data.key.remoteJid }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "id": "362eca0c-97cf-4995-ba06-603dc0407316",
+      "name": "Credenciais",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1660,
+        1046
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "17694db0-6248-444f-afb9-ff7ed13996ef",
+              "name": "pergunta",
+              "value": "={{ $('Webhook').item.json.body.data.message.extendedTextMessage.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "231370db-bb75-43b4-88fd-04224fc5dec1",
+      "name": "Texto Web",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [
+        -1120,
+        872
+      ],
+      "notesInFlow": false,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2f8e1fbf-9134-4b48-be29-066509e021f5",
+              "name": "telefone",
+              "value": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+              "type": "string"
+            },
+            {
+              "id": "a6004904-d9e1-4627-be79-d2a5b073d44f",
+              "name": "mensagem",
+              "value": "={{ $json.body.data.message.conversation }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2644b761-7339-4bd5-8183-55398d08a9d1",
+      "name": "Filta Msg App",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1120,
+        1032
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Credenciais').item.json.baseUrl }}/chat/getBase64FromMediaMessage/{{ $('Credenciais').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Credenciais').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"message\": {\n        \"key\": {\n            \"id\":  \"{{ $json.body.data.key.id }}\"\n        }\n    },\n    \"convertToMp4\": true\n} ",
+        "options": {}
+      },
+      "id": "8f49a4eb-ae93-432e-90f9-f61649c6fa09",
+      "name": "Envio de Imagens",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1120,
+        1186
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base64",
+        "options": {
+          "fileName": "image",
+          "mimeType": ""
+        }
+      },
+      "id": "ca461260-3e7e-45b1-aeda-39201a3cf8e2",
+      "name": "Converter Imagem",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -960,
+        1186
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "push",
+        "list": "={{ $json.telefone }}",
+        "messageData": "={{ $json.Audio || $json.WhatsWeb || $json.WhatsAppApp || $json.Imagem || $json.mensagem}}",
+        "tail": true
+      },
+      "id": "34f12774-7b78-4a0d-8239-5cfa88b6631d",
+      "name": "Lista Mensagens1",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        1186
+      ],
+      "credentials": {
+        "redis": {
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Filtra as Mensagens",
+        "height": 816.5290239444287,
+        "width": 1231.9510817704675,
+        "color": 5
+      },
+      "id": "05746e58-f6fe-4a7e-89ba-0c2300469690",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1840,
+        686
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Concatenação de Mensagens",
+        "height": 815.1387498390843,
+        "width": 952.7060569889857,
+        "color": 6
+      },
+      "id": "25874077-89f0-4f2f-837b-3d9fdcbf51fe",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        686
+      ]
+    },
+    {
+      "parameters": {
+        "content": "IA",
+        "height": 811.9960033414018,
+        "width": 1218.2546667994077,
+        "color": 4
+      },
+      "id": "6459076e-7729-42e4-a165-8e0926658899",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        320,
+        686
+      ]
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.telefone }}"
+      },
+      "id": "08eb3124-2d1f-4982-ad56-5ff5afd1604c",
+      "name": "Redis Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.3,
+      "position": [
+        500,
+        1166
+      ],
+      "credentials": {
+        "redis": {
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "base64",
+        "options": {
+          "fileName": "=image {{ $('Switch').item.json.body.data.message.documentMessage.fileName }}",
+          "mimeType": "={{ $('Switch').item.json.body.data.message.documentMessage.mimetype }}"
+        }
+      },
+      "id": "213feb3c-e249-4f4f-a4e6-2522b0b7c1a9",
+      "name": "Converter Arquivo1",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -980,
+        1346
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "options": {}
+      },
+      "id": "072d8ed4-ccae-4425-b837-1eff0f0ae1cf",
+      "name": "Extrair Dados",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        1346
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Credenciais').item.json.baseUrl }}/chat/getBase64FromMediaMessage/{{ $('Credenciais').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Credenciais').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"message\": {\n        \"key\": {\n            \"id\":  \"{{ $json.body.data.key.id }}\"\n        }\n    },\n    \"convertToMp4\": true\n} ",
+        "options": {}
+      },
+      "id": "38b04d55-ba11-4ff6-a61d-a45347b92870",
+      "name": "Envio de Documentos",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -1140,
+        1346
+      ],
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "101c3ff7-e997-43bb-8e99-fe82746c5993",
+                    "leftValue": "={{ $json.body.data.message.audioMessage }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audioMessage"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "4b94d2ac-53e5-4153-9377-4cc6db20cb1c",
+                    "leftValue": "={{ $json.body.data.message.extendedTextMessage }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "extendedTextMessage"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "38226af4-80fe-4155-9ceb-2379f44e29ed",
+                    "leftValue": "={{ $json.body.data.message.conversation }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "exists",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "conversation"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "300366d9-2416-4cf4-93c3-e48c8761c60f",
+                    "leftValue": "={{ $json.body.data.message.imageMessage }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "object",
+                      "operation": "notEmpty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "imageMessage"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "id": "f33566fd-3eb9-45f4-934a-3a39e2adca6c",
+                    "leftValue": "={{ $('Webhook').item.json.body.data.messageType === 'documentMessage' }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "documentMessage"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "id": "0c373cd9-535a-4431-aa0c-cb46fc7ea10c",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -1480,
+        1026
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Credenciais').item.json.baseUrl }}/message/sendText/{{ $('Credenciais').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Credenciais').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"number\": \"{{ $('Credenciais').item.json.WhatsApp }}\",\n    \"text\": \"{{ $json.output.replace(/\\n/g, '\\\\n').replace(/\\\"/g, '\\\\\\\\\"').replace(/\\*/g, '').replace(/\\s+/g, ' ').trim() }}\",\n     \"delay\": 1200\n}",
+        "options": {}
+      },
+      "id": "2c90c649-5bd3-4177-ba4f-9b55de73557d",
+      "name": "Enviar Mensagem WhatsApp Evo 2.1.0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1200,
+        1026
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {},
+      "id": "1d3c7803-da88-43dc-b7c5-5f6f6cb322b8",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1467,
+        1566
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "( SUA URL DRIVE )",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "id": "a6fcda2d-4011-4ce0-b496-57ab5a3f5f08",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1260,
+        1566
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "options": {}
+      },
+      "id": "89523e00-7f4d-4fe6-98c0-e177cfdeb790",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [
+        -1007,
+        1766
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "chunkSize": 3000,
+        "chunkOverlap": 200,
+        "options": {}
+      },
+      "id": "2d7e5ae6-9394-430a-bf95-021ed3fbb654",
+      "name": "Recursive Character Text Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "position": [
+        -1007,
+        1906
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "81f8cf40-51ed-41e7-a635-f182c32a129b",
+      "name": "Embeddings OpenAI1",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "position": [
+        -1127,
+        1806
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "Database Informações",
+        "height": 517.6827039739503,
+        "width": 864.1985100368698,
+        "color": 3
+      },
+      "id": "21addeb2-d72e-4623-ac27-f4fa3c17eaec",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1540,
+        1526
+      ]
+    },
+    {
+      "parameters": {
+        "name": "dentista",
+        "description": "Use essa ferramenta para buscar informações sobre procedimentos e serviços."
+      },
+      "id": "4c936ab2-fca4-4636-be83-f3e17ade3e56",
+      "name": "Vector Store Tool",
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1146
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "34b5b112-a7fb-42a9-88f8-398d5c37860d",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [
+        900,
+        1286
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6d5ddf00-0b14-4c73-b6dc-b352f23822d1",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1366
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "toolDescription": "use essa ferramenta para enviar imagem de como passar fio dental",
+        "method": "POST",
+        "url": "(baseurl)/message/sendMedia/(instancia)",
+        "sendHeaders": true,
+        "parametersHeaders": {
+          "values": [
+            {
+              "name": "apikey",
+              "valueProvider": "fieldValue",
+              "value": "(apikey)"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"number\": \"{{ $json.telefone }}\",\n    \"mediatype\": \"image\",\n    \"mimetype\": \"image/jpeg\",\n    \"media\": \"https://i.postimg.cc/bYxh0sr4/e385fd5d-f94f-4a87-af28-69452ddd0750.jpg\",\n    \"fileName\": \"Imagem.jpg\"\n}"
+      },
+      "id": "8df4d31c-8401-47a7-afb7-76048dfe50ce",
+      "name": "HTTP Request",
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        526
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Exemplo de Tool de envio de imagem\n",
+        "height": 205.69487706103345
+      },
+      "id": "bc658c05-8894-4028-bc43-26170d586299",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/onwK4e9ZLuTAKqWW03F9",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "audio/mpeg"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "xi-api-key",
+              "value": "={{ $('Credenciais').item.json['xi-api-key'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"text\": \"{{ $json.output.replace(/\\n/g, '\\\\n').replace(/\\\"/g, '\\\\\\\\\"').replace(/\\*/g, '').replace(/\\s+/g, ' ').trim() }}\",\n    \"model_id\": \"eleven_multilingual_v2\",\n    \"voice_settings\": {\n        \"stability\": 0.5,\n        \"similarity_boost\": 0.5\n    }\n}",
+        "options": {}
+      },
+      "id": "27e78648-b440-4340-8be5-9de7e3f94f13",
+      "name": "ElevenLabs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1060,
+        766
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "id": "d8590fee-2fee-4304-8e0f-9f7c3bb5c36d",
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        766
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Credenciais').item.json.baseUrl }}/message/sendWhatsAppAudio/{{ $('Credenciais').item.json.instancia }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": "={{ $('Credenciais').item.json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"number\": \"{{ $('Webhook').item.json.body.data.key.remoteJid }}\",\n    \"audio\": \"{{ $json.data }}\"\n}\n",
+        "options": {}
+      },
+      "id": "1ab1bb5b-2168-4a2f-84dc-ab2443fde4b4",
+      "name": "sendWhatsAppAudio",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1400,
+        766
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Responde em Áudio\n",
+        "height": 239.1747914011388,
+        "width": 541.8487968643299,
+        "color": 3
+      },
+      "id": "c0afe222-0bfa-4160-be56-2317dbe8f27a",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        686
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Responde em Texto\n",
+        "height": 239.1747914011388,
+        "width": 249.0313820540327
+      },
+      "id": "8c065e85-68de-41e3-a469-ec09d3d79194",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        946
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dceef4df-510a-489f-8b09-63f889ea8b45",
+        "options": {}
+      },
+      "id": "306e6d69-4312-4c06-8493-94b204278a03",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1820,
+        1046
+      ],
+      "webhookId": "dceef4df-510a-489f-8b09-63f889ea8b45"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('Edit Fields').item.json.mensagem }}",
+        "options": {
+          "systemMessage": "=<IA_Atendente>\n  <Clinica>\n    <Nome>Clínica Sorriso Perfeito</Nome>\n    <Endereco>Rua das Flores, 123 - São Paulo, SP</Endereco>\n    <Contato>\n      <WhatsApp>+55 11 98765-4321</WhatsApp>\n      <Instagram>@clinicasorrisoperfeito</Instagram>\n    </Contato>\n    <HorarioAtendimento>Segunda a Sexta, das 9h às 18h</HorarioAtendimento>\n  </Clinica>\n\n  <Atendimento>\n    <Aquecimento>\n      <Inicio>\n        Oi, que bom que você entrou em contato! 😁 Sou a assistente virtual da *Clínica Sorriso Perfeito*. Qual o seu nome?\n      </Inicio>\n      <ConectarEmocionalmente>\n        Muito prazer, [NOME]! Acreditamos que um sorriso bonito muda vidas. 😄 Vejo que você está interessado(a) em lentes de porcelana ou resina, um passo incrível para elevar sua autoestima! 🦷✨\n      </ConectarEmocionalmente>\n      <PerguntarObjetivo>\n        Conta pra mim, [NOME], o que você mais deseja para o seu sorriso? Estamos aqui para ajudar você a realizar seus sonhos. 😍\n      </PerguntarObjetivo>\n    </Aquecimento>\n\n    <CriacaoDeValor>\n      <Autoridade>\n        Trabalhamos com profissionais renomados, como o Dr. Marcos Silva, que já transformou mais de 1.500 sorrisos, utilizando materiais de alta qualidade aprovados por líderes da odontologia. 💼\n      </Autoridade>\n      <Beneficios>\n        As lentes de porcelana oferecem resistência e aparência natural, enquanto as de resina são acessíveis e igualmente incríveis. Todos os tratamentos são personalizados para você. 😉\n      </Beneficios>\n      <Urgencia>\n        Temos horários especiais para avaliações gratuitas! É uma ótima chance para conhecer o ideal para o seu caso. Que tal agendar? 📅✨\n      </Urgencia>\n    </CriacaoDeValor>\n\n    <GerenciarRespostas>\n      <Opcoes>\n        <Sim>\n          Que ótimo, [NOME]! Vamos agendar uma avaliação gratuita com o Dr. Marcos Silva. 😊 Por favor, me passe seu WhatsApp e o melhor horário para a consulta. 📲\n        </Sim>\n        <Valor>\n          Entendo, [NOME]! 😊 O valor varia conforme suas necessidades e o tipo de lente. Na avaliação, o Dr. Marcos Silva explicará tudo detalhadamente. Que tal agendar? 😁\n        </Valor>\n        <Pesquisando>\n          Pesquisa é sempre um bom começo, [NOME]! 😉 Acompanhe nosso Instagram (@clinicasorrisoperfeito) para dicas e inspirações. Estou à disposição para qualquer dúvida!\n        </Pesquisando>\n      </Opcoes>\n    </GerenciarRespostas>\n  </Atendimento>\n\n  <Instrucoes>\n    - Pergunte o nome do cliente para criar conexão emocional.  \n    - Evite mencionar valores na primeira interação; foque em benefícios e autoridade.  \n    - Ofereça uma avaliação gratuita para conhecer melhor o cliente.  \n    - Adapte o tom e a abordagem conforme as respostas, mantendo uma conversa acolhedora.  \n    - Use emojis de forma equilibrada para deixar o diálogo leve.  \n    - Analise as imagens enviadas pelo cliente, se necessário.  \n    - Utilize a *Vector Store Tool* para buscar dados no banco de informações.  \n    - Use a *HTTP Request Tool* para enviar imagens e outros materiais relevantes.  \n  </Instrucoes>\n</IA_Atendente>\n"
+        }
+      },
+      "id": "c394cdb3-93aa-4406-97fe-1e3775a6948a",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.6,
+      "position": [
+        600,
+        846
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Configure antes de usar",
+        "height": 80
+      },
+      "id": "654b157e-ce31-4903-a63e-65922b33d602",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1520,
+        1766
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "da2411c0-5687-4df8-9704-27c6ec9f1ccc",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.3,
+      "position": [
+        -800,
+        712
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI"
+        },
+        "text": "Analise essa imagem, oque tem nela?",
+        "inputType": "base64",
+        "options": {}
+      },
+      "id": "36c00b69-41f8-4368-aff1-e755ef995103",
+      "name": "OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        -820,
+        1186
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "mJDvwFEBEvuWhm3T",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "dentista",
+          "mode": "list",
+          "cachedResultName": "dentista"
+        },
+        "options": {
+          "clearNamespace": true
+        }
+      },
+      "id": "a99d73b2-b8af-40b0-a828-015e167dcbbd",
+      "name": "Insert into Pinecone vector store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "position": [
+        -1067,
+        1566
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "pineconeApi": {
+          "id": "xNzQpxAO4Eowd693",
+          "name": "PineconeApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "dentista",
+          "mode": "list",
+          "cachedResultName": "dentista"
+        },
+        "options": {}
+      },
+      "id": "a5ea589d-38cc-4dcd-971f-d3879326af42",
+      "name": "Pinecone Vector Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1,
+      "position": [
+        660,
+        1260
+      ],
+      "credentials": {
+        "pineconeApi": {
+          "id": "xNzQpxAO4Eowd693",
+          "name": "PineconeApi account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Filtra Webhook": {
+      "main": [
+        [
+          {
+            "node": "Lista Mensagens1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Puxar as Mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Puxar as Mensagens": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagem de Audio": {
+      "main": [
+        [
+          {
+            "node": "Converter Áudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Converter Áudio": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Credenciais": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Texto Web": {
+      "main": [
+        [
+          {
+            "node": "Filtra Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filta Msg App": {
+      "main": [
+        [
+          {
+            "node": "Filtra Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envio de Imagens": {
+      "main": [
+        [
+          {
+            "node": "Converter Imagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Converter Imagem": {
+      "main": [
+        [
+          {
+            "node": "OpenAI2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lista Mensagens1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Converter Arquivo1": {
+      "main": [
+        [
+          {
+            "node": "Extrair Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Envio de Documentos": {
+      "main": [
+        [
+          {
+            "node": "Converter Arquivo1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extrair Dados": {
+      "main": [
+        [
+          {
+            "node": "Filtra Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Mensagem de Audio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Texto Web",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Filta Msg App",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Envio de Imagens",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Envio de Documentos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Insert into Pinecone vector store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Insert into Pinecone vector store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Insert into Pinecone vector store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Vector Store Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ElevenLabs": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "sendWhatsAppAudio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Credenciais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Enviar Mensagem WhatsApp Evo 2.1.0",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Filtra Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI2": {
+      "main": [
+        [
+          {
+            "node": "Filtra Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Vector Store Tool",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "3be11c0c-595d-49ae-bf9a-d6dce1c21978",
+  "triggerCount": 0,
+  "tags": [],
+  "versao-qp": "latest"
+}
