@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-24T00:08:35.075Z",
+  "updatedAt": "2024-11-24T21:03:23.406Z",
   "id": "1002",
   "name": "GetChatwootContacts",
   "active": false,
@@ -175,14 +175,14 @@
       "parameters": {
         "content": "## Chat Contact\n",
         "height": 770.5363743991675,
-        "width": 3390.946354395323
+        "width": 3529.6749258238942
       },
       "id": "4f66fe31-7400-4bc7-81a5-2c373e0e6aaa",
       "name": "Note6",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1600,
+        1620,
         -460
       ]
     },
@@ -1124,7 +1124,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "225072a0-9f03-4354-93d0-de0541351059",
+  "versionId": "a8879951-6a4c-4dae-9fb3-2c7695b81f26",
   "triggerCount": 0,
   "tags": [
     {
