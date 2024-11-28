@@ -1,6 +1,6 @@
 {
   "createdAt": "2024-11-09T01:03:21.122Z",
-  "updatedAt": "2024-11-09T01:06:40.515Z",
+  "updatedAt": "2024-11-28T00:29:27.833Z",
   "id": "iiEsUj7ybtzEZAFj",
   "name": "ChatwootExtra",
   "active": false,
@@ -353,19 +353,19 @@
           "string": [
             {
               "name": "extra.cwpublic",
-              "value": "={{ $env[\"C8Q_CW_PUBLIC_URL\"] }}"
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
             },
             {
               "name": "extra.qphost",
-              "value": "http://127.0.0.1:31000"
+              "value": "={{ $env[\"C8Q_QUEPASA_HOST\"] }}"
             },
             {
               "name": "extra.cwhost",
-              "value": "http://127.0.0.1:3000"
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
             },
             {
               "name": "extra.n8nhost",
-              "value": "http://127.0.0.1:5678"
+              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
             },
             {
               "name": "extra.qpuser",
@@ -695,7 +695,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "ee3d7d90-fcb8-496f-984b-61cf0e8d8e2d",
+  "versionId": "7c088c28-9aea-4bd4-8ee5-25d1dc945e80",
   "triggerCount": 0,
   "tags": [
     {
@@ -704,5 +704,6 @@
       "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     }
-  ]
+  ],
+  "versao-qp": "latest"
 }
