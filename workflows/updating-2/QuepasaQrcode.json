@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:53:36.426Z",
+  "updatedAt": "2025-02-07T03:01:33.828Z",
   "id": "z7iqKYC8r5nPRRHt",
   "name": "QuepasaQrcode",
   "active": true,
@@ -902,6 +902,12 @@
               "name": "tbstart",
               "value": "={{ $node[\"Webhook\"].json[\"body\"][\"messages\"][0][\"content\"].split(' ')[1].split('-')[1] }}"
             }
+          ],
+          "boolean": [
+            {
+              "name": "typebot",
+              "value": true
+            }
           ]
         },
         "options": {}
@@ -911,7 +917,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        4875.95709678845,
+        4880,
         700
       ],
       "notes": "Criado para lidar com typebot"
@@ -1016,6 +1022,10 @@
             {
               "key": "identifier",
               "value": "={{$json.extra.identifier}}"
+            },
+            {
+              "key": "typebot",
+              "value": "={{ $json.typebot }}"
             }
           ]
         }
@@ -1220,7 +1230,7 @@
     {
       "parameters": {
         "mode": "runOnceForEachItem",
-        "jsCode": "const extra = $input.item.json.extra;\n\nlet webhook = extra.n8nhost + \"/webhook/from-chatwoot?\";\nwebhook += \"identifier=\" + extra.identifier + \"&\";\nwebhook += \"utoken=\" + extra.utoken + \"&\";\nwebhook += \"atoken=\" + extra.atoken + \"&\";\n\nif (extra.qphost !== \"http://127.0.0.1:31000\"){\n  webhook += \"qphost=\" + extra.qphost + \"&\";\n}\n\nif (extra.cwhost !== \"http://127.0.0.1:3000\"){\n  webhook += \"cwhost=\" + extra.cwhost + \"&\";\n}\n\n//if (extra.cwpublic){\n//  webhook += \"cwpublic=\" + extra.cwpublic + \"&\";\n//}\n\nwebhook = webhook.replace(/\\&+$/, '');\n\n$input.item.json.webhook = webhook;\nreturn $input.item;"
+        "jsCode": "const extra = $input.item.json.extra;\n\nlet webhook = extra.n8nhost + \"/webhook/from-chatwoot?\";\nwebhook += \"identifier=\" + extra.identifier + \"&\";\nwebhook += \"utoken=\" + extra.utoken + \"&\";\nwebhook += \"atoken=\" + extra.atoken + \"&\";\n\n//if (extra.qphost !== \"http://127.0.0.1:31000\"){\n//  webhook += \"qphost=\" + extra.qphost + \"&\";\n//}\n\n//if (extra.cwhost !== \"http://127.0.0.1:3000\"){\n//  webhook += \"cwhost=\" + extra.cwhost + \"&\";\n//}\n\n//if (extra.cwpublic){\n//  webhook += \"cwpublic=\" + extra.cwpublic + \"&\";\n//}\n\nwebhook = webhook.replace(/\\&+$/, '');\n\n$input.item.json.webhook = webhook;\nreturn $input.item;"
       },
       "id": "b176cf49-a10d-43dd-8495-135eef39f1ec",
       "name": "Code",
@@ -1833,8 +1843,130 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {},
-  "versionId": "0819f166-02cb-4fe8-a602-3fb694911103",
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.developermaster.com.br",
+            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
+            "content-length": "3587",
+            "accept": "application/json",
+            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhook.developermaster.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "d432ee8c8240",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "additional_attributes": {
+              "mail_subject": ""
+            },
+            "can_reply": true,
+            "channel": "Channel::Api",
+            "contact_inbox": {
+              "id": 187,
+              "contact_id": 471,
+              "inbox_id": 1,
+              "source_id": "a5e4975c-5fb3-4343-ab46-8b7bebdb032d",
+              "created_at": "2025-02-07T02:02:47.844Z",
+              "updated_at": "2025-02-07T02:02:47.844Z",
+              "hmac_verified": false,
+              "pubsub_token": "QVmC4C4g5C2ddtudKp4UwpAi"
+            },
+            "id": 199,
+            "inbox_id": 1,
+            "messages": [
+              {
+                "id": 5884,
+                "content": "/qrcode typebot-modelo",
+                "account_id": 1,
+                "inbox_id": 1,
+                "conversation_id": 199,
+                "message_type": 1,
+                "created_at": 1738896160,
+                "updated_at": "2025-02-07T02:42:40.042Z",
+                "private": false,
+                "status": "sent",
+                "source_id": null,
+                "content_type": "text",
+                "content_attributes": {},
+                "sender_type": "User",
+                "sender_id": 1,
+                "external_source_ids": {},
+                "additional_attributes": {},
+                "processed_message_content": "/qrcode typebot-modelo",
+                "sentiment": {},
+                "conversation": {
+                  "assignee_id": 1,
+                  "unread_count": 0,
+                  "last_activity_at": 1738896160,
+                  "contact_inbox": {
+                    "source_id": "a5e4975c-5fb3-4343-ab46-8b7bebdb032d"
+                  }
+                },
+                "sender": {
+                  "id": 1,
+                  "name": "User Fixo",
+                  "available_name": "User Fixo",
+                  "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                  "type": "user",
+                  "availability_status": null,
+                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+                }
+              }
+            ],
+            "labels": [],
+            "meta": {
+              "sender": {
+                "additional_attributes": {},
+                "custom_attributes": {},
+                "email": null,
+                "id": 471,
+                "identifier": "deivid.amsantos@gmail.com",
+                "name": "Quepasa",
+                "phone_number": null,
+                "thumbnail": "",
+                "type": "contact"
+              },
+              "assignee": {
+                "id": 1,
+                "name": "User Fixo",
+                "available_name": "User Fixo",
+                "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                "type": "user",
+                "availability_status": null,
+                "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+              },
+              "team": null,
+              "hmac_verified": false
+            },
+            "status": "pending",
+            "custom_attributes": {},
+            "snoozed_until": null,
+            "unread_count": 0,
+            "first_reply_created_at": "2025-02-07T02:42:40.042Z",
+            "priority": null,
+            "waiting_since": 0,
+            "agent_last_seen_at": 0,
+            "contact_last_seen_at": 0,
+            "last_activity_at": 1738896160,
+            "timestamp": 1738896160,
+            "created_at": 1738896160,
+            "event": "automation_event.message_created"
+          },
+          "webhookUrl": "https://webhook.developermaster.com.br/webhook/quepasa",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "212f1327-7cf6-48df-8dda-8a7c08e97598",
   "triggerCount": 1,
   "tags": [
     {
