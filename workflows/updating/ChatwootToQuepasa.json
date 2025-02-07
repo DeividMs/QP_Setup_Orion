@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-05T03:12:09.950Z",
-  "updatedAt": "2025-02-07T00:05:51.000Z",
+  "updatedAt": "2025-02-07T00:20:33.517Z",
   "id": "1008",
   "name": "ChatwootToQuepasa",
   "active": true,
@@ -1970,7 +1970,7 @@
       "typeVersion": 2.5,
       "position": [
         -5900,
-        3700
+        3660
       ],
       "credentials": {
         "postgres": {
@@ -3252,7 +3252,7 @@
       }
     ]
   },
-  "versionId": "c04fadea-a982-4dcb-95c5-6a9f8c44c031",
+  "versionId": "8a67f45f-8413-47dd-8d2d-c2dcca6da85c",
   "triggerCount": 1,
   "tags": [
     {
