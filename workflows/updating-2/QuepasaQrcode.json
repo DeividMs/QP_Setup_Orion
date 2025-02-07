@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:53:36.426Z",
+  "id": "z7iqKYC8r5nPRRHt",
   "name": "QuepasaQrcode",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -1117,7 +1121,7 @@
     },
     {
       "parameters": {
-        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
+        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"t1o1WDo9E7C5EmJC\" }}",
         "options": {}
       },
       "id": "3e043edd-6aca-4239-ae73-2aecbadddb72",
@@ -1208,8 +1212,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1244,7 +1248,6 @@
       "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
     }
   ],
-  "pinData": {},
   "connections": {
     "IF": {
       "main": [
@@ -1822,22 +1825,25 @@
       ]
     }
   },
-  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "f3e47b4d-e633-45fa-bde5-ed6be1f95692",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "z7iqKYC8r5nPRRHt",
+  "pinData": {},
+  "versionId": "0819f166-02cb-4fe8-a602-3fb694911103",
+  "triggerCount": 1,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     }
-  ]
+  ],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "QuepasaQrcode"
 }
