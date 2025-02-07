@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-05T03:12:09.950Z",
+  "updatedAt": "2025-02-06T00:13:11.157Z",
+  "id": "pi4APHD9F05Dv6FR",
   "name": "ToChatwootTranscriptViaOpenAI",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -86,8 +90,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -342,7 +346,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Merge Token": {
       "main": [
@@ -499,18 +502,20 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "executionOrder": "v1",
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 30
   },
-  "versionId": "574af2b2-c341-4c47-94de-ff27ce498a59",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "pi4APHD9F05Dv6FR",
-  "tags": []
+  "pinData": {},
+  "versionId": "b1d2e602-6c10-472c-86c8-16faf7e9f7da",
+  "triggerCount": 0,
+  "tags": [],
+  "versao-qp": "updating"
 }
