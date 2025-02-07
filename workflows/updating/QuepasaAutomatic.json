@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-05T03:12:09.950Z",
-  "updatedAt": "2025-02-06T00:57:04.750Z",
+  "updatedAt": "2025-02-07T00:20:54.123Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": false,
@@ -39,7 +39,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        1100,
+        1180,
         540
       ],
       "alwaysOutputData": false,
@@ -1115,7 +1115,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "896292ea-9943-4ef0-99fe-39661feab5ce",
+  "versionId": "6b2e87de-221c-4102-846e-a22f7b0e4252",
   "triggerCount": 0,
   "tags": [
     {
