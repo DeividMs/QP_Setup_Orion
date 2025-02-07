@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:58:19.211Z",
+  "id": "1008",
   "name": "ChatwootToQuepasa",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -377,15 +381,15 @@
             },
             {
               "name": "extra.qphost",
-              "value": "={{ $json.query.qphost ?? 'http://127.0.0.1:31000' }}"
+              "value": "={{ $env[\"C8Q_QP_HOST\"] }}"
             },
             {
               "name": "extra.cwhost",
-              "value": "={{ $json.query.cwhost ?? 'http://127.0.0.1:3000' }}"
+              "value": "={{ $env[\"C8Q_CW_HOST\"] }}"
             },
             {
               "name": "extra.n8nhost",
-              "value": "={{ $json.query.n8nhost ?? $env['C8Q_N8N_HOST'] ?? 'http://127.0.0.1:5678' }}"
+              "value": "={{ $env[\"WEBHOOK_URL\"] }}"
             },
             {
               "name": "extra.inbox",
@@ -465,8 +469,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1103,8 +1107,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1289,8 +1293,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1477,7 +1481,7 @@
             {
               "id": "c7c65a3a-c4ff-4f18-bee8-4316727360e4",
               "name": "body.content",
-              "value": "=*{{$json.body.conversation.meta.sender.name}}* seu atendimento de Ticket de nº *{{ $json.body.id }}* foi finalizado ! Caso tenha alguma dúvida só enviar uma nova mensagem !\n\nAproveite e avalie nosso atendimento. Sua opinião é muito importante para nós e nos ajudará a identificar áreas de melhorias a fim de continuar oferecendo um serviço de qualidade. 😎\n\nAvalie meu atendimento !\n{{ ($json.extra.cwpublic ?? $env[\"C8Q_CW_PUBLIC_URL\"] ?? $json.extra.cwhost).trimEnd('/') }}/survey/responses/{{$json.body.content.split('/').at(-1)}}",
+              "value": "=Avalie meu atendimento !\n{{ ($json.extra.cwpublic ?? $env[\"C8Q_CW_PUBLIC_URL\"] ?? $json.extra.cwhost).trimEnd('/') }}/survey/responses/{{$json.body.content.split('/').at(-1)}}",
               "type": "string"
             }
           ]
@@ -1927,8 +1931,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1949,8 +1953,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1970,8 +1974,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1991,8 +1995,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "disabled": true
@@ -2071,7 +2075,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "From ChatWoot": {
       "main": [
@@ -3083,19 +3086,20 @@
       ]
     }
   },
-  "active": true,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 50,
     "executionOrder": "v1"
   },
-  "versionId": "2d0f839d-9eee-44ff-94d6-b8dfb0ecd789",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1008",
+  "pinData": {},
+  "versionId": "5087ea17-c308-4701-98f4-30690e6a582d",
+  "triggerCount": 1,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
@@ -3104,9 +3108,9 @@
       "name": "quepasa"
     },
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
@@ -3115,5 +3119,7 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "ChatwootToQuepasa"
 }
