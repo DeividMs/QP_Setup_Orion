@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:38:18.832Z",
+  "id": "PkjmWuUN1y6sCX11",
   "name": "QuepasaContactsImport",
+  "active": false,
   "nodes": [
     {
       "parameters": {},
@@ -234,8 +238,8 @@
       "notesInFlow": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -356,7 +360,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Execute Workflow Trigger": {
       "main": [
@@ -517,16 +520,17 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "8ca9ac71-19a4-412b-843c-6be30cda5f11",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "PkjmWuUN1y6sCX11",
+  "pinData": {},
+  "versionId": "58a23d70-d261-429e-9a2b-4b92ee8c207a",
+  "triggerCount": 0,
   "tags": [
     {
       "createdAt": "2025-01-29T14:10:20.952Z",
@@ -534,5 +538,7 @@
       "id": "WKLrBsRZXidylR4T",
       "name": "ApproachTI"
     }
-  ]
+  ],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "QuepasaContactsImport"
 }
