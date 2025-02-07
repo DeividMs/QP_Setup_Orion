@@ -1,27 +1,10 @@
 {
+  "createdAt": "2025-02-05T03:12:09.950Z",
+  "updatedAt": "2025-02-06T01:33:36.125Z",
+  "id": "1002",
   "name": "GetChatwootContacts",
+  "active": false,
   "nodes": [
-    {
-      "parameters": {
-        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
-        "accessToken": "={{ $json.extra.utoken }}",
-        "resource": "contact",
-        "accountId": "={{$json[\"extra\"][\"account\"]}}",
-        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
-        "operation": "contactCreate",
-        "contactIdentifier": "={{$json[\"chat\"][\"id\"]}}",
-        "name": "={{$json[\"chat\"][\"title\"]}}"
-      },
-      "id": "e61d0428-a65c-468f-9a5b-50efd60d6f85",
-      "name": "Create Chat Contact",
-      "type": "n8n-nodes-chatwoot.chatwoot",
-      "typeVersion": 1,
-      "position": [
-        3720,
-        -140
-      ],
-      "continueOnFail": true
-    },
     {
       "parameters": {
         "keepOnlySet": true,
@@ -184,7 +167,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4500,
+        4620,
         -380
       ]
     },
@@ -208,7 +191,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4100,
+        4220,
         -200
       ]
     },
@@ -222,7 +205,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4500,
+        4620,
         -120
       ],
       "webhookId": "57209d6b-e7a6-4d78-b55c-82f677b13d42"
@@ -288,7 +271,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        4300,
+        4420,
         -280
       ],
       "id": "92bcd719-3b08-4049-bdb0-0fb9dfa43f17"
@@ -327,7 +310,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4720,
+        4840,
         60
       ]
     },
@@ -424,7 +407,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5040,
+        5160,
         -300
       ],
       "alwaysOutputData": true,
@@ -457,7 +440,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3920,
+        4040,
         -200
       ]
     },
@@ -484,7 +467,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4300,
+        4420,
         -100
       ]
     },
@@ -508,8 +491,8 @@
       "maxTries": 2,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -533,8 +516,8 @@
       "maxTries": 2,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -722,7 +705,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        4740,
+        4860,
         -400
       ]
     },
@@ -735,7 +718,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4500,
+        4620,
         60
       ]
     },
@@ -748,7 +731,7 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4740,
+        4860,
         -220
       ]
     },
@@ -771,24 +754,89 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5040,
+        5160,
         -500
       ]
-    }
-  ],
-  "pinData": {},
-  "connections": {
-    "Create Chat Contact": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b3da8b25-6b77-4bb0-bb29-76cd5b3a9c49",
+              "leftValue": "={{ $json.chat.id }}",
+              "rightValue": "@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "3cd46941-7b7f-489b-b6d3-0872bd1ac062",
+      "name": "Is-Group?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3600,
+        0
       ]
     },
+    {
+      "parameters": {
+        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{$json[\"extra\"][\"account\"]}}",
+        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
+        "operation": "contactCreate",
+        "contactIdentifier": "={{$json[\"chat\"][\"id\"]}}",
+        "name": "={{$json[\"chat\"][\"title\"]}}",
+        "phoneNumber": "="
+      },
+      "id": "56ec89f1-e321-497e-8a73-198703daa003",
+      "name": "Create Chat Group",
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        3820,
+        -80
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{$json[\"extra\"][\"account\"]}}",
+        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
+        "operation": "contactCreate",
+        "contactIdentifier": "={{$json[\"chat\"][\"id\"]}}",
+        "name": "={{$json[\"chat\"][\"title\"]}}",
+        "phoneNumber": "=+{{$json[\"chat\"][\"id\"].split(\"@\")[0]}}"
+      },
+      "id": "bdaba8c0-0db2-4044-804f-266532a95de3",
+      "name": "Create Chat Contact1",
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        3820,
+        100
+      ],
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
     "Clearing Payload For Contacts": {
       "main": [
         [
@@ -967,12 +1015,12 @@
       "main": [
         [
           {
-            "node": "Create Chat Contact",
+            "node": "Merge",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Merge",
+            "node": "Is-Group?",
             "type": "main",
             "index": 0
           }
@@ -1148,25 +1196,97 @@
           }
         ]
       ]
+    },
+    "Is-Group?": {
+      "main": [
+        [
+          {
+            "node": "Create Chat Group",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Chat Contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Chat Group": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create Chat Contact1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
     }
   },
-  "active": false,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 30
   },
-  "versionId": "0d422843-30d6-41c9-93b8-c1b8257a8edb",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1002",
+  "pinData": {
+    "When Called By Another Workflow": [
+      {
+        "json": {
+          "body": {
+            "id": "3EB0C53D5DF2A97BDBF43D",
+            "timestamp": "2025-02-05T22:29:47.327708324-03:00",
+            "type": "text",
+            "chat": {
+              "id": "556193743824@s.whatsapp.net",
+              "title": "Deivid Martins"
+            },
+            "text": "teste",
+            "fromme": false,
+            "frominternal": false
+          },
+          "webhookUrl": "https://webhook.developermaster.com.br/webhook/to-chatwoot",
+          "executionMode": "production",
+          "extra": {
+            "account": 1,
+            "atoken": "50e28457d06de6c3d456a01",
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "inbox": 1,
+            "qphost": "https://apiqp2.developermaster.com.br",
+            "qptoken": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
+            "cwhost": "https://app.developermaster.com.br"
+          }
+        }
+      }
+    ]
+  },
+  "versionId": "85941de6-8f51-40b2-931d-8a61d48eee79",
+  "triggerCount": 0,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
@@ -1175,5 +1295,6 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "updating"
 }
