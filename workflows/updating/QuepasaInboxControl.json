@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-05T03:12:09.950Z",
+  "updatedAt": "2025-02-07T00:07:08.254Z",
+  "id": "1001",
   "name": "QuepasaInboxControl",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -612,8 +616,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1498,25 +1502,6 @@
     },
     {
       "parameters": {
-        "workflowId": {
-          "__rl": true,
-          "value": "={{ $env['C8Q_WF_QUEPASAINBOXCONTROL_WEBHOOK'] ?? 'Zj197aISsaIkZP2Z' }}",
-          "mode": "id"
-        },
-        "mode": "each",
-        "options": {}
-      },
-      "id": "25e7641c-f078-4654-91d4-2a54259657bb",
-      "name": "Throw Workflow - webhook",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1.1,
-      "position": [
-        -720,
-        680
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "string": [
             {
@@ -1549,7 +1534,7 @@
       "type": "n8n-nodes-chatwoot.chatwoot",
       "typeVersion": 1,
       "position": [
-        -440,
+        -420,
         880
       ]
     },
@@ -1591,9 +1576,27 @@
         -3760,
         440
       ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "={{ $env['C8Q_WF_QUEPASAINBOXCONTROL_WEBHOOK'] ?? 'Zj197aISsaIkZP2Z' }}",
+          "mode": "id"
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "id": "25e7641c-f078-4654-91d4-2a54259657bb",
+      "name": "Throw Workflow - webhook",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.1,
+      "position": [
+        -720,
+        680
+      ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Set Response From Quepasa": {
       "main": [
@@ -2311,17 +2314,6 @@
         ]
       ]
     },
-    "Throw Workflow - webhook": {
-      "main": [
-        [
-          {
-            "node": "Response To ChatWoot",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Throw Workflow - typebot": {
       "main": [
         [
@@ -2376,21 +2368,198 @@
           }
         ]
       ]
+    },
+    "Throw Workflow - webhook": {
+      "main": [
+        [
+          {
+            "node": "Response To ChatWoot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
-  "active": false,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 15,
     "executionOrder": "v1"
   },
-  "versionId": "d8fdba07-ac88-480d-b5d5-c708edd2d194",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1001",
+  "pinData": {
+    "When Called By Another Workflow": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.developermaster.com.br",
+            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
+            "content-length": "4008",
+            "accept": "application/json",
+            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhook.developermaster.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "baa300b14137",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
+            "atoken": "50e28457d06de6c3d456a01",
+            "qphost": "https://apiqp2.developermaster.com.br",
+            "cwhost": "https://app.developermaster.com.br"
+          },
+          "body": {
+            "account": {
+              "id": 1,
+              "name": "Chatwoot"
+            },
+            "additional_attributes": {},
+            "content_attributes": {},
+            "content_type": "text",
+            "content": " /webhook update",
+            "conversation": {
+              "additional_attributes": {
+                "mail_subject": ""
+              },
+              "can_reply": true,
+              "channel": "Channel::Api",
+              "contact_inbox": {
+                "id": 179,
+                "contact_id": 39,
+                "inbox_id": 1,
+                "source_id": "ac4c6540-de2b-4379-b68d-d4805514ce25",
+                "created_at": "2025-02-06T00:59:38.134Z",
+                "updated_at": "2025-02-06T00:59:38.134Z",
+                "hmac_verified": false,
+                "pubsub_token": "Cyxjw13NJfL9CtSLTJvah7nP"
+              },
+              "id": 192,
+              "inbox_id": 1,
+              "messages": [
+                {
+                  "id": 5811,
+                  "content": " /webhook update",
+                  "account_id": 1,
+                  "inbox_id": 1,
+                  "conversation_id": 192,
+                  "message_type": 1,
+                  "created_at": 1738884268,
+                  "updated_at": "2025-02-06T23:24:28.708Z",
+                  "private": false,
+                  "status": "sent",
+                  "source_id": null,
+                  "content_type": "text",
+                  "content_attributes": {},
+                  "sender_type": "User",
+                  "sender_id": 1,
+                  "external_source_ids": {},
+                  "additional_attributes": {},
+                  "processed_message_content": " /webhook update",
+                  "sentiment": {},
+                  "conversation": {
+                    "assignee_id": 1,
+                    "unread_count": 0,
+                    "last_activity_at": 1738884268,
+                    "contact_inbox": {
+                      "source_id": "ac4c6540-de2b-4379-b68d-d4805514ce25"
+                    }
+                  },
+                  "sender": {
+                    "id": 1,
+                    "name": "Super User Agent",
+                    "available_name": "Super User Agent",
+                    "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                    "type": "user",
+                    "availability_status": null,
+                    "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+                  }
+                }
+              ],
+              "labels": [],
+              "meta": {
+                "sender": {
+                  "additional_attributes": {},
+                  "custom_attributes": {},
+                  "email": null,
+                  "id": 39,
+                  "identifier": "deivid.amsantos@gmail.com",
+                  "name": "Quepasa",
+                  "phone_number": null,
+                  "thumbnail": "",
+                  "type": "contact"
+                },
+                "assignee": {
+                  "id": 1,
+                  "name": "Super User Agent",
+                  "available_name": "Super User Agent",
+                  "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                  "type": "user",
+                  "availability_status": null,
+                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+                },
+                "team": null,
+                "hmac_verified": false
+              },
+              "status": "open",
+              "custom_attributes": {},
+              "snoozed_until": null,
+              "unread_count": 0,
+              "first_reply_created_at": "2025-02-06T02:35:48.366Z",
+              "priority": null,
+              "waiting_since": 1738884220,
+              "agent_last_seen_at": 1738884268,
+              "contact_last_seen_at": 0,
+              "last_activity_at": 1738884268,
+              "timestamp": 1738884268,
+              "created_at": 1738809348
+            },
+            "created_at": "2025-02-06T23:24:28.708Z",
+            "id": 5811,
+            "inbox": {
+              "id": 1,
+              "name": "Quepasa"
+            },
+            "message_type": "outgoing",
+            "status": "sent",
+            "private": false,
+            "sender": {
+              "id": 1,
+              "name": "Super User Agent",
+              "email": "deivid.amsantos@gmail.com",
+              "type": "user"
+            },
+            "source_id": null,
+            "event": "message_created"
+          },
+          "webhookUrl": "https://webhook.developermaster.com.br/webhook/from-chatwoot",
+          "executionMode": "production",
+          "extra": {
+            "qptoken": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "qphost": "https://apiqp2.developermaster.com.br",
+            "cwhost": "https://app.developermaster.com.br",
+            "n8nhost": "https://webhook.developermaster.com.br",
+            "inbox": 1,
+            "account": 1,
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
+            "atoken": "50e28457d06de6c3d456a01"
+          }
+        }
+      }
+    ]
+  },
+  "versionId": "3d1efb67-a7a1-4bae-ba7e-ac38a1303a4e",
+  "triggerCount": 0,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
@@ -2399,9 +2568,9 @@
       "name": "quepasa"
     },
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
@@ -2410,5 +2579,6 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "updating"
 }
