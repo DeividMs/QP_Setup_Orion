@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:31:37.474Z",
+  "id": "1009",
   "name": "QuepasaToChatwoot",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -159,6 +163,7 @@
         -617
       ],
       "executeOnce": true,
+      "disabled": true,
       "continueOnFail": true
     },
     {
@@ -335,8 +340,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -570,8 +575,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -612,8 +617,8 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1212,9 +1217,72 @@
         6760,
         -360
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}/webhook/reject-call",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "extra.qphost",
+              "value": "={{ $json.extra.qphost }}"
+            },
+            {
+              "name": "extra.identifier",
+              "value": "={{ $json.extra.identifier }}"
+            },
+            {
+              "name": "extra.account",
+              "value": "={{ $json.extra.account }}"
+            },
+            {
+              "name": "extra.atoken",
+              "value": "={{ $json.extra.atoken }}"
+            },
+            {
+              "name": "extra.utoken",
+              "value": "={{ $json.extra.utoken }}"
+            },
+            {
+              "name": "extra.cwhots",
+              "value": "={{ $json.extra.cwhost }}"
+            },
+            {
+              "name": "chat.title",
+              "value": "={{ $json.chat.title }}"
+            },
+            {
+              "name": "chat.id",
+              "value": "={{ $json.chat.id }}"
+            },
+            {
+              "name": "chat.phone",
+              "value": "={{ $json.chat.phone }}"
+            },
+            {
+              "name": "conversation.id",
+              "value": "={{ $json.conversation.id }}"
+            },
+            {
+              "name": "conversation.status",
+              "value": "={{ $json.conversation.status }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "16559ae2-d92d-492e-9473-067761d8169d",
+      "name": "MsgRejectCall",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        9340,
+        -800
+      ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Not Broadcast ?": {
       "main": [
@@ -1563,6 +1631,11 @@
             "node": "Merge4",
             "type": "main",
             "index": 1
+          },
+          {
+            "node": "MsgRejectCall",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -1769,24 +1842,25 @@
       ]
     }
   },
-  "active": true,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 30,
     "executionOrder": "v1"
   },
-  "versionId": "ecc6ab48-1b4f-47a5-9fcd-75e77788af13",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1009",
+  "pinData": {},
+  "versionId": "6d176726-5d2e-4ec7-8fb5-dda56fbed380",
+  "triggerCount": 1,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
@@ -1795,5 +1869,7 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "QuepasaToChatwoot"
 }
