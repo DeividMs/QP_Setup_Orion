@@ -1,0 +1,576 @@
+{
+  "createdAt": "2025-02-07T00:17:41.653Z",
+  "updatedAt": "2025-02-07T00:18:34.763Z",
+  "id": "02jamoexpru3TdZ5",
+  "name": "My workflow",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c8fd760f-539a-4c43-bcfc-166cfde865db",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1740,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "versao-qp",
+              "stringValue": "updating"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2c1f7e62-63c9-4cca-837b-025f67f161d4",
+      "name": "Workflow",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        2320,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "780d1075-b97d-4552-8dff-4d998724e34e",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        660
+      ],
+      "webhookId": "154226ae-b163-4932-a2f2-12865e621905"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "deividms",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "QP_Setup_Orion",
+          "mode": "list",
+          "cachedResultName": "QP_Setup_Orion",
+          "cachedResultUrl": "https://github.com/DeividMs/QP_Setup_Orion"
+        },
+        "filePath": "=workflows/{{ $('Workflow').item.json['versao-qp'] }}/{{ $('Workflow').item.json.name }}.json",
+        "fileContent": "={{ JSON.stringify($('Workflow').item.json, null, 2) }}",
+        "commitMessage": "=Backup Realizado em {{ $now }}",
+        "additionalParameters": {
+          "branch": {
+            "branch": "main"
+          }
+        }
+      },
+      "id": "c0188680-cd9b-4b45-8898-67271a53700a",
+      "name": "GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        4460,
+        1080
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "j1Pfoo6J0o03AtD8",
+          "name": "GitHub-QP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "n8n export:workflow --backup --output=/home/node/n8n-backups/workflows"
+      },
+      "id": "1c148ddd-40c2-44fa-b0c1-f2594069a8f3",
+      "name": "ExportarWorkflows",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [
+        940,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "fileSelector": "/home/node/n8n-backups/workflows/*.json"
+      },
+      "id": "00df5b84-1a23-40d7-a374-fbc64dd827fa",
+      "name": "Read Binary Files",
+      "type": "n8n-nodes-base.readBinaryFiles",
+      "position": [
+        1180,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "08224661-af96-4d92-9634-69b576dfd0cd",
+      "name": "Move Binary Data",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "position": [
+        1380,
+        640
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Configura o Backup dos Workflows ",
+        "height": 326.29607250755294,
+        "width": 1097.2219381826642
+      },
+      "id": "27f84ffc-9a03-4f7e-a250-b33bf96d8e76",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        440,
+        460
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "triggerAtMinute": 15
+            }
+          ]
+        }
+      },
+      "id": "e5d4525f-665f-42eb-9a60-ec6acf391632",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "command": "rm -rf /home/node/n8n-backups/workflows"
+      },
+      "id": "f14ae45f-7f69-490f-8746-56dff03a7e2f",
+      "name": "Execute Command",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        700,
+        640
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "deividms",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "QP_Setup_Orion",
+          "mode": "list",
+          "cachedResultName": "QP_Setup_Orion",
+          "cachedResultUrl": "https://github.com/DeividMs/QP_Setup_Orion"
+        },
+        "filePath": "=workflows/{{ $('Workflow').item.json['versao-qp'] }}/{{ $('Workflow').item.json.name }}.json",
+        "fileContent": "={{ JSON.stringify($('Workflow').item.json, null, 2) }}",
+        "commitMessage": "=Backup Realizado em {{ $now }}",
+        "additionalParameters": {
+          "branch": {
+            "branch": "main"
+          }
+        }
+      },
+      "id": "3ad00ed2-ad55-4a61-b6b8-b986e061d19b",
+      "name": "GitHub1",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        3840,
+        1000
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "j1Pfoo6J0o03AtD8",
+          "name": "GitHub-QP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "deividms",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "QP_Setup_Orion",
+          "mode": "list",
+          "cachedResultName": "QP_Setup_Orion",
+          "cachedResultUrl": "https://github.com/DeividMs/QP_Setup_Orion"
+        },
+        "filePath": "=workflows/{{ $('Workflow').item.json['versao-qp'] }}/{{ $json.name }}.json",
+        "additionalParameters": {}
+      },
+      "id": "2899d492-463b-4aa4-aa54-474a3ae20798",
+      "name": "GitHubWorkflow",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [
+        2860,
+        660
+      ],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "j1Pfoo6J0o03AtD8",
+          "name": "GitHub-QP"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.error }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "87ff53e5-05a8-4422-b715-ef43ddf2e224",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3120,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "cbde0831-ed46-4d92-a0d3-b25f9858fb87",
+      "name": "Convert to/from binary data",
+      "type": "n8n-nodes-base.moveBinaryData",
+      "typeVersion": 1.1,
+      "position": [
+        3360,
+        800
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.updatedAt }}",
+              "operation": "notEqual",
+              "value2": "={{ $('Workflow').item.json.updatedAt }}"
+            }
+          ]
+        }
+      },
+      "id": "3d753791-a832-4676-9f1a-610bea131e50",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        3600,
+        900
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5fd1c901-ca12-41f2-95db-435ed2c0b448",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2020,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "1eb6f881-f86d-43c9-a253-80e62a1ae6e1",
+              "leftValue": "={{ $('Workflow').item.json[\"name\"] }}",
+              "rightValue": "Backup_Workflow_GitHub",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "62f860bd-4006-43f7-a7ee-37a2c823e6e1",
+              "leftValue": "={{ $('Workflow').item.json[\"name\"] }}",
+              "rightValue": "IA",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "e740c82f-a312-4450-a3b0-f3020728fb64",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2600,
+        660
+      ]
+    }
+  ],
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ExportarWorkflows": {
+      "main": [
+        [
+          {
+            "node": "Read Binary Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Binary Files": {
+      "main": [
+        [
+          {
+            "node": "Move Binary Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move Binary Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "ExportarWorkflows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHubWorkflow": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to/from binary data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to/from binary data": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "GitHub1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "GitHubWorkflow",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "fa6af5ec-3a4d-4970-958e-a41dbadbc77e",
+  "triggerCount": 0,
+  "tags": [],
+  "versao-qp": "updating"
+}
