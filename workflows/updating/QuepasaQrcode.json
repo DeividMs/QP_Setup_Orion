@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-05T03:12:09.950Z",
+  "updatedAt": "2025-02-06T01:27:27.402Z",
+  "id": "z7iqKYC8r5nPRRHt",
   "name": "QuepasaQrcode",
+  "active": true,
   "nodes": [
     {
       "parameters": {
@@ -1111,13 +1115,13 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -163,
-        550
+        -160,
+        540
       ]
     },
     {
       "parameters": {
-        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
+        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"02pjPUL2ejmfVDHQ\" }}",
         "options": {}
       },
       "id": "3e043edd-6aca-4239-ae73-2aecbadddb72",
@@ -1125,8 +1129,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -163,
-        690
+        -160,
+        700
       ]
     },
     {
@@ -1208,8 +1212,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1244,7 +1248,6 @@
       "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
     }
   ],
-  "pinData": {},
   "connections": {
     "IF": {
       "main": [
@@ -1822,22 +1825,146 @@
       ]
     }
   },
-  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "f3e47b4d-e633-45fa-bde5-ed6be1f95692",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "z7iqKYC8r5nPRRHt",
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.developermaster.com.br",
+            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
+            "content-length": "3583",
+            "accept": "application/json",
+            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhook.developermaster.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "0b694d0e8cff",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "additional_attributes": {
+              "mail_subject": ""
+            },
+            "can_reply": true,
+            "channel": "Channel::Api",
+            "contact_inbox": {
+              "id": 179,
+              "contact_id": 39,
+              "inbox_id": 1,
+              "source_id": "ac4c6540-de2b-4379-b68d-d4805514ce25",
+              "created_at": "2025-02-06T00:59:38.134Z",
+              "updated_at": "2025-02-06T00:59:38.134Z",
+              "hmac_verified": false,
+              "pubsub_token": "Cyxjw13NJfL9CtSLTJvah7nP"
+            },
+            "id": 188,
+            "inbox_id": 1,
+            "messages": [
+              {
+                "id": 5734,
+                "content": "/qrcode",
+                "account_id": 1,
+                "inbox_id": 1,
+                "conversation_id": 188,
+                "message_type": 1,
+                "created_at": 1738803578,
+                "updated_at": "2025-02-06T00:59:38.159Z",
+                "private": false,
+                "status": "sent",
+                "source_id": null,
+                "content_type": "text",
+                "content_attributes": {},
+                "sender_type": "User",
+                "sender_id": 1,
+                "external_source_ids": {},
+                "additional_attributes": {},
+                "processed_message_content": "/qrcode",
+                "sentiment": {},
+                "conversation": {
+                  "assignee_id": 1,
+                  "unread_count": 0,
+                  "last_activity_at": 1738803578,
+                  "contact_inbox": {
+                    "source_id": "ac4c6540-de2b-4379-b68d-d4805514ce25"
+                  }
+                },
+                "sender": {
+                  "id": 1,
+                  "name": "Super User Agent",
+                  "available_name": "Super User Agent",
+                  "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                  "type": "user",
+                  "availability_status": null,
+                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+                }
+              }
+            ],
+            "labels": [],
+            "meta": {
+              "sender": {
+                "additional_attributes": {},
+                "custom_attributes": {},
+                "email": null,
+                "id": 39,
+                "identifier": "deivid.amsantos@gmail.com",
+                "name": "Quepasa",
+                "phone_number": null,
+                "thumbnail": "",
+                "type": "contact"
+              },
+              "assignee": {
+                "id": 1,
+                "name": "Super User Agent",
+                "available_name": "Super User Agent",
+                "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                "type": "user",
+                "availability_status": null,
+                "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+              },
+              "team": null,
+              "hmac_verified": false
+            },
+            "status": "pending",
+            "custom_attributes": {},
+            "snoozed_until": null,
+            "unread_count": 0,
+            "first_reply_created_at": "2025-02-06T00:59:38.159Z",
+            "priority": null,
+            "waiting_since": 0,
+            "agent_last_seen_at": 0,
+            "contact_last_seen_at": 0,
+            "last_activity_at": 1738803578,
+            "timestamp": 1738803578,
+            "created_at": 1738803578,
+            "event": "automation_event.message_created"
+          },
+          "webhookUrl": "https://webhook.developermaster.com.br/webhook/quepasa",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "8d429da0-bbd7-493a-809f-62f6d9c11382",
+  "triggerCount": 1,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     }
-  ]
+  ],
+  "versao-qp": "updating"
 }
