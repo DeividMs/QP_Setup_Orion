@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:35:31.942Z",
+  "id": "1004",
   "name": "ChatwootProfileUpdate",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -327,13 +331,12 @@
       ],
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     }
   ],
-  "pinData": {},
   "connections": {
     "Quepasa + Contact": {
       "main": [
@@ -508,18 +511,21 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 20,
     "executionOrder": "v1"
   },
-  "versionId": "c812f754-bf93-4ce9-bf9a-283359089723",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1004",
-  "tags": []
+  "pinData": {},
+  "versionId": "0b68546a-90c2-46c4-85d0-4656c1d6e777",
+  "triggerCount": 0,
+  "tags": [],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "ChatwootProfileUpdate"
 }
