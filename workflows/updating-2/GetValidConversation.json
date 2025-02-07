@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:37:37.156Z",
+  "updatedAt": "2025-02-07T03:09:40.213Z",
   "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
   "active": false,
@@ -952,6 +952,97 @@
         1240
       ],
       "webhookId": "13d982e4-e253-4616-9e0a-3da472be5e56"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "915f6870-811a-493e-b1c8-2631f16463c3",
+              "leftValue": "={{ [\"true\", \"1\"].includes($json.extra.typebot?.toString().trim().toLowerCase()) }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true,
+          "looseTypeValidation": true
+        }
+      },
+      "id": "731aaabf-bdf9-45bf-8bde-b3fca6d2948c",
+      "name": "TypeBot ?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2080,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "conversation.status",
+              "value": "={{$json.payload.current_status}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set Updated Conversation Status1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        2640,
+        240
+      ],
+      "id": "90bea613-fac2-4000-a6c6-175d7fbf6e47"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "={{$json[\"extra\"][\"cwhost\"]}}/api/v1/accounts/{{$json[\"extra\"][\"account\"]}}/conversations/{{$json[\"conversation\"][\"id\"]}}/toggle_status",
+        "allowUnauthorizedCerts": true,
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "status",
+              "value": "pending"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "api_access_token",
+              "value": "={{$json[\"extra\"][\"atoken\"]}}"
+            }
+          ]
+        }
+      },
+      "name": "Pending a Conversation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        240
+      ],
+      "id": "1ae9342c-9ea0-4937-a791-c6e9697b4407"
     }
   ],
   "connections": {
@@ -1455,7 +1546,7 @@
             "index": 1
           },
           {
-            "node": "Open a Conversation",
+            "node": "TypeBot ?1",
             "type": "main",
             "index": 0
           }
@@ -1499,6 +1590,46 @@
           }
         ]
       ]
+    },
+    "TypeBot ?1": {
+      "main": [
+        [
+          {
+            "node": "Pending a Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Open a Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pending a Conversation": {
+      "main": [
+        [
+          {
+            "node": "Set Updated Conversation Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Updated Conversation Status1": {
+      "main": [
+        [
+          {
+            "node": "Merge Conversation Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -1511,8 +1642,47 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {},
-  "versionId": "e56414e2-178f-4c53-9579-f763172fd7a9",
+  "pinData": {
+    "Execute Workflow Trigger": [
+      {
+        "json": {
+          "fromme": false,
+          "edited": false,
+          "extra": {
+            "account": 1,
+            "atoken": "50e28457d06de6c3d456a01",
+            "cwhost": "https://app.developermaster.com.br",
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "inbox": 1,
+            "qphost": "https://apiqp2.developermaster.com.br",
+            "qptoken": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "tbstart": "modelo",
+            "typebot": "true",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n"
+          },
+          "chat": {
+            "id": "556193743824@s.whatsapp.net",
+            "title": "Deivid Martins",
+            "phone": "+556193743824",
+            "hex": "35353631393337343338323440732e77686174736170702e6e6574",
+            "chatwoot": {
+              "skipgreetings": false,
+              "skipcontact": false,
+              "skipevaluation": false,
+              "skipaudiotranscript": false,
+              "id": 473,
+              "source_id": "35353631393337343338323440732e77686174736170702e6e6574"
+            }
+          },
+          "id": "3EB07958E21C6F57A1FECE",
+          "timestamp": "2025-02-07T00:01:48.929894895-03:00",
+          "text": "teste",
+          "type": "text"
+        }
+      }
+    ]
+  },
+  "versionId": "95c774e5-1863-4516-84fb-bf1ae303679a",
   "triggerCount": 0,
   "tags": [],
   "versao-qp": "updating-2",
