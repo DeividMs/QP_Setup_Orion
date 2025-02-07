@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-05T03:12:09.950Z",
+  "updatedAt": "2025-02-06T00:00:24.636Z",
+  "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -214,8 +218,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       },
       "continueOnFail": true
@@ -693,8 +697,8 @@
       ],
       "credentials": {
         "redis": {
-          "id": "HfPZbIWdUGUkegSm",
-          "name": "Redis account"
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis-Cv-QP"
         }
       },
       "onError": "continueRegularOutput"
@@ -718,8 +722,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "redis": {
-          "id": "HfPZbIWdUGUkegSm",
-          "name": "Redis account"
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis-Cv-QP"
         }
       },
       "onError": "continueRegularOutput"
@@ -770,8 +774,8 @@
       "executeOnce": false,
       "credentials": {
         "redis": {
-          "id": "HfPZbIWdUGUkegSm",
-          "name": "Redis account"
+          "id": "xZo16dohQwFZPium",
+          "name": "Redis-Cv-QP"
         }
       },
       "onError": "continueRegularOutput"
@@ -950,7 +954,6 @@
       "webhookId": "13d982e4-e253-4616-9e0a-3da472be5e56"
     }
   ],
-  "pinData": {},
   "connections": {
     "Create a Conversation": {
       "main": [
@@ -1498,17 +1501,19 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "executionOrder": "v1",
     "callerPolicy": "any",
     "executionTimeout": 20
   },
-  "versionId": "106b7dac-d9bc-4859-886c-16e004dc0e6b",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "qjdP01sHPfaPFUq1",
-  "tags": []
+  "pinData": {},
+  "versionId": "9049591a-fcab-4378-8e5d-e23c5a6a1e69",
+  "triggerCount": 0,
+  "tags": [],
+  "versao-qp": "updating"
 }
