@@ -1,5 +1,9 @@
 {
+  "createdAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-02-07T01:38:32.808Z",
+  "id": "1001",
   "name": "QuepasaInboxControl",
+  "active": false,
   "nodes": [
     {
       "parameters": {
@@ -612,8 +616,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "postgres": {
-          "id": "1",
-          "name": "Postgres account"
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
         }
       }
     },
@@ -1593,7 +1597,6 @@
       ]
     }
   ],
-  "pinData": {},
   "connections": {
     "Set Response From Quepasa": {
       "main": [
@@ -2378,19 +2381,20 @@
       ]
     }
   },
-  "active": false,
   "settings": {
     "saveManualExecutions": false,
     "callerPolicy": "workflowsFromSameOwner",
     "executionTimeout": 15,
     "executionOrder": "v1"
   },
-  "versionId": "d8fdba07-ac88-480d-b5d5-c708edd2d194",
+  "staticData": null,
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "id": "1001",
+  "pinData": {},
+  "versionId": "e36bda4c-13bf-49a4-9256-6af67a298e31",
+  "triggerCount": 0,
   "tags": [
     {
       "createdAt": "2022-10-13T15:26:11.519Z",
@@ -2399,9 +2403,9 @@
       "name": "quepasa"
     },
     {
-      "createdAt": "2022-10-13T15:26:19.857Z",
-      "updatedAt": "2023-08-24T21:01:00.296Z",
-      "id": "6",
+      "createdAt": "2024-05-24T01:34:15.401Z",
+      "updatedAt": "2024-05-24T01:34:15.401Z",
+      "id": "PHDp1yoMiVikbrb2",
       "name": "chatwoot"
     },
     {
@@ -2410,5 +2414,7 @@
       "id": "13",
       "name": "github.com/nocodeleaks"
     }
-  ]
+  ],
+  "versao-qp": "updating-2",
+  "Workflow-Nome": "QuepasaInboxControl"
 }
