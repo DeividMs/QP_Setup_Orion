@@ -1,13 +1,13 @@
 {
-  "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:40:54.727Z",
+  "createdAt": "2025-02-08T00:11:26.643Z",
+  "updatedAt": "2025-02-08T02:22:58.293Z",
   "id": "JSpCXQiF7TT1zUgp",
   "name": "ToTypeBot",
   "active": false,
   "nodes": [
     {
       "parameters": {
-        "content": "## (1.0.2) Updates\n* resolving and open by text comands\n",
+        "content": "## (1.0.3) Updates\n* allow calling by others\n",
         "height": 175.906164153499,
         "width": 398.976541038375
       },
@@ -715,8 +715,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        7300,
-        700
+        7360,
+        760
       ],
       "credentials": {
         "redis": {
@@ -1240,29 +1240,6 @@
     {
       "parameters": {
         "requestMethod": "POST",
-        "url": "={{$('EXTRA').item.json.cwhost}}/api/v1/accounts/{{$('EXTRA').item.json.account}}/conversations/{{$('PAYLOAD').item.json.conversation.id}}/custom_attributes",
-        "allowUnauthorizedCerts": true,
-        "jsonParameters": true,
-        "options": {},
-        "bodyParametersJson": "={{ $json }}",
-        "headerParametersJson": "={\"api_access_token\":\"{{$('EXTRA').item.json.utoken}}\"}",
-        "queryParametersJson": "{}"
-      },
-      "name": "Update Status For Conversation",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 2,
-      "position": [
-        7100,
-        700
-      ],
-      "id": "1e3ef7e9-be2b-4cb5-8364-1656712fa9e9",
-      "retryOnFail": true,
-      "maxTries": 2,
-      "onError": "continueRegularOutput"
-    },
-    {
-      "parameters": {
-        "requestMethod": "POST",
         "url": "={{$('EXTRA').item.json.cwhost}}/api/v1/accounts/{{$('EXTRA').item.json.account}}/conversations/{{ $('PAYLOAD').item.json.conversation.id }}/toggle_status ",
         "allowUnauthorizedCerts": true,
         "jsonParameters": true,
@@ -1547,6 +1524,33 @@
         6460,
         440
       ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$('EXTRA').item.json.cwhost}}/api/v1/accounts/{{$('EXTRA').item.json.account}}/conversations/{{$('PAYLOAD').item.json.conversation.id}}/custom_attributes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api_access_token",
+              "value": "={{$('EXTRA').item.json.utoken}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"custom_attributes\": {  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        7120,
+        760
+      ],
+      "id": "8406339e-2288-4230-935d-9e9388cb417e",
+      "name": "HTTP Request"
     }
   ],
   "connections": {
@@ -1869,12 +1873,12 @@
       "main": [
         [
           {
-            "node": "Update Status For Conversation",
+            "node": "If Conversation Is Not Openned",
             "type": "main",
             "index": 0
           },
           {
-            "node": "If Conversation Is Not Openned",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -1936,12 +1940,12 @@
       "main": [
         [
           {
-            "node": "Update Status For Conversation",
+            "node": "If Conversation Is Not Openned",
             "type": "main",
             "index": 0
           },
           {
-            "node": "If Conversation Is Not Openned",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -2091,17 +2095,6 @@
         ]
       ]
     },
-    "Update Status For Conversation": {
-      "main": [
-        [
-          {
-            "node": "Delete Typebot Session",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Update Status For Conversation - start": {
       "main": [
         [
@@ -2217,7 +2210,7 @@
             "index": 0
           },
           {
-            "node": "Update Status For Conversation",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -2235,7 +2228,18 @@
       "main": [
         [
           {
-            "node": "Update Status For Conversation",
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Delete Typebot Session",
             "type": "main",
             "index": 0
           }
@@ -2245,7 +2249,7 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "callerPolicy": "workflowsFromSameOwner",
+    "callerPolicy": "any",
     "executionTimeout": 30
   },
   "staticData": null,
@@ -2253,8 +2257,56 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {},
-  "versionId": "429db092-fcdf-412f-93c6-17f7d6110110",
+  "pinData": {
+    "When Called By Another Workflow": [
+      {
+        "json": {
+          "fromme": false,
+          "edited": false,
+          "extra": {
+            "account": 1,
+            "atoken": "50e28457d06de6c3d456a01",
+            "cwhost": "https://app.developermaster.com.br",
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "inbox": 1,
+            "qphost": "https://apiqp2.developermaster.com.br",
+            "qptoken": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "tbstart": true,
+            "typebot": "modelo",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n"
+          },
+          "chat": {
+            "id": "556193743824@s.whatsapp.net",
+            "title": "Deivid Martins",
+            "phone": "+556193743824",
+            "hex": "35353631393337343338323440732e77686174736170702e6e6574",
+            "chatwoot": {
+              "skipgreetings": false,
+              "skipcontact": false,
+              "skipevaluation": false,
+              "skipaudiotranscript": false,
+              "id": 474,
+              "source_id": "35353631393337343338323440732e77686174736170702e6e6574"
+            }
+          },
+          "id": "3EB031010ED155B76E5F3E",
+          "timestamp": "2025-02-07T22:50:23.815450503-03:00",
+          "text": "1",
+          "type": "text",
+          "conversation": {
+            "id": 211,
+            "status": "pending",
+            "custom_attributes": {
+              "typebot_status": "start",
+              "typebot_session": "cm6vjg10t0006aasleocsf9fw",
+              "typebotsessionid": "starttypebot"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "versionId": "0cad2c35-cd37-4cca-9edd-59f6c58210c7",
   "triggerCount": 0,
   "tags": [
     {
