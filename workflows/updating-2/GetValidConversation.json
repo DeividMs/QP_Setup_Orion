@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T03:09:40.213Z",
+  "updatedAt": "2025-02-08T03:48:55.868Z",
   "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
   "active": false,
@@ -153,7 +153,7 @@
       "typeVersion": 1,
       "position": [
         -2980,
-        823
+        820
       ]
     },
     {
@@ -872,11 +872,11 @@
           "conditions": [
             {
               "id": "915f6870-811a-493e-b1c8-2631f16463c3",
-              "leftValue": "={{ [\"true\", \"1\"].includes($json.extra.typebot?.toString().trim().toLowerCase()) }}",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
               "rightValue": "=",
               "operator": {
-                "type": "boolean",
-                "operation": "true",
+                "type": "string",
+                "operation": "notEmpty",
                 "singleValue": true
               }
             }
@@ -965,11 +965,11 @@
           "conditions": [
             {
               "id": "915f6870-811a-493e-b1c8-2631f16463c3",
-              "leftValue": "={{ [\"true\", \"1\"].includes($json.extra.typebot?.toString().trim().toLowerCase()) }}",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
               "rightValue": "=",
               "operator": {
-                "type": "boolean",
-                "operation": "true",
+                "type": "string",
+                "operation": "notEmpty",
                 "singleValue": true
               }
             }
@@ -1649,15 +1649,15 @@
           "fromme": false,
           "edited": false,
           "extra": {
-            "account": 1,
+            "account": "1",
             "atoken": "50e28457d06de6c3d456a01",
             "cwhost": "https://app.developermaster.com.br",
             "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "inbox": 1,
+            "inbox": "1",
             "qphost": "https://apiqp2.developermaster.com.br",
             "qptoken": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "tbstart": "modelo",
-            "typebot": "true",
+            "singlethread": null,
+            "typebot": "bot",
             "utoken": "Wx832mMujwGsPXcKEhbCpf3n"
           },
           "chat": {
@@ -1670,19 +1670,19 @@
               "skipcontact": false,
               "skipevaluation": false,
               "skipaudiotranscript": false,
-              "id": 473,
+              "id": 474,
               "source_id": "35353631393337343338323440732e77686174736170702e6e6574"
             }
           },
-          "id": "3EB07958E21C6F57A1FECE",
-          "timestamp": "2025-02-07T00:01:48.929894895-03:00",
+          "id": "3EB0BAD1FDAB77D180228F",
+          "timestamp": "2025-02-07T23:40:23-03:00",
           "text": "teste",
           "type": "text"
         }
       }
     ]
   },
-  "versionId": "95c774e5-1863-4516-84fb-bf1ae303679a",
+  "versionId": "393edc38-42a9-42d0-96d2-6fd4784965a7",
   "triggerCount": 0,
   "tags": [],
   "versao-qp": "updating-2",
