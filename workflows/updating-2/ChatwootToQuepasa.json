@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:58:19.211Z",
+  "updatedAt": "2025-02-08T05:10:06.735Z",
   "id": "1008",
   "name": "ChatwootToQuepasa",
   "active": true,
@@ -2073,6 +2073,180 @@
         -6620,
         6400
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "67b346ee-fa8e-4a26-b016-9c78a2e72cd6",
+              "leftValue": "={{ $('Defaults').item.json.query.typebot }}\n",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -5900,
+        4660
+      ],
+      "id": "088c6d5f-a9c1-4558-b43b-e9637d1f58f4",
+      "name": "Typebot?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.body.id}}/custom_attributes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "api_access_token",
+              "value": "={{$json.extra.utoken}}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"custom_attributes\": {  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -7140,
+        5020
+      ],
+      "id": "fdfdf145-0695-4756-9a28-770dfb958241",
+      "name": "Clear-Session-TypeBot"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.body.conversation.id}}/toggle_status",
+        "allowUnauthorizedCerts": true,
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "status",
+              "value": "open"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "api_access_token",
+              "value": "={{$json.extra.atoken}}"
+            }
+          ]
+        }
+      },
+      "name": "Open Conversation-Pause-Session-Typebot",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -5640,
+        4640
+      ],
+      "id": "cfb964b9-1895-4249-9593-fcb64ba98c41",
+      "disabled": true,
+      "continueOnFail": true,
+      "notes": "Important to use \"source_id\" to respond messages"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "67b346ee-fa8e-4a26-b016-9c78a2e72cd6",
+              "leftValue": "={{ $('Defaults').item.json.query.typebot }}\n",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "d7d0bace-4066-47dc-a4ea-3b8bbd46e0cf",
+              "leftValue": "={{ $json.body.conversation.status }}",
+              "rightValue": "pending",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -5200,
+        4660
+      ],
+      "id": "77879f06-f456-4b1c-bdb6-377f9810fd54",
+      "name": "Typebot?1"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "={{$json.extra.cwhost}}/api/v1/accounts/{{$json.extra.account}}/conversations/{{$json.body.conversation.id}}/toggle_status",
+        "allowUnauthorizedCerts": true,
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "status",
+              "value": "open"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "api_access_token",
+              "value": "={{$json.extra.atoken}}"
+            }
+          ]
+        }
+      },
+      "name": "Open Conversation-Pause-Session-Typebot1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        -4940,
+        4640
+      ],
+      "id": "4ad2832d-bbbe-4f96-86eb-65d3797b2ec0",
+      "continueOnFail": true,
+      "notes": "Important to use \"source_id\" to respond messages"
     }
   ],
   "connections": {
@@ -2170,11 +2344,21 @@
             "node": "From Quepasa Control ?",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Typebot?1",
+            "type": "main",
+            "index": 0
           }
         ],
         [
           {
             "node": "Respond Ok From Customer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Typebot?",
             "type": "main",
             "index": 0
           }
@@ -2369,6 +2553,11 @@
         [
           {
             "node": "If Not Control & Not Broadcast",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Clear-Session-TypeBot",
             "type": "main",
             "index": 0
           }
@@ -3084,6 +3273,33 @@
           }
         ]
       ]
+    },
+    "Typebot?": {
+      "main": [
+        [
+          {
+            "node": "Open Conversation-Pause-Session-Typebot",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Open Conversation-Pause-Session-Typebot": {
+      "main": [
+        []
+      ]
+    },
+    "Typebot?1": {
+      "main": [
+        [
+          {
+            "node": "Open Conversation-Pause-Session-Typebot1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -3097,8 +3313,155 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {},
-  "versionId": "5087ea17-c308-4701-98f4-30690e6a582d",
+  "pinData": {
+    "From ChatWoot": [
+      {
+        "json": {
+          "headers": {
+            "host": "webhook.developermaster.com.br",
+            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
+            "content-length": "3466",
+            "accept": "application/json",
+            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+            "content-type": "application/json",
+            "x-forwarded-for": "172.18.0.1",
+            "x-forwarded-host": "webhook.developermaster.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "acf95b94c466",
+            "x-real-ip": "172.18.0.1"
+          },
+          "params": {},
+          "query": {
+            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
+            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
+            "atoken": "50e28457d06de6c3d456a01",
+            "typebot": "modelo"
+          },
+          "body": {
+            "account": {
+              "id": 1,
+              "name": "Chatwoot"
+            },
+            "additional_attributes": {},
+            "content_attributes": {},
+            "content_type": "text",
+            "content": "tes",
+            "conversation": {
+              "additional_attributes": {},
+              "can_reply": true,
+              "channel": "Channel::Api",
+              "contact_inbox": {
+                "id": 211,
+                "contact_id": 474,
+                "inbox_id": 1,
+                "source_id": "de2419f7-47d8-4c1c-a438-f72e1c964a17",
+                "created_at": "2025-02-08T04:10:47.308Z",
+                "updated_at": "2025-02-08T04:10:47.308Z",
+                "hmac_verified": false,
+                "pubsub_token": "yAX3Njd2RPRaN8N31Qd3w6aY"
+              },
+              "id": 224,
+              "inbox_id": 1,
+              "messages": [
+                {
+                  "id": 6135,
+                  "content": "tes",
+                  "account_id": 1,
+                  "inbox_id": 1,
+                  "conversation_id": 224,
+                  "message_type": 1,
+                  "created_at": 1738990894,
+                  "updated_at": "2025-02-08T05:01:34.548Z",
+                  "private": false,
+                  "status": "sent",
+                  "source_id": null,
+                  "content_type": "text",
+                  "content_attributes": {},
+                  "sender_type": "User",
+                  "sender_id": 1,
+                  "external_source_ids": {},
+                  "additional_attributes": {},
+                  "processed_message_content": "tes",
+                  "sentiment": {},
+                  "conversation": {
+                    "assignee_id": null,
+                    "unread_count": 0,
+                    "last_activity_at": 1738990894,
+                    "contact_inbox": {
+                      "source_id": "de2419f7-47d8-4c1c-a438-f72e1c964a17"
+                    }
+                  },
+                  "sender": {
+                    "id": 1,
+                    "name": "User Fixo",
+                    "available_name": "User Fixo",
+                    "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
+                    "type": "user",
+                    "availability_status": null,
+                    "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
+                  }
+                }
+              ],
+              "labels": [],
+              "meta": {
+                "sender": {
+                  "additional_attributes": {},
+                  "custom_attributes": {},
+                  "email": null,
+                  "id": 474,
+                  "identifier": "556193743824@s.whatsapp.net",
+                  "name": "Deivid Martins",
+                  "phone_number": "+556193743824",
+                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaDRDIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--6b3ec264f5e04517819e660f5195e9b5a7e923c4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/217326938_5613522131996588_7268782841462315352_n.jpg",
+                  "type": "contact"
+                },
+                "assignee": null,
+                "team": null,
+                "hmac_verified": false
+              },
+              "status": "open",
+              "custom_attributes": {
+                "typebot_status": "continue",
+                "typebot_session": "cm6vozayn000gaaslv74v416m",
+                "typebotsessionid": "starttypebot"
+              },
+              "snoozed_until": null,
+              "unread_count": 0,
+              "first_reply_created_at": null,
+              "priority": null,
+              "waiting_since": 1738987847,
+              "agent_last_seen_at": 1738990894,
+              "contact_last_seen_at": 0,
+              "last_activity_at": 1738990894,
+              "timestamp": 1738990894,
+              "created_at": 1738987847
+            },
+            "created_at": "2025-02-08T05:01:34.548Z",
+            "id": 6135,
+            "inbox": {
+              "id": 1,
+              "name": "Quepasa"
+            },
+            "message_type": "outgoing",
+            "status": "sent",
+            "private": false,
+            "sender": {
+              "id": 1,
+              "name": "User Fixo",
+              "email": "deivid.amsantos@gmail.com",
+              "type": "user"
+            },
+            "source_id": null,
+            "event": "message_created"
+          },
+          "webhookUrl": "https://webhook.developermaster.com.br/webhook/from-chatwoot",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "versionId": "170db0e7-9a79-44ca-a20f-3205d9215cbe",
   "triggerCount": 1,
   "tags": [
     {
