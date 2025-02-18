@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:26:56.777Z",
+  "updatedAt": "2025-02-18T13:31:11.237Z",
   "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
   "active": false,
@@ -873,11 +873,10 @@
             {
               "id": "915f6870-811a-493e-b1c8-2631f16463c3",
               "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
-              "rightValue": "=",
+              "rightValue": "=undefined",
               "operator": {
                 "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
+                "operation": "notEquals"
               }
             }
           ],
@@ -966,11 +965,10 @@
             {
               "id": "915f6870-811a-493e-b1c8-2631f16463c3",
               "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
-              "rightValue": "=",
+              "rightValue": "=undefined",
               "operator": {
                 "type": "string",
-                "operation": "notEmpty",
-                "singleValue": true
+                "operation": "notEquals"
               }
             }
           ],
@@ -1643,7 +1641,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "343b568e-9882-4118-8270-bae797005b81",
+  "versionId": "901b912f-38b1-44f4-a7d0-2a8cc19f30cc",
   "triggerCount": 0,
   "tags": [],
   "versao-qp": "3.25.206.1112",
