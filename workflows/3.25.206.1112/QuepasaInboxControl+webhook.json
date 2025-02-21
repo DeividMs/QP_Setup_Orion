@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:38:58.783Z",
+  "updatedAt": "2025-02-21T04:05:30.528Z",
   "id": "Zj197aISsaIkZP2Z",
   "name": "QuepasaInboxControl+webhook",
   "active": false,
@@ -305,7 +305,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        100,
+        160,
         360
       ]
     },
@@ -436,8 +436,8 @@
             {
               "id": "218b1ecb-ad20-4101-99b2-8ee7d30705b0",
               "name": "extra.singlethread",
-              "value": "={{ ($('QUERY').item.json.st ?? $('QUERY').item.json.singlethread) ? true : undefined }}",
-              "type": "string"
+              "value": "={{ $('QUERY').item.json.st ?? $('QUERY').item.json.singlethread }}",
+              "type": "boolean"
             },
             {
               "id": "9b5e268f-35f7-4027-8555-43ebd0a42383",
@@ -450,6 +450,12 @@
               "name": "forwardinternal",
               "value": true,
               "type": "boolean"
+            },
+            {
+              "id": "1581f683-3d23-472b-a74f-6d0d44308019",
+              "name": "teste",
+              "value": "={{ $env[\"C8Q_SINGLETHREAD\"] }}",
+              "type": "string"
             }
           ]
         },
@@ -672,7 +678,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "d79bff51-fb6f-4168-95b5-037e0e1ebedd",
+  "versionId": "4f0cdb3a-72a0-4f39-8bba-923207d580a9",
   "triggerCount": 0,
   "tags": [],
   "versao-qp": "3.25.206.1112",
