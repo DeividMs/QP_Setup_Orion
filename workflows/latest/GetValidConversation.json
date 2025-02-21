@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-18T13:31:11.237Z",
+  "updatedAt": "2025-02-21T04:05:42.272Z",
   "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
   "active": false,
@@ -136,9 +136,7 @@
             {
               "name": "contactid",
               "value": "={{$json.chat.chatwoot.id}}"
-            }
-          ],
-          "boolean": [
+            },
             {
               "name": "singlethread",
               "value": "={{ $json.extra.singlethread ?? /^true$/i.test($env[\"C8Q_SINGLETHREAD\"]) ?? false }}"
@@ -475,8 +473,15 @@
               "value1": "={{ $json.singlethread }}",
               "value2": true
             }
+          ],
+          "string": [
+            {
+              "value1": "={{ $json.singlethread }}",
+              "value2": "true"
+            }
           ]
-        }
+        },
+        "combineOperation": "any"
       },
       "id": "9344f142-7ee8-47c2-a1f9-5969cd9e16f8",
       "name": "If Single Thread ?",
@@ -871,16 +876,17 @@
           },
           "conditions": [
             {
-              "id": "915f6870-811a-493e-b1c8-2631f16463c3",
+              "id": "a58797ca-2e96-477e-ad16-06461877a37f",
               "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
-              "rightValue": "=undefined",
+              "rightValue": "",
               "operator": {
                 "type": "string",
-                "operation": "notEquals"
+                "operation": "notEmpty",
+                "singleValue": true
               }
             }
           ],
-          "combinator": "and"
+          "combinator": "or"
         },
         "options": {
           "ignoreCase": true,
@@ -968,7 +974,8 @@
               "rightValue": "=undefined",
               "operator": {
                 "type": "string",
-                "operation": "notEquals"
+                "operation": "notEmpty",
+                "singleValue": true
               }
             }
           ],
@@ -1641,7 +1648,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "901b912f-38b1-44f4-a7d0-2a8cc19f30cc",
+  "versionId": "acbdf8ab-07ec-4570-8d8d-c2a172ff291a",
   "triggerCount": 0,
   "tags": [],
   "versao-qp": "latest",
