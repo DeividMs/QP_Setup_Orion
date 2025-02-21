@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-14T02:48:24.969Z",
+  "updatedAt": "2025-02-21T02:27:06.988Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -415,7 +415,7 @@
     },
     {
       "parameters": {
-        "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
+        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"t1o1WDo9E7C5EmJC\" }}",
         "options": {}
       },
       "id": "b50096a3-336b-4ff2-88ab-ed6454990737",
@@ -1119,7 +1119,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "6a6c4b8b-543e-4af8-a7b3-785999ccf3e8",
+  "versionId": "4882a917-0838-4182-828a-af43ccd5d093",
   "triggerCount": 3,
   "tags": [
     {
