@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-03-18T00:17:52.259Z",
+  "updatedAt": "2025-06-04T01:13:28.259Z",
   "id": "1006",
   "name": "PostToChatwoot",
   "active": false,
@@ -20,10 +20,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        160,
-        560
+        6180,
+        300
       ],
-      "id": "d0b2135f-6ef3-4d3c-bf36-20ba1aa55e1f"
+      "id": "147724af-55d0-4e43-b3a3-511eed03e2b5"
     },
     {
       "parameters": {
@@ -41,10 +41,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        580,
-        720
+        6600,
+        460
       ],
-      "id": "191df1ba-7ca0-47c1-abc4-e66f3712b0b0"
+      "id": "d9084da2-e002-4f27-9369-c1a361303648"
     },
     {
       "parameters": {
@@ -54,25 +54,25 @@
         "messageid": "={{ $json.payload.content_attributes?.items?.quepasa?.msgid ?? $json.payload.echo_id }}",
         "fileName": "={{$json.attachment.filename}}"
       },
-      "id": "1b7d30d4-7a15-4294-9b83-0f9c4d171640",
+      "id": "e3ea0e6d-aaaa-4948-9e65-e54d214f216a",
       "name": "Quepasa Download Incoming",
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        1400,
-        380
+        7420,
+        120
       ],
       "continueOnFail": true
     },
     {
       "parameters": {},
-      "id": "888dd9c6-1b72-48ec-9d49-6db9e46a64b1",
+      "id": "2bd519ce-ef99-424b-8867-fef4cc43c63e",
       "name": "When Called By Another Workflow",
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -1240,
-        420
+        4440,
+        160
       ]
     },
     {
@@ -90,10 +90,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        780,
-        540
+        6800,
+        280
       ],
-      "id": "4baca7e5-a840-429e-b7ba-a5f6ab513c64"
+      "id": "3ec8bddc-01a2-44f8-b18d-2a16d51092de"
     },
     {
       "parameters": {
@@ -101,13 +101,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "26335b49-6787-468f-9932-ae00f33670a1",
+      "id": "2ebb1857-0bd1-4ce1-8260-0dd9c5dedbbe",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        1840,
-        440
+        7860,
+        180
       ]
     },
     {
@@ -121,13 +121,13 @@
           ]
         }
       },
-      "id": "aaa98b34-5990-4322-b131-c8d9ce939f35",
+      "id": "ae6caf41-9ed8-4f91-8cd6-002c09528595",
       "name": "(In) Error On Get Attach ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2020,
-        440
+        8040,
+        180
       ]
     },
     {
@@ -136,13 +136,13 @@
         "height": 347.0509255000625,
         "width": 258.1602840291324
       },
-      "id": "47035ae2-896d-4154-921d-a0595e561e4b",
+      "id": "ba5a7c7a-9196-4be0-b970-eee501d53263",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        5220,
-        1020
+        11020,
+        760
       ]
     },
     {
@@ -165,28 +165,28 @@
         },
         "options": {}
       },
-      "id": "3a9faad3-ea76-4da2-9537-53d21bb22944",
+      "id": "f79d65b7-f0c9-4c0e-9887-c57939380a5d",
       "name": "Defaults",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -760,
-        420
+        5260,
+        160
       ]
     },
     {
       "parameters": {
-        "content": "## (1.0.23) Updates\n* ads\n\n## Recommendations \n* Remember set timeout to 10 seconds",
+        "content": "## (1.0.24) Updates\n* execution data\n\n## Recommendations \n* Remember set timeout to 10 seconds",
         "height": 262.55904520292785,
-        "width": 489.8474320052134
+        "width": 442.12799981446017
       },
-      "id": "16089c89-b488-47db-80fc-5c7f841c2c5a",
+      "id": "675bee64-e067-4673-86c4-0b3a1179a08b",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1000,
-        140
+        4340,
+        -120
       ]
     },
     {
@@ -200,13 +200,13 @@
           ]
         }
       },
-      "id": "2ef42dac-63ef-4de3-a2c2-f533120bb743",
+      "id": "c35cfd0c-376e-4f32-aa47-d7895c26ee85",
       "name": "If InReply | Reaction ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -220,
-        540
+        5800,
+        280
       ]
     },
     {
@@ -221,13 +221,13 @@
         },
         "options": {}
       },
-      "id": "4a254fb0-98dd-4605-b5c1-ec00a5901325",
+      "id": "dec85ebc-8fc6-4180-856d-e1352c5b77ab",
       "name": "Prepend Reference",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -40,
-        460
+        5980,
+        200
       ]
     },
     {
@@ -244,10 +244,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        320,
-        280
+        6340,
+        20
       ],
-      "id": "a28578f2-3335-48d3-9623-cf423ded60d7",
+      "id": "ab7bcd49-2a6e-4de2-987a-4f27e3895ea3",
       "retryOnFail": true,
       "waitBetweenTries": 2000
     },
@@ -269,10 +269,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        5300,
-        1180
+        11320,
+        920
       ],
-      "id": "ec1e82af-d125-47cc-9dd3-eaa20874cb76",
+      "id": "e16b74c4-6f9d-4e5f-aa6f-26457794a3d3",
       "retryOnFail": true,
       "waitBetweenTries": 3000
     },
@@ -287,13 +287,13 @@
           "mimeType": "image/jpeg"
         }
       },
-      "id": "0571cdfd-d9af-46a3-9d03-4e0601ef07ff",
+      "id": "4f1e7c3e-6e49-404e-8533-343b40cc92b0",
       "name": "Move Binary Data",
       "type": "n8n-nodes-base.moveBinaryData",
       "typeVersion": 1,
       "position": [
-        3980,
-        1100
+        10000,
+        840
       ],
       "alwaysOutputData": true
     },
@@ -302,13 +302,13 @@
         "mode": "runOnceForEachItem",
         "jsCode": "const vcard = $json.vcard;\n\n// split the string on \\n or \\r characters\nconst lines = vcard.text.match(/[^\\r\\n]+/g);\n\nconst fn = lines.find(element => element.startsWith(\"FN:\"));\nif (fn) {\n  vcard.fn = fn.substring(3);\n}\n\nconst items = [];\n\nfunction HandlerPhone(item, phoneline){\n  // getting phone\n    item.phone = phoneline.split(\":\").pop();\n    if (item.phone) {\n      item.phone = item.phone.replace(/\\D/g, \"\");\n      if (item.phone.length === 0) item.phone = undefined;\n    }\n    \n    // getting phone old method\n    item.phone_old = phoneline.split('TEL')[1]?.split(':')[0]?.split('waid=')[1];\n    if (item.phone_old) {\n      item.phone_old = item.phone_old.replace(/\\D/g, \"\");\n      if (item.phone_old.length === 0) item.phone_old = undefined;\n    }\n    \n    // getting whatsapp id\n    const waidindex = phoneline.indexOf(\"waid=\");\n    if (waidindex > -1) {\n      item.waid = phoneline.substring(waidindex + 5).split(':')[0];\n      if (item.waid) {\n        item.waid = item.waid.replace(/\\D/g, \"\");\n        if (item.waid.length === 0) item.waid = undefined;\n      }\n    }    \n}\n\nfunction ForEachItem(element, index, array) {\n  element = element.substring(4);\n  const itemindex = element.split('.')[0];    \n  const telprefix = itemindex + \".TEL;\";\n  if (element.startsWith(telprefix)) {\n    element = element.substring(5);\n    \n    let item = items.find(s => s.index == itemindex);\n    if (!item) { item = { index: itemindex }; items.push(item); }\n\n    HandlerPhone(item, element);\n  }    \n}\n\nfunction ForEachTEL(element, index, array) {\n  element = element.substring(4);  \n    \n  const item = {}; \n  items.push(item);\n\n  HandlerPhone(item, element);  \n}\n\nconst itemlines = lines.filter(element => element.startsWith(\"item\"));\nitemlines.forEach(ForEachItem);\n\nconst tellines = lines.filter(element => element.startsWith(\"TEL;\"));\ntellines.forEach(ForEachTEL);\n\nvcard.items = items;\n\nif (vcard.items.length > 0) {\n  // setting default phone\n  vcard.phone = vcard.items[0].waid ?? vcard.items[0].phone ?? vcard.items[0].phone_old;\n}\n\nreturn $input.item;"
       },
-      "id": "2496b26f-6479-48df-92b9-832c3de16108",
+      "id": "487b7680-e0ff-4ebd-be34-f2f9f1fba1fc",
       "name": "Get vCard Infos",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        4040,
-        720
+        10060,
+        460
       ]
     },
     {
@@ -342,10 +342,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        6280,
-        700
+        12300,
+        440
       ],
-      "id": "6fd5014e-9b97-4456-8769-1ee4d62bffdf",
+      "id": "d2654764-c683-4c63-908a-532e15cc67eb",
       "retryOnFail": true,
       "waitBetweenTries": 2000
     },
@@ -355,13 +355,13 @@
         "query": "SELECT messages.id as internal_id\nFROM messages INNER JOIN conversations \nON messages.conversation_id = conversations.id\nWHERE messages.account_id = '{{ $json.extra.account }}' AND messages.source_id = '{{ $json.payload.source_id }}' ORDER BY messages.id DESC LIMIT 1;\n",
         "options": {}
       },
-      "id": "4b2de983-e2cc-4815-85f8-7aaa1d0cc261",
+      "id": "6c0873d4-3c5a-4b78-bca5-1399c61810c9",
       "name": "Get Edited Message Id",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.3,
       "position": [
-        -200,
-        200
+        5820,
+        -60
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -382,13 +382,13 @@
           ]
         }
       },
-      "id": "f52fecc9-1def-4f2a-b2d2-c55ac74d79a0",
+      "id": "02761a71-12ff-49d7-8e1d-98e4569f8601",
       "name": "If Edited Message ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -600,
-        420
+        5420,
+        160
       ]
     },
     {
@@ -406,10 +406,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        4680,
-        520
+        10700,
+        260
       ],
-      "id": "9fe0b5ae-a4ec-4707-afb6-3559fc5c5fe9",
+      "id": "69177bff-d47b-4787-bdf7-6abccd0bdfa9",
       "retryOnFail": true,
       "waitBetweenTries": 2000
     },
@@ -430,57 +430,57 @@
         },
         "fallbackOutput": 3
       },
-      "id": "f538aa5f-2c9f-43e0-b241-5bad6f7b5331",
+      "id": "299757e9-57e0-4303-a07f-b53796d1cb32",
       "name": "Switch By Extension",
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        2820,
-        720
+        8840,
+        460
       ]
     },
     {
       "parameters": {},
-      "id": "06271851-4c78-48c2-9de0-6eb06c7f35f1",
+      "id": "8b65b491-b68f-4867-b790-73d0860b551f",
       "name": "Extension .url",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3360,
-        1160
+        9380,
+        900
       ]
     },
     {
       "parameters": {},
-      "id": "f4f2c0b2-2535-4ec0-844e-4e323f68bee9",
+      "id": "b85e5b0c-2962-437b-81e0-fa1938260391",
       "name": "Extension .vcf",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3420,
-        740
+        9440,
+        480
       ]
     },
     {
       "parameters": {},
-      "id": "d86ffddd-8a7b-48e6-a952-869150cb4e8f",
+      "id": "c2989962-f350-4a45-a913-66436a3b9beb",
       "name": "Any Other Extensions",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3360,
-        1460
+        9380,
+        1200
       ]
     },
     {
       "parameters": {},
-      "id": "54791654-d12e-45ba-aa6f-16b0eb16eee0",
+      "id": "0abb5ce7-db3d-48f0-bdbd-33def3b742ad",
       "name": "Insert Contact Into Chatwoot",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4680,
-        720
+        10700,
+        460
       ]
     },
     {
@@ -489,13 +489,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "4b5b2abe-bd3a-46c4-816e-ce574cb53082",
+      "id": "f7479f27-d8da-4ed1-821e-09ce9ec71d4c",
       "name": "Merge1",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        6060,
-        700
+        12080,
+        440
       ]
     },
     {
@@ -509,13 +509,13 @@
           ]
         }
       },
-      "id": "47b2b1fc-6f61-4324-ae8b-eda7fa977c9f",
+      "id": "49b0f060-f1e2-455b-9c91-a62747772915",
       "name": "If Insert Contact Error",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        5160,
-        600
+        11180,
+        340
       ]
     },
     {
@@ -530,13 +530,13 @@
           ]
         }
       },
-      "id": "8bdc8996-aa4d-45f7-8bca-6c12003161a8",
+      "id": "e5798771-b881-43f9-978b-bff5ff6009ad",
       "name": "If Already Exists",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        5340,
-        460
+        11360,
+        200
       ]
     },
     {
@@ -552,13 +552,13 @@
         },
         "options": {}
       },
-      "id": "0e89ae2f-f6fe-44c5-ac63-9e0e70a36c27",
+      "id": "7eb337d4-9eb7-4f2b-a7ef-11e12e0cb239",
       "name": "Set Success For Already Exists",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        5580,
-        320
+        11600,
+        60
       ]
     },
     {
@@ -574,13 +574,13 @@
         },
         "options": {}
       },
-      "id": "bf8d3cdf-6293-4fc7-ae04-0dbdd7d13eaa",
+      "id": "b27bbad3-70a9-482b-b763-485cc520b81b",
       "name": "Set Success",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        5580,
-        620
+        11600,
+        360
       ]
     },
     {
@@ -596,24 +596,24 @@
         },
         "options": {}
       },
-      "id": "39518b51-9e30-4697-8e44-ee76b4c3c4fa",
+      "id": "67feb49b-012c-4ffd-a4f9-79de74fc13ef",
       "name": "Set Fail",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        5580,
-        480
+        11600,
+        220
       ]
     },
     {
       "parameters": {},
-      "id": "c90a51d1-380a-4aac-beaf-690f9db055c0",
+      "id": "7375da04-8209-4df6-9eec-24b2495d0de7",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        5860,
-        480
+        11880,
+        220
       ]
     },
     {
@@ -628,44 +628,24 @@
         },
         "options": {}
       },
-      "id": "9657e255-b135-45d0-ba82-a6ae2d4950c3",
+      "id": "c4035051-0ba4-4500-a4fd-fbf34a21e632",
       "name": "Adjust Content",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        4260,
-        720
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.attachment.thumbnail }}",
-              "operation": "isNotEmpty"
-            }
-          ]
-        }
-      },
-      "id": "68312174-eb56-4357-9db5-d0b75b400ca4",
-      "name": "If Has Thumbnail",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        3800,
-        1160
+        10280,
+        460
       ]
     },
     {
       "parameters": {},
-      "id": "a3796d24-db3f-43b8-861a-5abf5c79aeaa",
+      "id": "d1cfc571-6aa8-4270-a7eb-3f8fcb143723",
       "name": "(Localization) Follow and Post",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4140,
-        1180
+        10160,
+        920
       ]
     },
     {
@@ -679,48 +659,48 @@
           ]
         }
       },
-      "id": "3f3e433e-dc5b-43ff-912c-e50aee1df98a",
+      "id": "125b537e-0f6b-4a8d-a926-a523f0fe551c",
       "name": "Post Incomming Text Only ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2620,
-        620
+        8640,
+        360
       ],
       "retryOnFail": true,
       "waitBetweenTries": 2000
     },
     {
       "parameters": {},
-      "id": "c0073ae7-e110-4497-b563-414482854d1f",
+      "id": "d2dff599-617e-4f45-813a-9ee0f1f34d20",
       "name": "No Operation, do nothing1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2820,
-        540
+        8840,
+        280
       ]
     },
     {
       "parameters": {},
-      "id": "c2dba6fb-047c-4c7e-9209-3153590849f7",
+      "id": "4e36e11d-4e6b-4613-b3f2-d216bdba7a2e",
       "name": "No Operation, do nothing2",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3820,
-        880
+        9840,
+        620
       ]
     },
     {
       "parameters": {},
-      "id": "09858420-55e9-44ec-b961-f9731a04bad2",
+      "id": "a2368743-0384-4629-8d62-024aa16bd6a3",
       "name": "No Operation, do nothing3",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -400,
-        300
+        5620,
+        40
       ]
     },
     {
@@ -729,13 +709,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "2f185dd5-061a-4996-aea3-a47592c3fae7",
+      "id": "ec726259-341d-45bb-bfd5-7c1d5a9df3c1",
       "name": "Merge Edited Message Info",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        0,
-        280
+        6020,
+        20
       ]
     },
     {
@@ -760,24 +740,24 @@
         },
         "options": {}
       },
-      "id": "89b233f6-9c73-44a5-9922-006c5db6222d",
+      "id": "7bc68c78-ca78-4c28-a7ea-041dc274c417",
       "name": "Prepend Edited Content",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        160,
-        280
+        6180,
+        20
       ]
     },
     {
       "parameters": {},
-      "id": "b9a5cdbd-1f08-4e7d-ac5b-a5dce4999981",
+      "id": "8ba34871-8e02-49fb-abdb-e42541709696",
       "name": "No Operation, do nothing4",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -400,
-        540
+        5620,
+        280
       ]
     },
     {
@@ -812,13 +792,13 @@
         },
         "options": {}
       },
-      "id": "68bd1f48-fed5-41cd-bf7f-2d987e7cdd7f",
+      "id": "039c0d92-ca01-4d49-b74c-ebb09e8cb58e",
       "name": "Try to Add Contact On Chatwoot",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        4940,
-        600
+        10960,
+        340
       ],
       "alwaysOutputData": true,
       "continueOnFail": true,
@@ -826,13 +806,13 @@
     },
     {
       "parameters": {},
-      "id": "0121df75-9ec1-49e2-89fd-4ac32fd515b2",
+      "id": "90614e3a-8bdb-4eb4-8add-02f29235e4e0",
       "name": "No Operation, do nothing5",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1380,
-        620
+        7400,
+        360
       ]
     },
     {
@@ -846,24 +826,24 @@
           ]
         }
       },
-      "id": "63259796-7169-4910-b84b-e32e482cbccf",
+      "id": "572f3dac-71f7-4990-afd0-5fcb22e57545",
       "name": "If Not Empty Content ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        980,
-        640
+        7000,
+        380
       ]
     },
     {
       "parameters": {},
-      "id": "3c28c363-ec36-4c71-8b76-faa00dac5d64",
+      "id": "2123c520-7168-406d-9447-07a559f6d235",
       "name": "(In) Text Message Following With Attachment",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2400,
-        460
+        8420,
+        200
       ]
     },
     {
@@ -878,13 +858,13 @@
         },
         "options": {}
       },
-      "id": "87a10e75-2877-4dc1-b2f6-7227264955bf",
+      "id": "b4bcc477-eca9-4a40-b4dc-2759532e9397",
       "name": "Set Unknown Content",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1180,
-        720
+        7200,
+        460
       ]
     },
     {
@@ -899,13 +879,13 @@
         },
         "options": {}
       },
-      "id": "ddba0b2a-a374-4598-b27b-56083960fecf",
+      "id": "2e2318e8-1f68-45f1-ab43-a3751315700a",
       "name": "(In) Prepend Attach Error Content",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2220,
-        360
+        8240,
+        100
       ]
     },
     {
@@ -920,13 +900,13 @@
         },
         "options": {}
       },
-      "id": "95c2aac0-98d7-4de4-8a43-1c271a284739",
+      "id": "a3842800-6392-424a-b64d-aedc148a2110",
       "name": "Override Localization Content",
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3580,
-        1160
+        9600,
+        900
       ]
     },
     {
@@ -937,13 +917,13 @@
           "waitForSubWorkflow": false
         }
       },
-      "id": "e62436ce-6bc4-40c8-b6fb-29e09a6257d8",
+      "id": "db3b3880-ec09-4c7b-bf10-891fc72d4242",
       "name": "Throw Audio Transcript Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        6080,
-        1300
+        12100,
+        1040
       ],
       "onError": "continueRegularOutput"
     },
@@ -989,46 +969,46 @@
         },
         "options": {}
       },
-      "id": "c239ab85-b654-4b65-b398-13283f1af61c",
+      "id": "f688aa85-3d55-43ae-8fa9-6ce5c99167d9",
       "name": "Is Valid Audio For Transcript",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        5400,
-        1460
+        11420,
+        1200
       ]
     },
     {
       "parameters": {},
-      "id": "86665711-0835-4465-88ef-8ad4ac2aada8",
+      "id": "30ec207d-2233-4ed5-a6e2-683e8325b6df",
       "name": "From .vcf",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4840,
-        880
+        10860,
+        620
       ]
     },
     {
       "parameters": {},
-      "id": "998ca176-d19c-432f-85cd-b11c393cfc31",
+      "id": "f5073e80-f145-4417-a8f8-1c975dc6e45f",
       "name": "From .url",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4620,
-        1180
+        10640,
+        920
       ]
     },
     {
       "parameters": {},
-      "id": "5d52c800-ddc8-405e-a4e4-843d10085f7a",
+      "id": "770298cf-ef6b-45d3-9531-92710f54817f",
       "name": "From any *",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4620,
-        1460
+        10640,
+        1200
       ]
     },
     {
@@ -1045,13 +1025,13 @@
         },
         "options": {}
       },
-      "id": "bc7c52b5-468a-4312-9fb0-05388ee5a196",
+      "id": "f9da128b-b20c-4c30-a0a3-4ced64389824",
       "name": "Getting Msg Id",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5620,
-        1180
+        11640,
+        920
       ]
     },
     {
@@ -1060,13 +1040,13 @@
         "combineBy": "combineAll",
         "options": {}
       },
-      "id": "793c0165-2abe-4de6-b996-a95dd440a6c8",
+      "id": "672ac903-4d0a-4a38-99e3-824fda7c7a8a",
       "name": "Merge With Posted Msg Id",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        5860,
-        1300
+        11880,
+        1040
       ]
     },
     {
@@ -1093,13 +1073,13 @@
         },
         "options": {}
       },
-      "id": "f1cd966e-2790-4fe0-a35a-69e67e499486",
+      "id": "96c64c7e-e7a0-499a-a130-4a6f8f9cf4ba",
       "name": "If Has Phone ?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        360,
-        640
+        6380,
+        380
       ]
     },
     {
@@ -1118,10 +1098,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        580,
-        580
+        6600,
+        320
       ],
-      "id": "e012704f-f680-4ec6-962f-c794693b3635"
+      "id": "28f695b5-ab74-4a34-bda6-f58f00d395a9"
     },
     {
       "parameters": {
@@ -1131,13 +1111,13 @@
           "keepSource": "json"
         }
       },
-      "id": "e995097d-bb6e-4612-b293-66b3ed93b3a3",
+      "id": "75866870-d130-4fc2-abe2-4ea81872f894",
       "name": "Extract VCard",
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
       "position": [
-        3820,
-        720
+        9840,
+        460
       ]
     },
     {
@@ -1146,13 +1126,13 @@
         "jsonOutput": "={{ $json.extra }}",
         "options": {}
       },
-      "id": "bac1ade9-e27e-4659-8b03-30507bec2a50",
+      "id": "7b10ec64-5111-43d7-b198-1d1dcd16dd0b",
       "name": "EXTRA",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1080,
-        420
+        4940,
+        160
       ]
     },
     {
@@ -1161,13 +1141,13 @@
         "jsonOutput": "={{ $('When Called By Another Workflow').item.json }}",
         "options": {}
       },
-      "id": "3298b154-76fe-4c1b-9d43-bc23b7c1b565",
+      "id": "9605b2e4-0f6c-4597-ac93-4a4b01e691c3",
       "name": "PAYLOAD",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -920,
-        420
+        5100,
+        160
       ]
     },
     {
@@ -1195,24 +1175,24 @@
         },
         "options": {}
       },
-      "id": "70d0eaaf-6dda-4fb3-b0a6-bccf2019afdf",
+      "id": "33cedaec-537f-4bd5-a388-a3e82495e6ef",
       "name": "If Has BASE64 Data",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1140,
-        360
+        7160,
+        100
       ]
     },
     {
       "parameters": {},
-      "id": "efcd353b-272c-4648-b0f5-9d250ce5466f",
+      "id": "8b426206-a858-4fdf-9301-950eca0e8db5",
       "name": "(In) Attachment",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        980,
-        460
+        7000,
+        200
       ]
     },
     {
@@ -1227,12 +1207,97 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        1400,
-        200
+        7420,
+        -60
       ],
-      "id": "3aeb7024-1496-4347-bdf4-63791c4b651a",
+      "id": "5408e28e-4a6a-4547-b4a3-c800ec566923",
       "name": "Convert to File",
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "88a55070-1e21-4703-a588-c430857165cc",
+              "leftValue": "={{ $json.attachment.thumbnail }}",
+              "rightValue": "={{ $json.attachment.thumbnail }}",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "ca69dc47-2af3-4780-9d3a-0ebcd05d83f3",
+      "name": "If Has Thumbnail",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        9800,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "account",
+              "value": "={{ $json.extra.account ?? \"-\" }}"
+            },
+            {
+              "key": "inbox",
+              "value": "={{ $json.extra.inbox ?? \"-\" }}"
+            },
+            {
+              "key": "soc",
+              "value": "={{ String($json.extra.soc ?? \"-\")}}"
+            },
+            {
+              "key": "conversation",
+              "value": "={{ $json.conversation.id ?? \"-\" }}"
+            },
+            {
+              "key": "chat",
+              "value": "={{ $json.chat.id ?? \"-\" }}"
+            }
+          ]
+        }
+      },
+      "id": "10afa501-9b8d-4f8f-b3d9-038406980cdf",
+      "name": "Execution Data",
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1,
+      "position": [
+        4940,
+        -60
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## DEBUG",
+        "height": 258.7128298295323,
+        "width": 360.98769819114443
+      },
+      "id": "56d2ca6b-e4c8-41a1-9189-aa373ee24ab0",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        4820,
+        -120
+      ]
     }
   ],
   "connections": {
@@ -1281,6 +1346,11 @@
         [
           {
             "node": "EXTRA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execution Data",
             "type": "main",
             "index": 0
           }
@@ -1368,17 +1438,6 @@
         [
           {
             "node": "Direct Message ?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Post Incoming Message Attachment": {
-      "main": [
-        [
-          {
-            "node": "Getting Msg Id",
             "type": "main",
             "index": 0
           }
@@ -1623,24 +1682,6 @@
         ]
       ]
     },
-    "If Has Thumbnail": {
-      "main": [
-        [
-          {
-            "node": "Move Binary Data",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "(Localization) Follow and Post",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "(Localization) Follow and Post": {
       "main": [
         [
@@ -1874,11 +1915,11 @@
         ]
       ]
     },
-    "Getting Msg Id": {
+    "Post Incoming Message Attachment": {
       "main": [
         [
           {
-            "node": "Merge With Posted Msg Id",
+            "node": "Getting Msg Id",
             "type": "main",
             "index": 0
           }
@@ -1890,6 +1931,17 @@
         [
           {
             "node": "Throw Audio Transcript Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Getting Msg Id": {
+      "main": [
+        [
+          {
+            "node": "Merge With Posted Msg Id",
             "type": "main",
             "index": 0
           }
@@ -2002,6 +2054,24 @@
           }
         ]
       ]
+    },
+    "If Has Thumbnail": {
+      "main": [
+        [
+          {
+            "node": "Move Binary Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "(Localization) Follow and Post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -2016,7 +2086,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "92a33c20-4fc0-49d5-be4d-a71de268c43f",
+  "versionId": "8a098900-71c9-46fd-bcfb-85c6fd86ee7e",
   "triggerCount": 0,
   "tags": [
     {
