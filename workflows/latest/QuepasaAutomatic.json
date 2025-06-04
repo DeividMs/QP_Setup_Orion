@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-21T02:27:06.988Z",
+  "updatedAt": "2025-06-04T01:15:04.442Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
@@ -11,13 +11,13 @@
         "query": "=INSERT INTO \"contacts\" (\"name\", \"identifier\", \"account_id\", \"created_at\", \"updated_at\", \"last_activity_at\") VALUES ('{{ $(\"EXECDATA\").item.json.bottitle }}', '{{ $(\"EXECDATA\").item.json.contact }}', {{ $json.account }}, NOW(), NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "9ae73ae2-b057-42ab-aec2-2eb07432b666",
+      "id": "14ea38aa-9955-4737-bc13-693c559fe6ea",
       "name": "Cria o Contato",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        700
+        80,
+        160
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -34,13 +34,13 @@
         "query": "=INSERT INTO \"automation_rules\" (\"account_id\", \"name\", \"description\", \"event_name\", \"conditions\", \"actions\", \"created_at\", \"updated_at\", \"active\") VALUES ({{$json.account }}, '{{ $(\"EXECDATA\").item.json.bottitle }}', '{{ $(\"EXECDATA\").item.json.bottitle }}', 'message_created', '[{\"values\": [\"{{ $(\"EXECDATA\").item.json.contact }}\"], \"attribute_key\": \"identifier\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"outgoing\"], \"attribute_key\": \"message_type\", \"query_operator\": \"and\", \"filter_operator\": \"equal_to\", \"custom_attribute_type\": \"\"}, {\"values\": [\"/qrcode\",\"/paircode\",\"/login\"], \"attribute_key\": \"content\", \"filter_operator\": \"contains\", \"custom_attribute_type\": \"\"}]', '[{\"action_name\": \"send_webhook_event\", \"action_params\": [\"{{ $(\"EXECDATA\").item.json.n8nurl }}/webhook/quepasa\"]}]', NOW(), NOW(), 'true');",
         "additionalFields": {}
       },
-      "id": "e1822cbf-efbc-47dd-8ad7-afa92d4c3b85",
+      "id": "6688e1d4-4562-4b9d-93a3-de62199bccc8",
       "name": "Cria Automação",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        1100,
-        540
+        460,
+        0
       ],
       "alwaysOutputData": false,
       "notesInFlow": false,
@@ -57,13 +57,13 @@
         "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"automation_rules\" ON \"accounts\".\"id\" = \"automation_rules\".\"account_id\" AND \"automation_rules\".\"name\" = '{{ $('EXECDATA').item.json.bottitle }}' WHERE \"automation_rules\".\"name\" IS NULL;",
         "additionalFields": {}
       },
-      "id": "2a75e8f4-7539-4d0a-88e2-561d0deabac7",
+      "id": "af616edf-5e3c-488c-bff4-3ae7b1952469",
       "name": "Missing Automations",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        520
+        -160,
+        -20
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -80,13 +80,13 @@
         "query": "=SELECT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" LEFT JOIN \"contacts\" ON \"accounts\".\"id\" = \"contacts\".\"account_id\" AND \"contacts\".\"identifier\" = '{{ $(\"EXECDATA\").item.json.contact }}' WHERE \"contacts\".\"identifier\" IS NULL;",
         "additionalFields": {}
       },
-      "id": "fb3f0031-6bca-4ef2-b154-3c02bb575e84",
+      "id": "f9c523f3-ab25-4ff8-af17-b3f9782c61a2",
       "name": "Missing Quepasa Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        700
+        -160,
+        160
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -103,13 +103,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipgreetings' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "f961e1b4-0cd9-4052-8ae1-3d8aface8820",
+      "id": "1ca9aab5-8c42-4b21-a3d4-4663a045f5b6",
       "name": "Missing Greetings For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        1100
+        -160,
+        1120
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -126,13 +126,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Greetings', 'skipgreetings', 7, 1, {{ $json.account }}, 'Não utilizar a saudação programada para este contato', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "43dacfa8-f16b-4a9f-99ce-4a16471f24df",
+      "id": "0c6618b6-f25d-43a8-90a3-8624ee48c05e",
       "name": "Insert Skip Greetings Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        1100
+        80,
+        1120
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -151,13 +151,13 @@
           ]
         }
       },
-      "id": "1566ac58-35b2-4505-9d31-adba3ccb9cc3",
+      "id": "3ab76b33-2f55-4baa-a849-6799904ed9c7",
       "name": "Schedule Daily",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        -260,
-        1100
+        -1280,
+        1120
       ]
     },
     {
@@ -166,13 +166,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "cf25755f-6580-41f2-814c-79a3e4f7202f",
+      "id": "4bd46ca5-af74-425d-a6ff-3b75c060dd9a",
       "name": "Missing Evaluation For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        1300
+        -160,
+        1320
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -189,13 +189,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Evaluation', 'skipevaluation', 7, 1, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para este contato !', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "efd2d67c-4a32-4fd4-aea0-b216b59739a9",
+      "id": "587ac412-99ad-45f9-93de-1827c5058f11",
       "name": "Insert Skip Evaluation For Contact Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        1300
+        80,
+        1320
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -208,16 +208,16 @@
     },
     {
       "parameters": {
-        "content": "## (1.0.10) Updates\n* /paircode\n* notations ",
+        "content": "## (1.0.11) Updates\n* skip automation, to avoid typebot",
         "width": 425.48157586978226
       },
-      "id": "d7872589-290c-4614-868f-fabe6b64ca52",
+      "id": "3dfb6245-0627-4e26-9348-1bd84748c2af",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -320,
-        700
+        -1340,
+        720
       ]
     },
     {
@@ -226,13 +226,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Agent Title', 'skipagenttitle', 7, 1, {{ $json.account }}, 'Não incluir o titulo do agente antes da mensagem para este contato', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "af945b1c-13bf-4b93-8acb-17262665d5ab",
+      "id": "dd0d518e-270d-4593-9a9d-8f86e88aaa79",
       "name": "Insert Skip Agent Title Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        900
+        80,
+        920
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -249,13 +249,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipagenttitle' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "9cc54e5f-8656-4591-9515-9f4645c6d294",
+      "id": "638cba04-d3a3-49dd-a87a-6e65c114a591",
       "name": "Missing Agent Title For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        900
+        -160,
+        920
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -271,13 +271,13 @@
         "fieldToSplitOut": "={{ $json }}",
         "options": {}
       },
-      "id": "2f9b163a-3e1b-411f-aaed-d66e0222538c",
+      "id": "0b70dcb7-4aa0-4a6d-9674-7b528713a84b",
       "name": "Split Out",
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        920,
-        440
+        280,
+        -100
       ]
     },
     {
@@ -305,13 +305,13 @@
         },
         "options": {}
       },
-      "id": "0b23bf08-9404-45b7-87ce-985370f7fd04",
+      "id": "cafc4385-327c-44ea-8c04-e9e688b7deeb",
       "name": "If Array",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        720,
-        520
+        80,
+        -20
       ]
     },
     {
@@ -330,13 +330,13 @@
         "additionalFields": {},
         "options": {}
       },
-      "id": "135e04e0-3b91-4a61-adf8-95c20aacc1e5",
+      "id": "4a8d35c5-8381-4a53-afb0-de340e8aca66",
       "name": "Postgres Trigger",
       "type": "n8n-nodes-base.postgresTrigger",
       "typeVersion": 1,
       "position": [
-        -260,
-        900
+        -1280,
+        920
       ],
       "credentials": {
         "postgres": {
@@ -344,17 +344,6 @@
           "name": "DB-Chatwoot"
         }
       }
-    },
-    {
-      "parameters": {},
-      "id": "70d1c661-c6f0-4d3a-9177-7df81270a4ab",
-      "name": "No Operation, do nothing",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        140,
-        1000
-      ]
     },
     {
       "parameters": {
@@ -373,13 +362,13 @@
         "additionalFields": {},
         "options": {}
       },
-      "id": "5cec24ef-8743-448d-849f-c39b1aaa72e6",
+      "id": "f354b585-155b-476e-a301-e9e291da6757",
       "name": "When API Inbox Deleted",
       "type": "n8n-nodes-base.postgresTrigger",
       "typeVersion": 1,
       "position": [
-        -180,
-        3060
+        -1200,
+        3280
       ],
       "credentials": {
         "postgres": {
@@ -403,28 +392,28 @@
         },
         "options": {}
       },
-      "id": "8eeea2fb-68e5-4747-8b83-3acbba86d38f",
+      "id": "1332c031-4a9b-43d5-825c-c7b6ada09f50",
       "name": "Delete Quepasa Inbox If Exists",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        740,
-        3080
+        -280,
+        3300
       ],
       "alwaysOutputData": false
     },
     {
       "parameters": {
-        "workflowId": "={{ $env['C8Q_WF_CHATWOOTEXTRA'] ?? \"t1o1WDo9E7C5EmJC\" }}",
+        "workflowId": "={{ $env['C8Q_CHATWOOTEXTRA'] ?? \"iiEsUj7ybtzEZAFj\" }}",
         "options": {}
       },
-      "id": "b50096a3-336b-4ff2-88ab-ed6454990737",
+      "id": "328ba4bb-b22c-4ff3-8ce5-6ed09b983d85",
       "name": "Execute ChatWootExtra Workflow",
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        300,
-        3140
+        -720,
+        3360
       ]
     },
     {
@@ -433,13 +422,13 @@
         "combinationMode": "multiplex",
         "options": {}
       },
-      "id": "5cad8397-87fb-409d-a17c-9892ff861682",
+      "id": "564c4b8a-05e7-4d6a-8194-06991bbd73c2",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        480,
-        3080
+        -540,
+        3300
       ]
     },
     {
@@ -457,13 +446,13 @@
         "includeOtherFields": true,
         "options": {}
       },
-      "id": "10d3f831-10d7-40f4-884f-27b2ff569958",
+      "id": "b3e11512-4caf-46c9-a67c-7ec323eede4a",
       "name": "Set Event Name",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        120,
-        3060
+        -900,
+        3280
       ]
     },
     {
@@ -472,13 +461,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipcontact' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "a4ea12de-2217-4ab0-82fb-cb25c3fba14c",
+      "id": "b8c9eba0-6e93-49f3-b269-35c77c77c4a8",
       "name": "Missing Skip For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        1500
+        -160,
+        1520
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -495,13 +484,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Contact', 'skipcontact', 7, 1, {{ $json.account }}, 'Não utilizar este contato ! Ignora a criação de novas conversas.', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "f49e4ca4-96ab-4093-96cf-9ded94bb1454",
+      "id": "9f8b74bb-be62-40d1-9f05-9661e1f930a2",
       "name": "Insert Skip For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        1500
+        80,
+        1520
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -518,13 +507,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Evaluation', 'skipevaluation', 7, 0, {{ $json.account }}, 'Não utilizar sistema de avaliação ou protocolo para esta conversa !', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "9b246bfb-2e7d-420f-9573-63a6162e4062",
+      "id": "0c2436a3-0c4b-4f4b-9216-d82abf800476",
       "name": "Insert Skip Evaluation For Conversation Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        1700
+        80,
+        2360
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -541,13 +530,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipevaluation' AND \"attribute_model\" = 0);",
         "additionalFields": {}
       },
-      "id": "b4a2fdf9-bd37-4957-869c-ee6aacda073f",
+      "id": "f2b4f62f-f354-4ed7-aba7-ffd749b84719",
       "name": "Missing Evaluation For Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        1700
+        -160,
+        2360
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -564,13 +553,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipaudiotranscript' AND \"attribute_model\" = 1);",
         "additionalFields": {}
       },
-      "id": "701e9e46-9403-4627-8ac0-29c82a9018c3",
+      "id": "d43562e1-5697-45ff-8ffd-023508aeb999",
       "name": "Missing Audio Transcript For Contact",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        1920
+        -160,
+        1720
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -587,13 +576,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Audio Transcript', 'skipaudiotranscript', 7, 1, {{ $json.account }}, 'Não utilizar sistema de transcrição de áudio para este contato !', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "cf85e049-4ad2-46b0-8181-7aa19c5d0b40",
+      "id": "c586c06e-48fb-40d2-913a-5bc8b7ae7483",
       "name": "Insert Skip Audio Transcript For Contact Attribute",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        1920
+        80,
+        1720
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -610,13 +599,13 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('TypeBot Session Id', 'typebot_session', 0, 0, {{ $json.account }}, 'TypeBot session id, used for logs', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "fc825d1c-d41d-4e05-8f55-9c1b305bb901",
+      "id": "6a4ef857-5b45-4927-ba42-e745143ebbd7",
       "name": "Insert TypeBot Session Id For Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        2120
+        80,
+        2560
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -633,13 +622,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'typebot_session' AND \"attribute_model\" = 0);",
         "additionalFields": {}
       },
-      "id": "2d26692d-790d-4a80-ba1f-61daab87daa9",
+      "id": "5d849e98-c298-4662-8dbb-76019e503a6f",
       "name": "Missing TypeBot Session Id For Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        2120
+        -160,
+        2560
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -656,13 +645,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"account_users\" WHERE \"user_id\" = {{ $('EXECDATA').item.json.superuser_id }} AND \"account_id\" = \"accounts\".\"id\");",
         "additionalFields": {}
       },
-      "id": "c305ca73-31f7-4fd1-b03a-399536238e1e",
+      "id": "0d549f80-b1ee-422f-914c-1a473ac2904a",
       "name": "Missing Super User",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        2540
+        -160,
+        360
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -679,7 +668,7 @@
           "string": [
             {
               "name": "n8nurl",
-              "value": "={{ $env[\"C8Q_N8N_WEBHOOK\"] }}"
+              "value": "={{ ($env[\"C8Q_N8N_HOST\"] ?? $env[\"WEBHOOK_URL\"] ?? \"http://127.0.0.1:5678\").replace(/\\&+$/, '') }}"
             },
             {
               "name": "bottitle",
@@ -703,13 +692,13 @@
         },
         "options": {}
       },
-      "id": "cc3544d1-6ab9-49b3-a456-88c2ab01897c",
+      "id": "d0ba8934-672b-4e83-b398-cd35fa23681b",
       "name": "EXECDATA",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -40,
-        1000
+        -1060,
+        1020
       ]
     },
     {
@@ -718,13 +707,13 @@
         "query": "=INSERT INTO \"account_users\" (\"account_id\", \"user_id\", \"role\", \"inviter_id\", \"availability\", \"auto_offline\", \"custom_role_id\", \"updated_at\", \"created_at\", \"active_at\") VALUES ({{ $json.account }}, {{ $('EXECDATA').item.json.superuser_id }}, 1, NULL, 0, true, NULL, NOW(), NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "19374155-ff95-4757-b759-55667f579f14",
+      "id": "bf5f94f5-c1ec-45b9-8174-c4e918a01afc",
       "name": "Insert Super User",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        2540
+        80,
+        360
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -741,13 +730,13 @@
         "query": "=UPDATE \"users\" SET \"name\" = '{{ $('EXECDATA').item.json.superuser_name }}' WHERE \"id\" = {{ $('EXECDATA').item.json.superuser_id }};",
         "additionalFields": {}
       },
-      "id": "60434c79-9177-4bbc-a5ee-b50ac269ebb3",
+      "id": "97a4e5e8-831f-4129-8e61-35801f7e36a9",
       "name": "Update Super User Name",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        2740
+        -160,
+        540
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -764,13 +753,13 @@
         "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'typebot_status' AND \"attribute_model\" = 0);",
         "additionalFields": {}
       },
-      "id": "6cf13fa7-114c-4be0-9487-be6223aafcf1",
+      "id": "8cfbee37-ad90-414e-a5f5-ddddba59028a",
       "name": "Missing TypeBot Session Status For Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        480,
-        2320
+        -160,
+        2760
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -787,13 +776,92 @@
         "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('TypeBot Status', 'typebot_status', 0, 0, {{ $json.account }}, 'TypeBot session status', '[]', NOW(), NOW());",
         "additionalFields": {}
       },
-      "id": "4e6a0fdf-bea8-43e0-b925-e623c48f6ed3",
+      "id": "53a8aa11-3b0e-40e2-8651-8e9a5971b581",
       "name": "Insert TypeBot Session Status For Conversation",
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        720,
-        2320
+        80,
+        2760
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {},
+      "id": "d4970526-ece6-4833-817e-ab7ce3411f93",
+      "name": "Contact Attributes",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        1240
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "490f1f84-ef0c-4929-b160-2321fd31ad4c",
+      "name": "System",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -600,
+        260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7e074596-9c94-4899-8897-3ca122bebe5d",
+      "name": "Conversation Attributes",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        2560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT DISTINCT \"accounts\".\"id\" AS \"account\" FROM \"accounts\" WHERE NOT EXISTS (SELECT NULL FROM \"custom_attribute_definitions\" WHERE \"account_id\" = \"accounts\".\"id\" AND \"attribute_key\" = 'skipautomation' AND \"attribute_model\" = 1);",
+        "additionalFields": {}
+      },
+      "id": "a5fd8573-dd54-40ba-b3ba-99acae2c23ad",
+      "name": "Missing Skip Automation Contact",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        1920
+      ],
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "HsCApB9t5UDljO9u",
+          "name": "DB-Chatwoot"
+        }
+      },
+      "notes": "Sucesso"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=INSERT INTO \"custom_attribute_definitions\" (\"attribute_display_name\", \"attribute_key\", \"attribute_display_type\", \"attribute_model\", \"account_id\", \"attribute_description\", \"attribute_values\", \"updated_at\", \"created_at\") VALUES ('Skip Automation', 'skipautomation', 7, 1, {{ $json.account }}, 'Não utilizar sistema de automação de atendimento para este contato !', '[]', NOW(), NOW());",
+        "additionalFields": {}
+      },
+      "id": "74d14c4d-5f5f-4c1b-8460-ed9f1a534a0e",
+      "name": "Insert Skip Automation Contact Attribute",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 1,
+      "position": [
+        80,
+        1920
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -895,72 +963,6 @@
         [
           {
             "node": "Cria Automação",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "No Operation, do nothing": {
-      "main": [
-        [
-          {
-            "node": "Missing Evaluation For Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Greetings For Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Agent Title For Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Quepasa Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Automations",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Skip For Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Evaluation For Conversation",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Audio Transcript For Contact",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing TypeBot Session Id For Conversation",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing Super User",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Update Super User Name",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Missing TypeBot Session Status For Conversation",
             "type": "main",
             "index": 0
           }
@@ -1075,7 +1077,17 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing",
+            "node": "System",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Contact Attributes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Conversation Attributes",
             "type": "main",
             "index": 0
           }
@@ -1103,6 +1115,100 @@
           }
         ]
       ]
+    },
+    "Contact Attributes": {
+      "main": [
+        [
+          {
+            "node": "Missing Skip For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Evaluation For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Greetings For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Agent Title For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Audio Transcript For Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Skip Automation Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "System": {
+      "main": [
+        [
+          {
+            "node": "Missing Quepasa Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Automations",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing Super User",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Super User Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversation Attributes": {
+      "main": [
+        [
+          {
+            "node": "Missing Evaluation For Conversation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing TypeBot Session Id For Conversation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Missing TypeBot Session Status For Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Missing Skip Automation Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert Skip Automation Contact Attribute",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
@@ -1119,7 +1225,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "4882a917-0838-4182-828a-af43ccd5d093",
+  "versionId": "ff03d710-a54b-4311-82b4-5798c515d1d2",
   "triggerCount": 3,
   "tags": [
     {
