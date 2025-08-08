@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-07T01:25:28.896Z",
+  "updatedAt": "2025-08-08T01:13:14.952Z",
   "id": "1003",
   "name": "QuepasaChatControl",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -22,8 +23,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        7300,
-        220
+        7312,
+        224
       ]
     },
     {
@@ -43,8 +44,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        6540,
-        300
+        6544,
+        304
       ]
     },
     {
@@ -60,8 +61,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        7700,
-        280
+        7712,
+        288
       ]
     },
     {
@@ -90,8 +91,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        6360,
-        300
+        6368,
+        304
       ]
     },
     {
@@ -107,8 +108,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        6740,
-        380
+        6752,
+        384
       ],
       "executeOnce": true,
       "alwaysOutputData": true,
@@ -125,8 +126,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        6940,
-        300
+        6944,
+        304
       ]
     },
     {
@@ -146,8 +147,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        7300,
-        380
+        7312,
+        384
       ]
     },
     {
@@ -161,8 +162,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4380,
-        140
+        4384,
+        144
       ]
     },
     {
@@ -190,8 +191,8 @@
       "type": "n8n-nodes-chatwoot.chatwoot",
       "typeVersion": 1,
       "position": [
-        6300,
-        780
+        6304,
+        784
       ]
     },
     {
@@ -234,7 +235,7 @@
       "typeVersion": 4.1,
       "position": [
         6640,
-        820
+        832
       ]
     },
     {
@@ -261,7 +262,7 @@
       "typeVersion": 4.1,
       "position": [
         6960,
-        840
+        848
       ]
     },
     {
@@ -287,8 +288,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        7300,
-        760
+        7312,
+        768
       ]
     },
     {
@@ -301,7 +302,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        5640,
+        5648,
         960
       ],
       "continueOnFail": true
@@ -322,8 +323,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        7500,
-        300
+        7504,
+        304
       ]
     },
     {
@@ -342,8 +343,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        7100,
-        300
+        7104,
+        304
       ]
     },
     {
@@ -357,8 +358,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        5460,
-        860
+        5472,
+        864
       ]
     },
     {
@@ -368,8 +369,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        6140,
-        300
+        6144,
+        304
       ]
     },
     {
@@ -399,7 +400,7 @@
       "typeVersion": 2.1,
       "position": [
         6800,
-        740
+        752
       ]
     },
     {
@@ -413,8 +414,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        7100,
-        760
+        7104,
+        768
       ]
     },
     {
@@ -424,8 +425,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        6140,
-        700
+        6144,
+        704
       ]
     },
     {
@@ -448,7 +449,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        5100,
+        5104,
         480
       ]
     },
@@ -515,7 +516,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        5300,
+        5312,
         480
       ]
     },
@@ -531,7 +532,7 @@
       "typeVersion": 1,
       "position": [
         4960,
-        140
+        144
       ]
     },
     {
@@ -566,8 +567,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        5100,
-        220
+        5104,
+        224
       ],
       "alwaysOutputData": false,
       "onError": "continueRegularOutput"
@@ -841,28 +842,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "8be6329b-38e7-491c-843f-4b4981fdedad",
+  "versionId": "cdab61ac-c3f3-4052-ba7b-3d642d9d9d4e",
   "triggerCount": 0,
   "tags": [
-    {
-      "createdAt": "2022-10-13T15:26:11.519Z",
-      "updatedAt": "2023-08-25T18:50:53.269Z",
-      "id": "5",
-      "name": "quepasa"
-    },
-    {
-      "createdAt": "2024-05-24T01:34:15.401Z",
-      "updatedAt": "2024-05-24T01:34:15.401Z",
-      "id": "PHDp1yoMiVikbrb2",
-      "name": "chatwoot"
-    },
     {
       "createdAt": "2023-05-19T22:54:38.266Z",
       "updatedAt": "2023-05-19T22:54:38.266Z",
       "id": "13",
       "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "QuepasaChatControl"
+  "Workflow-Nome": "QuepasaChatControl",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ]
 }
