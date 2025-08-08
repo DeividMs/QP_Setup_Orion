@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:28:00.611Z",
+  "updatedAt": "2025-08-08T01:10:54.449Z",
   "id": "PkjmWuUN1y6sCX11",
   "name": "QuepasaContactsImport",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {},
@@ -12,8 +13,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        340,
-        340
+        352,
+        352
       ]
     },
     {
@@ -106,8 +107,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        540,
-        340
+        544,
+        352
       ],
       "notesInFlow": true
     },
@@ -157,7 +158,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1620,
+        1632,
         400
       ]
     },
@@ -172,7 +173,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1420,
+        1424,
         320
       ],
       "notesInFlow": true
@@ -186,8 +187,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        2040,
-        340
+        2048,
+        352
       ],
       "notesInFlow": true
     },
@@ -232,8 +233,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        2260,
-        180
+        2272,
+        192
       ],
       "notesInFlow": true,
       "credentials": {
@@ -273,7 +274,7 @@
       "typeVersion": 2,
       "position": [
         2480,
-        180
+        192
       ]
     },
     {
@@ -324,7 +325,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3220,
+        3232,
         320
       ]
     },
@@ -339,7 +340,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        3020,
+        3024,
         320
       ],
       "notesInFlow": true
@@ -355,8 +356,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        200,
-        155.29012345679016
+        208,
+        160
       ]
     }
   ],
@@ -529,16 +530,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "ec8d23ae-2e12-45ba-8854-fcb28972ca78",
+  "versionId": "2c2f6a24-0c46-4be6-9ba1-6e62850892aa",
   "triggerCount": 0,
   "tags": [
     {
-      "createdAt": "2025-01-29T14:10:20.952Z",
-      "updatedAt": "2025-01-29T14:10:20.952Z",
-      "id": "WKLrBsRZXidylR4T",
-      "name": "ApproachTI"
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "QuepasaContactsImport"
+  "Workflow-Nome": "QuepasaContactsImport",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
