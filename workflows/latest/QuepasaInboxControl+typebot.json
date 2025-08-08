@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:27:35.940Z",
+  "updatedAt": "2025-08-08T01:11:17.693Z",
   "id": "BvfU3kc7i0j68IpZ",
   "name": "QuepasaInboxControl+typebot",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -17,7 +18,7 @@
       "typeVersion": 2.5,
       "position": [
         640,
-        200
+        208
       ],
       "credentials": {
         "postgres": {
@@ -57,7 +58,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        860,
+        864,
         400
       ]
     },
@@ -72,7 +73,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        200,
+        208,
         400
       ]
     },
@@ -98,7 +99,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        380,
+        384,
         400
       ]
     },
@@ -113,7 +114,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        1080,
+        1088,
         400
       ],
       "credentials": {
@@ -135,7 +136,7 @@
       "typeVersion": 1,
       "position": [
         640,
-        620
+        624
       ],
       "continueOnFail": true
     },
@@ -159,8 +160,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        860,
-        620
+        864,
+        624
       ]
     },
     {
@@ -176,8 +177,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1080,
-        620
+        1088,
+        624
       ]
     },
     {
@@ -210,8 +211,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1300,
-        620
+        1312,
+        624
       ]
     },
     {
@@ -237,8 +238,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1780,
-        600
+        1792,
+        608
       ]
     },
     {
@@ -272,8 +273,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1560,
-        600
+        1568,
+        608
       ]
     },
     {
@@ -296,7 +297,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        20,
+        32,
         400
       ],
       "notesInFlow": true,
@@ -320,8 +321,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2540,
-        520
+        2544,
+        528
       ]
     },
     {
@@ -335,8 +336,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2260,
-        380
+        2272,
+        384
       ],
       "alwaysOutputData": true,
       "onError": "continueErrorOutput"
@@ -359,8 +360,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2540,
-        220
+        2544,
+        224
       ]
     },
     {
@@ -374,7 +375,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -220,
+        -224,
         160
       ]
     }
@@ -574,9 +575,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "6219e94f-6ed9-4392-8f2c-0699ffa38813",
+  "versionId": "947226af-d949-4687-aba9-8b602325772e",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "QuepasaInboxControl+typebot"
+  "Workflow-Nome": "QuepasaInboxControl+typebot",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
