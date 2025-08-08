@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-06-04T01:12:42.399Z",
+  "updatedAt": "2025-08-08T01:05:57.453Z",
   "id": "qjdP01sHPfaPFUq1",
   "name": "GetValidConversation",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -40,8 +41,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        -120,
-        120
+        -128,
+        128
       ],
       "id": "eb21077b-e3a4-4407-8394-20bfdc709439",
       "retryOnFail": true,
@@ -68,8 +69,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        100,
-        120
+        112,
+        128
       ],
       "id": "e511e3e9-be0b-436c-8f87-7fc974471f55"
     },
@@ -100,7 +101,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1420,
+        1424,
         160
       ],
       "id": "26293ed0-f19b-4ce7-95f7-9df7bc281c1c"
@@ -117,7 +118,7 @@
       "typeVersion": 1,
       "position": [
         -3840,
-        420
+        432
       ]
     },
     {
@@ -152,7 +153,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -3740,
+        -3744,
         560
       ]
     },
@@ -195,8 +196,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -2180,
-        940
+        -2176,
+        944
       ]
     },
     {
@@ -210,8 +211,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        -3320,
-        660
+        -3328,
+        672
       ],
       "retryOnFail": false,
       "waitBetweenTries": 2000,
@@ -233,8 +234,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -3140,
-        660
+        -3136,
+        672
       ]
     },
     {
@@ -254,8 +255,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -1880,
-        940
+        -1888,
+        944
       ]
     },
     {
@@ -265,7 +266,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -3500,
+        -3504,
         560
       ]
     },
@@ -276,8 +277,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -2520,
-        540
+        -2528,
+        544
       ]
     },
     {
@@ -291,7 +292,7 @@
       "typeVersion": 1,
       "position": [
         -1680,
-        700
+        704
       ]
     },
     {
@@ -309,7 +310,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -780,
+        -784,
         320
       ],
       "alwaysOutputData": false,
@@ -332,8 +333,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        1800,
-        220
+        1808,
+        224
       ]
     },
     {
@@ -345,8 +346,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1980,
-        220
+        1984,
+        224
       ],
       "webhookId": "2bd8aead-fb32-4bad-b0da-cf93d85285fd"
     },
@@ -357,8 +358,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2220,
-        360
+        2224,
+        368
       ]
     },
     {
@@ -373,7 +374,7 @@
       "typeVersion": 1,
       "position": [
         -4640,
-        20
+        32
       ]
     },
     {
@@ -395,8 +396,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2660,
-        180
+        2672,
+        192
       ]
     },
     {
@@ -415,8 +416,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        2660,
-        360
+        2672,
+        368
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -450,7 +451,7 @@
       "typeVersion": 1,
       "position": [
         -2960,
-        580
+        592
       ],
       "id": "5525442c-7799-4116-9c6d-5a3cfd33d2c0"
     },
@@ -480,8 +481,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -1500,
-        540
+        -1504,
+        544
       ]
     },
     {
@@ -514,7 +515,7 @@
       "typeVersion": 1,
       "position": [
         -4160,
-        300
+        304
       ]
     },
     {
@@ -547,8 +548,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -2360,
-        760
+        -2368,
+        768
       ]
     },
     {
@@ -558,8 +559,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2420,
-        360
+        2432,
+        368
       ]
     },
     {
@@ -573,7 +574,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -1020,
+        -1024,
         320
       ]
     },
@@ -601,8 +602,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        -3900,
-        100
+        -3904,
+        112
       ],
       "alwaysOutputData": false,
       "onError": "continueRegularOutput"
@@ -618,8 +619,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -4040,
-        20
+        -4048,
+        32
       ]
     },
     {
@@ -632,8 +633,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2920,
-        360
+        2928,
+        368
       ]
     },
     {
@@ -646,7 +647,7 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        2660,
+        2672,
         560
       ],
       "credentials": {
@@ -670,8 +671,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        -2660,
-        900
+        -2656,
+        912
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -693,8 +694,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -2520,
-        840
+        -2528,
+        848
       ]
     },
     {
@@ -704,8 +705,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -2180,
-        680
+        -2176,
+        688
       ]
     },
     {
@@ -722,8 +723,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        -2040,
-        760
+        -2048,
+        768
       ],
       "executeOnce": false,
       "credentials": {
@@ -743,8 +744,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        -1880,
-        700
+        -1888,
+        704
       ]
     },
     {
@@ -759,7 +760,7 @@
       "typeVersion": 2,
       "position": [
         400,
-        200
+        208
       ]
     },
     {
@@ -776,8 +777,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        -120,
-        -60
+        -128,
+        -64
       ],
       "id": "8e12dc10-91a4-48de-90ca-39475f1e60ef",
       "continueOnFail": true,
@@ -808,8 +809,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        100,
-        -60
+        112,
+        -64
       ],
       "id": "0b78d3c6-89df-4cbd-a114-ecb6a19bb719",
       "notes": "Criado para lidar com typebot"
@@ -847,8 +848,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        -340,
-        40
+        -336,
+        48
       ]
     },
     {
@@ -858,8 +859,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1400,
-        360
+        1408,
+        368
       ]
     },
     {
@@ -878,7 +879,7 @@
       "typeVersion": 3.4,
       "position": [
         -560,
-        220
+        224
       ]
     },
     {
@@ -888,8 +889,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        680,
-        340
+        688,
+        352
       ]
     },
     {
@@ -940,7 +941,7 @@
       "typeVersion": 2,
       "position": [
         960,
-        340
+        352
       ]
     },
     {
@@ -986,9 +987,100 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        1180,
-        260
+        1184,
+        224
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "915f6870-811a-493e-b1c8-2631f16463c3",
+              "leftValue": "={{ $('Execute Workflow Trigger').item.json.extra.typebot }}",
+              "rightValue": "=",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "ignoreCase": true,
+          "looseTypeValidation": true
+        }
+      },
+      "id": "d906b983-f455-4582-88c3-008155263e2b",
+      "name": "TypeBot ?1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        -128
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "conversation.status",
+              "value": "={{$json.payload.current_status}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Set Updated Conversation Status1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        1968,
+        -112
+      ],
+      "id": "7513ec3e-187b-4e08-a613-a2b243b34dfd"
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "={{$json[\"extra\"][\"cwhost\"]}}/api/v1/accounts/{{$json[\"extra\"][\"account\"]}}/conversations/{{$json[\"conversation\"][\"id\"]}}/toggle_status",
+        "allowUnauthorizedCerts": true,
+        "options": {},
+        "bodyParametersUi": {
+          "parameter": [
+            {
+              "name": "status",
+              "value": "pending"
+            }
+          ]
+        },
+        "headerParametersUi": {
+          "parameter": [
+            {
+              "name": "api_access_token",
+              "value": "={{$json[\"extra\"][\"atoken\"]}}"
+            }
+          ]
+        }
+      },
+      "name": "Pending a Conversation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [
+        1728,
+        -112
+      ],
+      "id": "fe344e26-775d-4819-a59b-1a200514cf4f"
     }
   ],
   "connections": {
@@ -1536,19 +1628,59 @@
       "main": [
         [
           {
-            "node": "Open a Conversation",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Merge Conversation Status",
             "type": "main",
             "index": 1
+          },
+          {
+            "node": "TypeBot ?1",
+            "type": "main",
+            "index": 0
           }
         ],
         [
           {
             "node": "No Operation, do nothing2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pending a Conversation": {
+      "main": [
+        [
+          {
+            "node": "Set Updated Conversation Status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TypeBot ?1": {
+      "main": [
+        [
+          {
+            "node": "Pending a Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Open a Conversation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Updated Conversation Status1": {
+      "main": [
+        [
+          {
+            "node": "Merge Conversation Status",
             "type": "main",
             "index": 0
           }
@@ -1567,9 +1699,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "6d7d4d4d-56aa-481c-af3f-c4e3702b5042",
+  "versionId": "ef158f94-b090-4f2d-9b10-ab8965307843",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "GetValidConversation"
+  "Workflow-Nome": "GetValidConversation",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
