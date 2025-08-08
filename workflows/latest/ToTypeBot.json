@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-08T00:11:26.643Z",
-  "updatedAt": "2025-02-13T23:26:32.329Z",
+  "updatedAt": "2025-08-08T01:11:55.689Z",
   "id": "JSpCXQiF7TT1zUgp",
   "name": "ToTypeBot",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -17,7 +18,7 @@
       "typeVersion": 1,
       "position": [
         -1040,
-        740
+        752
       ]
     },
     {
@@ -36,8 +37,8 @@
       "type": "n8n-nodes-base.sort",
       "typeVersion": 1,
       "position": [
-        4180,
-        700
+        4192,
+        704
       ]
     },
     {
@@ -49,8 +50,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        4727,
-        620
+        4736,
+        624
       ]
     },
     {
@@ -60,8 +61,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        600,
-        920
+        608,
+        928
       ],
       "webhookId": "9061e7cf-a643-47a3-a036-15a7fc8cfc3c"
     },
@@ -87,8 +88,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1480,
-        1140
+        1488,
+        1152
       ]
     },
     {
@@ -102,8 +103,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1480,
-        555.0767332761415
+        1488,
+        560
       ]
     },
     {
@@ -114,7 +115,7 @@
       "typeVersion": 1,
       "position": [
         -1440,
-        1080
+        1088
       ]
     },
     {
@@ -157,8 +158,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        -540,
-        1080
+        -544,
+        1088
       ]
     },
     {
@@ -172,8 +173,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -620,
-        740
+        -624,
+        752
       ]
     },
     {
@@ -221,7 +222,7 @@
       "typeVersion": 1,
       "position": [
         -480,
-        820
+        832
       ],
       "alwaysOutputData": false,
       "onError": "continueRegularOutput"
@@ -237,8 +238,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1080,
-        1080
+        -1088,
+        1088
       ]
     },
     {
@@ -253,7 +254,7 @@
       "typeVersion": 3.4,
       "position": [
         -720,
-        1080
+        1088
       ]
     },
     {
@@ -287,8 +288,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -900,
-        1080
+        -896,
+        1088
       ]
     },
     {
@@ -317,8 +318,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1260,
-        1080
+        -1264,
+        1088
       ]
     },
     {
@@ -352,7 +353,7 @@
       "typeVersion": 2.1,
       "position": [
         -160,
-        1060
+        1072
       ]
     },
     {
@@ -367,8 +368,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        40,
-        980
+        48,
+        992
       ],
       "credentials": {
         "redis": {
@@ -389,8 +390,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        -340,
-        1060
+        -336,
+        1072
       ],
       "credentials": {
         "redis": {
@@ -429,8 +430,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.1,
       "position": [
-        220,
-        980
+        224,
+        992
       ]
     },
     {
@@ -447,8 +448,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        420,
-        920
+        432,
+        928
       ],
       "credentials": {
         "redis": {
@@ -469,8 +470,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        780,
-        920
+        784,
+        928
       ],
       "credentials": {
         "redis": {
@@ -510,7 +511,7 @@
       "typeVersion": 2.1,
       "position": [
         960,
-        920
+        928
       ]
     },
     {
@@ -524,8 +525,8 @@
       "type": "n8n-nodes-base.itemLists",
       "typeVersion": 1,
       "position": [
-        3980,
-        700
+        3984,
+        704
       ],
       "alwaysOutputData": true
     },
@@ -559,7 +560,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        3780,
+        3792,
         640
       ]
     },
@@ -579,8 +580,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        5500,
-        940
+        5504,
+        944
       ],
       "retryOnFail": true,
       "maxTries": 2,
@@ -636,7 +637,7 @@
       "typeVersion": 2.2,
       "position": [
         1200,
-        1080
+        1088
       ]
     },
     {
@@ -668,8 +669,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1820,
-        1340
+        1824,
+        1344
       ]
     },
     {
@@ -701,8 +702,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        7160,
-        1180
+        7168,
+        1184
       ]
     },
     {
@@ -716,7 +717,7 @@
       "typeVersion": 1,
       "position": [
         7360,
-        760
+        768
       ],
       "credentials": {
         "redis": {
@@ -741,7 +742,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2300,
+        2304,
         800
       ],
       "id": "1e15cf4a-f49f-4556-8de5-c824016bc570",
@@ -763,8 +764,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        2200,
-        1240
+        2208,
+        1248
       ],
       "id": "7746bbc7-5095-4648-9b8a-09535011705f",
       "retryOnFail": false,
@@ -796,8 +797,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2020,
-        1240
+        2032,
+        1248
       ]
     },
     {
@@ -825,8 +826,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6460,
-        620
+        6464,
+        624
       ]
     },
     {
@@ -869,8 +870,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        5500,
-        1180
+        5504,
+        1184
       ]
     },
     {
@@ -893,8 +894,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        1720,
-        920
+        1728,
+        928
       ],
       "alwaysOutputData": true,
       "onError": "continueRegularOutput"
@@ -924,8 +925,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6180,
-        1860
+        6192,
+        1872
       ]
     },
     {
@@ -953,8 +954,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6180,
-        2060
+        6192,
+        2064
       ]
     },
     {
@@ -982,8 +983,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6180,
-        2280
+        6192,
+        2288
       ]
     },
     {
@@ -993,8 +994,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        6520,
-        2060
+        6528,
+        2064
       ]
     },
     {
@@ -1004,8 +1005,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1540,
-        920
+        1552,
+        928
       ]
     },
     {
@@ -1015,7 +1016,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2700,
+        2704,
         640
       ],
       "notesInFlow": false
@@ -1028,7 +1029,7 @@
       "typeVersion": 1,
       "position": [
         1600,
-        1340
+        1344
       ]
     },
     {
@@ -1039,7 +1040,7 @@
       "typeVersion": 1,
       "position": [
         2720,
-        1220
+        1232
       ]
     },
     {
@@ -1054,8 +1055,8 @@
       "type": "n8n-nodes-base.redis",
       "typeVersion": 1,
       "position": [
-        2120,
-        620
+        2128,
+        624
       ],
       "credentials": {
         "redis": {
@@ -1096,7 +1097,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2120,
+        2128,
         800
       ]
     },
@@ -1107,8 +1108,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3140,
-        1020
+        3152,
+        1024
       ]
     },
     {
@@ -1121,7 +1122,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        3580,
+        3584,
         640
       ]
     },
@@ -1138,7 +1139,7 @@
       "typeVersion": 1,
       "position": [
         6000,
-        1740
+        1744
       ]
     },
     {
@@ -1150,8 +1151,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        5740,
-        840
+        5744,
+        848
       ],
       "webhookId": "fcd2e4ee-0d8b-43cd-bb26-cc9e1a3e9c13"
     },
@@ -1168,8 +1169,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        5500,
-        760
+        5504,
+        768
       ],
       "retryOnFail": true,
       "maxTries": 2,
@@ -1192,7 +1193,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        6120,
+        6128,
         640
       ]
     },
@@ -1222,8 +1223,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        4580,
-        387.0563593092968
+        4592,
+        400
       ]
     },
     {
@@ -1233,8 +1234,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4380,
-        620
+        4384,
+        624
       ]
     },
     {
@@ -1252,8 +1253,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        7420,
-        1160
+        7424,
+        1168
       ],
       "id": "7d191570-4ba7-4d46-852c-7b48693a9b05"
     },
@@ -1266,7 +1267,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2520,
+        2528,
         640
       ]
     },
@@ -1296,8 +1297,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1900,
-        920
+        1904,
+        928
       ],
       "retryOnFail": true,
       "maxTries": 2,
@@ -1337,7 +1338,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2420,
+        2432,
         1360
       ],
       "retryOnFail": true,
@@ -1405,8 +1406,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        5000,
-        860
+        5008,
+        864
       ]
     },
     {
@@ -1424,8 +1425,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        6120,
-        440
+        6128,
+        448
       ],
       "id": "49633b10-d898-4600-a062-9ac11c45370a"
     },
@@ -1492,8 +1493,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        5220,
-        740
+        5232,
+        752
       ]
     },
     {
@@ -1521,8 +1522,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        6460,
-        440
+        6464,
+        448
       ]
     },
     {
@@ -1547,7 +1548,7 @@
       "typeVersion": 4.2,
       "position": [
         7120,
-        760
+        768
       ],
       "id": "8406339e-2288-4230-935d-9e9388cb417e",
       "name": "HTTP Request"
@@ -2258,22 +2259,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "719ad55d-e210-4f7c-a0dc-bc3807fa94d7",
+  "versionId": "0006f43d-627f-44fe-ac02-cd8eaae47531",
   "triggerCount": 0,
   "tags": [
     {
-      "createdAt": "2022-10-13T15:26:11.519Z",
-      "updatedAt": "2023-08-25T18:50:53.269Z",
-      "id": "5",
-      "name": "quepasa"
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
     },
     {
-      "createdAt": "2025-01-17T03:34:07.062Z",
-      "updatedAt": "2025-01-17T03:34:07.062Z",
-      "id": "0AOHbkAjtWhlWtBH",
-      "name": "TypeBot"
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "ToTypeBot"
+  "Workflow-Nome": "ToTypeBot",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
