@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-14T02:47:51.578Z",
+  "updatedAt": "2025-08-08T01:10:39.966Z",
   "id": "wtn1ZvAUTFwKCHfK",
   "name": "QuepasaInboxControl+soc",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -16,8 +17,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        360,
-        260
+        368,
+        272
       ],
       "credentials": {
         "postgres": {
@@ -37,8 +38,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        360,
-        460
+        368,
+        464
       ],
       "credentials": {
         "postgres": {
@@ -57,8 +58,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        580,
-        460
+        592,
+        464
       ]
     },
     {
@@ -73,7 +74,7 @@
       "typeVersion": 3.4,
       "position": [
         -80,
-        460
+        464
       ]
     },
     {
@@ -83,8 +84,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -440,
-        460
+        -448,
+        464
       ]
     },
     {
@@ -98,8 +99,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        100,
-        460
+        112,
+        464
       ]
     },
     {
@@ -114,7 +115,7 @@
       "typeVersion": 2.5,
       "position": [
         800,
-        460
+        464
       ],
       "credentials": {
         "postgres": {
@@ -134,8 +135,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        360,
-        680
+        368,
+        688
       ],
       "continueOnFail": true
     },
@@ -159,8 +160,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        580,
-        680
+        592,
+        688
       ]
     },
     {
@@ -177,7 +178,7 @@
       "typeVersion": 1,
       "position": [
         800,
-        680
+        688
       ]
     },
     {
@@ -210,8 +211,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1020,
-        680
+        1024,
+        688
       ]
     },
     {
@@ -237,8 +238,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1500,
-        660
+        1504,
+        672
       ]
     },
     {
@@ -273,7 +274,7 @@
       "typeVersion": 3.4,
       "position": [
         1280,
-        660
+        672
       ]
     },
     {
@@ -296,8 +297,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -260,
-        460
+        -256,
+        464
       ],
       "notesInFlow": true,
       "notes": "soc"
@@ -320,8 +321,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2260,
-        600
+        2272,
+        608
       ]
     },
     {
@@ -335,8 +336,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1980,
-        460
+        1984,
+        464
       ],
       "alwaysOutputData": true,
       "onError": "continueErrorOutput"
@@ -359,8 +360,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2260,
-        300
+        2272,
+        304
       ]
     },
     {
@@ -374,8 +375,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -500,
-        214.95495495495493
+        -496,
+        224
       ]
     }
   ],
@@ -574,9 +575,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "81f8acb0-4e7d-4279-a7e8-355cc335a815",
+  "versionId": "f529add2-5194-4297-8ac0-26e18533a7ff",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "QuepasaInboxControl+soc"
+  "Workflow-Nome": "QuepasaInboxControl+soc",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ]
 }
