@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:52:00.157Z",
-  "updatedAt": "2025-02-13T23:27:11.321Z",
+  "updatedAt": "2025-08-08T01:11:34.010Z",
   "id": "t1o1WDo9E7C5EmJC",
   "name": "ChatwootExtra",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -16,7 +17,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -20,
+        -16,
         -160
       ]
     },
@@ -37,7 +38,7 @@
       "typeVersion": 1,
       "position": [
         640,
-        40
+        48
       ]
     },
     {
@@ -51,7 +52,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        840,
+        848,
         -80
       ],
       "credentials": {
@@ -79,7 +80,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1000,
+        1008,
         -80
       ]
     },
@@ -107,8 +108,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1940,
-        -40
+        1952,
+        -48
       ]
     },
     {
@@ -122,8 +123,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        2140,
-        40
+        2144,
+        48
       ]
     },
     {
@@ -137,7 +138,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1180,
+        1184,
         0
       ]
     },
@@ -153,7 +154,7 @@
       "typeVersion": 1,
       "position": [
         1760,
-        -40
+        -48
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -174,8 +175,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        2340,
-        -60
+        2352,
+        -64
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -196,8 +197,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        2760,
-        -60
+        2768,
+        -64
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -225,8 +226,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        2940,
-        -60
+        2944,
+        -64
       ]
     },
     {
@@ -255,8 +256,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        3500,
-        -20
+        3504,
+        -16
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -277,8 +278,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3880,
-        40
+        3888,
+        48
       ]
     },
     {
@@ -288,8 +289,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1380,
-        60
+        1392,
+        64
       ]
     },
     {
@@ -300,7 +301,7 @@
       "typeVersion": 1,
       "position": [
         0,
-        20
+        32
       ]
     },
     {
@@ -355,8 +356,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        200,
-        20
+        208,
+        32
       ]
     },
     {
@@ -384,7 +385,7 @@
       "typeVersion": 2,
       "position": [
         3680,
-        -20
+        -16
       ]
     },
     {
@@ -418,7 +419,7 @@
       "typeVersion": 2,
       "position": [
         400,
-        20
+        32
       ]
     },
     {
@@ -432,8 +433,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.3,
       "position": [
-        1580,
-        -40
+        1584,
+        -48
       ],
       "credentials": {
         "postgres": {
@@ -473,7 +474,7 @@
       "typeVersion": 2.2,
       "position": [
         2560,
-        40
+        48
       ]
     },
     {
@@ -483,8 +484,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3300,
-        60
+        3312,
+        64
       ]
     }
   ],
@@ -745,9 +746,38 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "57bf870f-22f6-449d-9a27-81cd12a7ca91",
+  "versionId": "6c240263-f780-438e-a161-7fd6a0179e03",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "ChatwootExtra"
+  "Workflow-Nome": "ChatwootExtra",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
