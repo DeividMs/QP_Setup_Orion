@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:28:17.623Z",
+  "updatedAt": "2025-08-08T01:10:48.740Z",
   "id": "1004",
   "name": "ChatwootProfileUpdate",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -13,8 +14,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 1,
       "position": [
-        420,
-        -140
+        432,
+        -144
       ],
       "id": "3a3b243a-0c36-4e09-a537-10dbf2e4fa09"
     },
@@ -35,7 +36,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        220,
+        224,
         -80
       ],
       "id": "4154595b-68b1-4ee9-9016-eea0254110f1"
@@ -56,8 +57,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -20,
-        -60
+        -16,
+        -64
       ]
     },
     {
@@ -91,8 +92,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        680,
-        -140
+        688,
+        -144
       ],
       "id": "930b0f7c-f500-462b-8646-7608f9a25a10",
       "retryOnFail": true,
@@ -114,8 +115,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -940,
-        -420
+        -944,
+        -416
       ]
     },
     {
@@ -127,8 +128,8 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        -740,
-        -220
+        -736,
+        -224
       ]
     },
     {
@@ -142,7 +143,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2260,
+        -2256,
         -800
       ]
     },
@@ -173,8 +174,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        60,
-        -660
+        64,
+        -656
       ],
       "id": "cbc90db4-0d08-4a7c-a1a0-3d1f88c9b2c2",
       "retryOnFail": false,
@@ -187,8 +188,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -2040,
-        -420
+        -2048,
+        -416
       ]
     },
     {
@@ -198,7 +199,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -420,
+        -416,
         -160
       ]
     },
@@ -233,7 +234,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -420,
+        -416,
         -640
       ]
     },
@@ -254,8 +255,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -180,
-        -540
+        -176,
+        -544
       ],
       "notesInFlow": true,
       "notes": "Used to sincronize old versions with Quepasa Id"
@@ -271,7 +272,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        -1640,
+        -1648,
         -400
       ]
     },
@@ -293,8 +294,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        -220,
-        -60
+        -224,
+        -64
       ],
       "id": "dbb97023-2a8a-4d39-8888-badf86c77c72",
       "continueOnFail": true,
@@ -311,8 +312,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -2260,
-        -980
+        -2256,
+        -976
       ]
     },
     {
@@ -523,9 +524,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "3db2a0b2-fb7c-4d35-9105-36ac55b99186",
+  "versionId": "a1bb60e4-79fc-4837-b0c6-db7fbca1e135",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "ChatwootProfileUpdate"
+  "Workflow-Nome": "ChatwootProfileUpdate",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
