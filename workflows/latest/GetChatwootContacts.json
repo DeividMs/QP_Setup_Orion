@@ -1,31 +1,11 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-06-04T02:16:56.159Z",
+  "updatedAt": "2025-08-08T01:05:18.275Z",
   "id": "1002",
   "name": "GetChatwootContacts",
   "active": false,
+  "isArchived": false,
   "nodes": [
-    {
-      "parameters": {
-        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
-        "accessToken": "={{ $json.extra.utoken }}",
-        "resource": "contact",
-        "accountId": "={{$json[\"extra\"][\"account\"]}}",
-        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
-        "operation": "contactCreate",
-        "contactIdentifier": "={{$json[\"chat\"][\"id\"]}}",
-        "name": "={{$json[\"chat\"][\"title\"]}}"
-      },
-      "id": "d86bf379-2686-4a84-bbac-23bd680ce60a",
-      "name": "Create Chat Contact",
-      "type": "n8n-nodes-chatwoot.chatwoot",
-      "typeVersion": 1,
-      "position": [
-        3420,
-        620
-      ],
-      "continueOnFail": true
-    },
     {
       "parameters": {
         "keepOnlySet": true,
@@ -52,8 +32,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        740,
-        540
+        752,
+        544
       ]
     },
     {
@@ -65,8 +45,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        940,
-        540
+        944,
+        544
       ]
     },
     {
@@ -133,8 +113,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        380,
-        440
+        384,
+        448
       ]
     },
     {
@@ -154,21 +134,21 @@
       "typeVersion": 1,
       "position": [
         3040,
-        460
+        464
       ]
     },
     {
       "parameters": {
         "content": "## Chat Contact\n",
-        "height": 847.6671229170042,
-        "width": 3756.8229819799326
+        "height": 848,
+        "width": 4093
       },
       "id": "41c28634-5f54-4e94-8110-1bf2165d132f",
       "name": "Note6",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1300,
+        1328,
         240
       ]
     },
@@ -188,8 +168,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4200,
-        380
+        4624,
+        384
       ]
     },
     {
@@ -212,7 +192,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        3800,
+        4224,
         560
       ]
     },
@@ -226,7 +206,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        4200,
+        4624,
         640
       ],
       "webhookId": "57209d6b-e7a6-4d78-b55c-82f677b13d42"
@@ -257,8 +237,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        3220,
-        380
+        3648,
+        384
       ],
       "id": "5884c502-fff8-458d-a0cc-822cb65927c1"
     },
@@ -292,7 +272,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        4000,
+        4416,
         480
       ],
       "id": "681fcb0e-ead9-4b64-80d9-762fdbef92bc"
@@ -320,8 +300,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        1400,
-        460
+        1408,
+        464
       ]
     },
     {
@@ -331,8 +311,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4420,
-        820
+        4848,
+        832
       ]
     },
     {
@@ -383,8 +363,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        2840,
-        460
+        2848,
+        464
       ],
       "id": "0d240e91-9154-4733-8eb6-37a555aab8e3"
     },
@@ -400,7 +380,7 @@
       "typeVersion": 1,
       "position": [
         -240,
-        100
+        112
       ]
     },
     {
@@ -410,8 +390,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        -100,
-        440
+        -96,
+        448
       ]
     },
     {
@@ -421,8 +401,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3220,
-        540
+        3648,
+        544
       ]
     },
     {
@@ -432,8 +412,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4740,
-        460
+        5168,
+        464
       ],
       "alwaysOutputData": true,
       "continueOnFail": true
@@ -449,8 +429,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        1140,
-        460
+        1152,
+        464
       ],
       "executeOnce": false
     },
@@ -465,7 +445,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3620,
+        4048,
         560
       ]
     },
@@ -492,8 +472,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4000,
-        660
+        4416,
+        672
       ]
     },
     {
@@ -507,7 +487,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        1560,
+        1568,
         560
       ],
       "retryOnFail": true,
@@ -532,7 +512,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        2300,
+        2304,
         640
       ],
       "retryOnFail": true,
@@ -578,7 +558,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        1740,
+        1744,
         480
       ],
       "notesInFlow": false
@@ -595,7 +575,7 @@
       "typeVersion": 2,
       "position": [
         2480,
-        580
+        592
       ],
       "notesInFlow": false
     },
@@ -606,8 +586,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2660,
-        520
+        2672,
+        528
       ]
     },
     {
@@ -626,8 +606,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2120,
-        540
+        2128,
+        544
       ]
     },
     {
@@ -651,8 +631,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        540,
-        440
+        544,
+        448
       ]
     },
     {
@@ -679,8 +659,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        380,
-        180
+        384,
+        192
       ],
       "alwaysOutputData": false,
       "onError": "continueRegularOutput"
@@ -697,7 +677,7 @@
       "typeVersion": 1,
       "position": [
         240,
-        100
+        112
       ]
     },
     {
@@ -730,8 +710,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        4440,
-        360
+        4864,
+        368
       ]
     },
     {
@@ -743,8 +723,8 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4200,
-        820
+        4624,
+        832
       ]
     },
     {
@@ -756,8 +736,8 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        4440,
-        540
+        4864,
+        544
       ]
     },
     {
@@ -779,23 +759,221 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4740,
-        260
+        5168,
+        272
       ]
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{$json[\"extra\"][\"account\"]}}",
+        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
+        "operation": "contactCreate",
+        "contactIdentifier": "={{ $json.chat.lid || $json[\"chat\"][\"id\"]}}",
+        "name": "={{$json[\"chat\"][\"title\"] || $json[\"chat\"][\"phone\"].split(\"+55\")[1] }}",
+        "phoneNumber": "={{$json[\"chat\"][\"phone\"]}}"
+      },
+      "id": "68bb4e8e-0b6d-45a7-9840-eac753190dd8",
+      "name": "Create Chat Contact",
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        3888,
+        864
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b3da8b25-6b77-4bb0-bb29-76cd5b3a9c49",
+              "leftValue": "={{ $json.chat.id }}",
+              "rightValue": "@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "61ae0ae1-37c5-43b7-a638-bbe0bcd69cdd",
+      "name": "Is-Group?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3632,
+        784
+      ]
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{$json[\"extra\"][\"cwhost\"]}}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{$json[\"extra\"][\"account\"]}}",
+        "sourceId": "={{$json[\"chat\"][\"hex\"]}}",
+        "operation": "contactCreate",
+        "contactIdentifier": "={{$json[\"chat\"][\"id\"]}}",
+        "name": "={{$json[\"chat\"][\"title\"]}}",
+        "phoneNumber": "="
+      },
+      "id": "3624124d-be03-44e5-9903-e8bb9df85d71",
+      "name": "Create Chat Group",
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        3888,
+        672
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{ $json.extra.cwhost }}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{ $json.extra.account }}",
+        "operation": "contactSearch",
+        "contactSearchQuery": "={{ $json.body.chat.phone || $json.body.chat.lid}}"
+      },
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        336,
+        768
+      ],
+      "id": "f266655e-06a0-47fd-9212-906baeed4ca3",
+      "name": "Contact search"
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{ $('When Called By Another Workflow').item.json.extra.cwhost }}",
+        "accessToken": "={{ $('When Called By Another Workflow').item.json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{ $('When Called By Another Workflow').item.json.extra.account }}",
+        "operation": "contactUpdate",
+        "contactId": "={{ $('Contact search').item.json.payload[0].id }}",
+        "contactIdentifier": "={{ $('When Called By Another Workflow').item.json.body.chat.lid }}",
+        "name": "={{ $('When Called By Another Workflow').item.json.body.chat.title }}",
+        "inboxId": "={{ $('Contact search').item.json.payload[0].contact_inboxes[0].inbox.id ?? \"\"}}",
+        "phoneNumber": "={{ $('When Called By Another Workflow').item.json.body.chat.phone }}"
+      },
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        816,
+        768
+      ],
+      "id": "e70edd88-b243-4221-a073-2731499afb1b",
+      "name": "Contact update"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9e6323f1-d3ed-46db-9c89-d6e8ca64d793",
+              "leftValue": "={{ $json.body.chat.lid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        112,
+        768
+      ],
+      "id": "924c3df6-3d3b-409c-9e2a-d35300b28fe1",
+      "name": "Existe-LID?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1755624d-9455-4243-8edf-75e0d88afd22",
+              "leftValue": "={{ $json.payload[0].identifier }}",
+              "rightValue": "={{ $('When Called By Another Workflow').item.json.body.chat.lid }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "0d957dbb-22a8-4301-bb7a-450b5575636e",
+              "leftValue": "={{ $json.payload[0].id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        768
+      ],
+      "id": "e64e4997-3c31-4db0-bc01-715d7f6383e9",
+      "name": "Identifier≠LID?"
+    },
+    {
+      "parameters": {
+        "content": "## Update LID\n",
+        "height": 256,
+        "width": 1008
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        704
+      ],
+      "typeVersion": 1,
+      "id": "8d1996cf-0134-4afd-8c72-93720246e95d",
+      "name": "Sticky Note2"
     }
   ],
   "connections": {
-    "Create Chat Contact": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
     "Clearing Payload For Contacts": {
       "main": [
         [
@@ -966,6 +1144,11 @@
             "node": "Execution Data",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Existe-LID?",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -974,12 +1157,12 @@
       "main": [
         [
           {
-            "node": "Create Chat Contact",
+            "node": "Merge",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Merge",
+            "node": "Is-Group?",
             "type": "main",
             "index": 0
           }
@@ -1155,6 +1338,86 @@
           }
         ]
       ]
+    },
+    "Is-Group?": {
+      "main": [
+        [
+          {
+            "node": "Create Chat Group",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Chat Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Chat Group": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Create Chat Contact": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Contact search": {
+      "main": [
+        [
+          {
+            "node": "Identifier≠LID?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Existe-LID?": {
+      "main": [
+        [
+          {
+            "node": "Contact search",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Identifier≠LID?": {
+      "main": [
+        [
+          {
+            "node": "Contact update",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Contact update": {
+      "main": [
+        []
+      ]
     }
   },
   "settings": {
@@ -1168,22 +1431,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "5a90c6e5-7a0f-4dc2-a107-e326178a74ea",
+  "versionId": "0f11d1b6-566f-4063-84ad-cf0f69aea2a0",
   "triggerCount": 0,
   "tags": [
-    {
-      "createdAt": "2024-05-24T01:34:15.401Z",
-      "updatedAt": "2024-05-24T01:34:15.401Z",
-      "id": "PHDp1yoMiVikbrb2",
-      "name": "chatwoot"
-    },
     {
       "createdAt": "2023-05-19T22:54:38.266Z",
       "updatedAt": "2023-05-19T22:54:38.266Z",
       "id": "13",
       "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "GetChatwootContacts"
+  "Workflow-Nome": "GetChatwootContacts",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ]
 }
