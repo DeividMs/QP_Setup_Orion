@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:24:01.888Z",
+  "updatedAt": "2025-08-08T01:12:10.178Z",
   "id": "z7iqKYC8r5nPRRHt",
   "name": "QuepasaQrcode",
   "active": true,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -21,8 +22,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        5295.95709678845,
-        820
+        5296,
+        832
       ]
     },
     {
@@ -62,7 +63,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1815.9570967884506,
+        1824,
         720
       ]
     },
@@ -86,8 +87,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2995.95709678845,
-        740
+        3008,
+        752
       ]
     },
     {
@@ -101,8 +102,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        460,
-        460
+        464,
+        464
       ]
     },
     {
@@ -116,8 +117,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        2420,
-        540
+        2432,
+        544
       ]
     },
     {
@@ -131,8 +132,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -503,
-        310
+        -496,
+        320
       ]
     },
     {
@@ -167,8 +168,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        835.9570967884506,
-        700
+        848,
+        704
       ]
     },
     {
@@ -182,8 +183,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1255.9570967884506,
-        680
+        1264,
+        688
       ]
     },
     {
@@ -193,8 +194,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1015.9570967884506,
-        620
+        1024,
+        624
       ]
     },
     {
@@ -208,8 +209,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        140,
-        620
+        144,
+        624
       ]
     },
     {
@@ -221,8 +222,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1995.9570967884506,
-        660
+        2000,
+        672
       ]
     },
     {
@@ -235,8 +236,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        2215.9570967884506,
-        660
+        2224,
+        672
       ],
       "webhookId": "b8706931-81cb-4f18-93e0-0a5d5416734b"
     },
@@ -251,8 +252,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        2780,
-        740
+        2784,
+        752
       ],
       "continueOnFail": true
     },
@@ -263,8 +264,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2475.95709678845,
-        660
+        2480,
+        672
       ]
     },
     {
@@ -274,8 +275,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        3455.95709678845,
-        660
+        3456,
+        672
       ]
     },
     {
@@ -289,8 +290,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3235.95709678845,
-        900
+        3248,
+        912
       ]
     },
     {
@@ -300,8 +301,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2755.95709678845,
-        920
+        2768,
+        928
       ]
     },
     {
@@ -341,8 +342,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3515.95709678845,
-        900
+        3520,
+        912
       ]
     },
     {
@@ -363,7 +364,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        3275.95709678845,
+        3280,
         720
       ]
     },
@@ -378,8 +379,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        3655.95709678845,
-        700
+        3664,
+        704
       ]
     },
     {
@@ -419,7 +420,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3915.95709678845,
+        3920,
         800
       ]
     },
@@ -432,7 +433,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        4155.95709678845,
+        4160,
         720
       ]
     },
@@ -443,8 +444,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        535.9570967884506,
-        620
+        544,
+        624
       ]
     },
     {
@@ -454,7 +455,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4375.95709678845,
+        4384,
         720
       ]
     },
@@ -467,8 +468,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        5495.95709678845,
-        600
+        5504,
+        608
       ]
     },
     {
@@ -508,8 +509,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        5735.95709678845,
-        1000
+        5744,
+        1008
       ]
     },
     {
@@ -549,8 +550,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        5675.95709678845,
-        460
+        5680,
+        464
       ]
     },
     {
@@ -560,8 +561,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4555.95709678845,
-        1020
+        4560,
+        1024
       ]
     },
     {
@@ -574,8 +575,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        5495.95709678845,
-        1000
+        5504,
+        1008
       ]
     },
     {
@@ -603,8 +604,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        5835.95709678845,
-        580
+        5840,
+        592
       ]
     },
     {
@@ -636,8 +637,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        6035.95709678845,
-        580
+        6048,
+        592
       ]
     },
     {
@@ -677,8 +678,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        895.9570967884506,
-        1380
+        896,
+        1392
       ]
     },
     {
@@ -719,7 +720,7 @@
       "typeVersion": 3,
       "position": [
         1600,
-        1140
+        1152
       ]
     },
     {
@@ -759,7 +760,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1595.9570967884506,
+        1600,
         960
       ]
     },
@@ -774,7 +775,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1135.9570967884506,
+        1136,
         1040
       ]
     },
@@ -807,7 +808,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.1,
       "position": [
-        1315.9570967884506,
+        1328,
         1040
       ]
     },
@@ -854,7 +855,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1815.9570967884506,
+        1824,
         960
       ]
     },
@@ -869,8 +870,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        455.9570967884506,
-        920
+        464,
+        928
       ]
     },
     {
@@ -890,8 +891,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        4695.95709678845,
-        780
+        4704,
+        784
       ],
       "notes": "Criado para lidar com typebot"
     },
@@ -919,7 +920,7 @@
       "typeVersion": 2,
       "position": [
         4880,
-        700
+        704
       ],
       "notes": "Criado para lidar com typebot"
     },
@@ -973,7 +974,7 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        5055.95709678845,
+        5056,
         880
       ],
       "continueOnFail": true
@@ -1036,8 +1037,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        5060,
-        700
+        5072,
+        704
       ],
       "continueOnFail": true
     },
@@ -1048,8 +1049,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        4555.95709678845,
-        580
+        4560,
+        592
       ]
     },
     {
@@ -1075,8 +1076,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        915.9570967884506,
-        1080
+        928,
+        1088
       ],
       "onError": "continueRegularOutput"
     },
@@ -1098,8 +1099,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        1455.9570967884506,
-        680
+        1456,
+        688
       ],
       "id": "bb122461-bf69-4ee5-92b0-707cac1d0d10"
     },
@@ -1112,7 +1113,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1655.9570967884506,
+        1664,
         640
       ]
     },
@@ -1126,8 +1127,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -163,
-        550
+        -160,
+        560
       ]
     },
     {
@@ -1140,8 +1141,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -163,
-        690
+        -160,
+        704
       ]
     },
     {
@@ -1202,8 +1203,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.1,
       "position": [
-        675.9570967884506,
-        1020
+        688,
+        1024
       ]
     },
     {
@@ -1217,8 +1218,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        700,
-        220
+        704,
+        224
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1238,8 +1239,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        520,
-        220
+        528,
+        224
       ]
     },
     {
@@ -1253,8 +1254,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -460,
-        620
+        -464,
+        624
       ],
       "webhookId": "e8d38d79-8f79-4bd1-85f8-fce3d8200233"
     }
@@ -1845,16 +1846,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "394de531-18c3-430e-bfbc-ba91b1b1a7bc",
+  "versionId": "fa1ac47b-5f17-4327-884c-61a16f86c828",
   "triggerCount": 1,
   "tags": [
     {
-      "createdAt": "2024-05-24T01:34:15.401Z",
-      "updatedAt": "2024-05-24T01:34:15.401Z",
-      "id": "PHDp1yoMiVikbrb2",
-      "name": "chatwoot"
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "QuepasaQrcode"
+  "Workflow-Nome": "QuepasaQrcode",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
