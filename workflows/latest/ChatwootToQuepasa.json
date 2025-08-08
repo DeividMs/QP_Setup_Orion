@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-21T03:08:16.034Z",
+  "updatedAt": "2025-08-08T01:08:11.895Z",
   "id": "1008",
   "name": "ChatwootToQuepasa",
   "active": true,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -16,8 +17,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        -9220,
-        4840
+        -9216,
+        4848
       ],
       "webhookId": "ae8993fc-1ab0-4de5-90ce-0eb59a2b5c7d",
       "id": "1961c420-8077-4de8-85f6-374deac1c76b"
@@ -35,7 +36,7 @@
       "typeVersion": 1,
       "position": [
         -7520,
-        6760
+        6768
       ],
       "id": "42faa342-3c71-45fc-b1e9-dfd1b7b2385c"
     },
@@ -66,8 +67,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -5580,
-        4440
+        -5584,
+        4448
       ]
     },
     {
@@ -76,8 +77,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -7700,
-        5900
+        -7696,
+        5904
       ],
       "id": "18e8ab49-25c4-41cb-9243-d4076d34a940"
     },
@@ -108,7 +109,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7220,
+        -7216,
         4480
       ],
       "id": "75151ce2-90c4-4f05-93ca-740bfddca4f6"
@@ -123,7 +124,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -7020,
+        -7024,
         5920
       ]
     },
@@ -141,8 +142,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -6660,
-        4460
+        -6656,
+        4464
       ],
       "id": "a9a8fe4c-c5c8-4a67-a3eb-bf3d019adfd2"
     },
@@ -168,7 +169,7 @@
       "typeVersion": 1,
       "position": [
         -6400,
-        4440
+        4448
       ],
       "id": "8820e912-140d-41c1-bf32-adefe0326d2a"
     },
@@ -190,7 +191,7 @@
       "typeVersion": 1,
       "position": [
         -5280,
-        4300
+        4304
       ]
     },
     {
@@ -203,8 +204,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -4740,
-        3940
+        -4736,
+        3952
       ],
       "continueOnFail": true
     },
@@ -224,8 +225,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7420,
-        5900
+        -7424,
+        5904
       ],
       "notesInFlow": true,
       "notes": "Quando vem vazio é porque a conversa foi criada sem mensagem, no caso criado pelo fluxo. ou seja, criada pelo cliente."
@@ -257,8 +258,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        -7220,
-        5820
+        -7216,
+        5824
       ],
       "id": "8245ee96-f13f-41b2-a8ef-bf9f9969fd76",
       "continueOnFail": true,
@@ -275,8 +276,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -5820,
-        4200
+        -5824,
+        4208
       ],
       "alwaysOutputData": true,
       "continueOnFail": true
@@ -298,8 +299,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        -7900,
-        6600
+        -7904,
+        6608
       ],
       "id": "c51182dc-5703-4784-9820-89dc9906c99a"
     },
@@ -311,7 +312,7 @@
       "typeVersion": 1,
       "position": [
         -7520,
-        6460
+        6464
       ]
     },
     {
@@ -330,8 +331,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7300,
-        6460
+        -7296,
+        6464
       ]
     },
     {
@@ -341,7 +342,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -4180,
+        -4176,
         4720
       ]
     },
@@ -352,8 +353,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -4440,
-        4460
+        -4448,
+        4464
       ]
     },
     {
@@ -367,8 +368,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -4220,
-        4660
+        -4224,
+        4672
       ]
     },
     {
@@ -425,7 +426,7 @@
       "typeVersion": 2,
       "position": [
         -9040,
-        4840
+        4848
       ]
     },
     {
@@ -438,8 +439,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -7080,
-        5620
+        -7088,
+        5632
       ]
     },
     {
@@ -452,8 +453,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        -7300,
-        5620
+        -7296,
+        5632
       ],
       "continueOnFail": true
     },
@@ -468,8 +469,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        -5740,
-        5240
+        -5744,
+        5248
       ],
       "credentials": {
         "postgres": {
@@ -489,8 +490,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2,
       "position": [
-        -5560,
-        5180
+        -5568,
+        5184
       ]
     },
     {
@@ -509,8 +510,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7320,
-        5180
+        -7328,
+        5184
       ]
     },
     {
@@ -556,7 +557,7 @@
       "typeVersion": 1,
       "position": [
         -7520,
-        5620
+        5632
       ]
     },
     {
@@ -566,7 +567,7 @@
       "typeVersion": 1,
       "position": [
         -8000,
-        5420
+        5424
       ],
       "id": "c30fb630-3758-457e-bdee-a6ce9e4338af"
     },
@@ -581,8 +582,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -7580,
-        5000
+        -7584,
+        5008
       ]
     },
     {
@@ -593,7 +594,7 @@
       "typeVersion": 1,
       "position": [
         -5920,
-        5160
+        5168
       ]
     },
     {
@@ -616,8 +617,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -6100,
-        5140
+        -6096,
+        5152
       ]
     },
     {
@@ -627,8 +628,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -4980,
-        5160
+        -4976,
+        5168
       ]
     },
     {
@@ -637,22 +638,22 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -7500,
-        5260
+        -7504,
+        5264
       ],
       "id": "c57ca5c2-e1f6-46c6-b002-8022dd6cd3c1"
     },
     {
       "parameters": {
-        "jsCode": "const IsValidForWhatsapp = function (id){\n  if (typeof(id) === \"undefined\" || id === null) return false;\n  if (id.endsWith('@s.whatsapp.net')) return true;\n  if (id.endsWith('@g.us')) return true;\n  return false;\n}\n\nconst response = [];\nfor (const item of $input.all()) {\n  const body = item.json.body;\n  if (body) {     \n    \n    // obsolete, marked for remove, 2024/04/25\n    const token = item.json.extra.token;\n\n    // default extra content\n    const extra = item.json.extra;\n\n    let chatId = body.conversation.meta?.sender?.identifier;    \n    if (!IsValidForWhatsapp(chatId))\n    {\n      chatId = body.conversation.meta?.sender?.custom_attributes?.quepasa;\n      if (!chatId) {\n        chatId = body.conversation.meta?.sender?.phone_number;\n      }\n    }\n\n    // new aproach\n    if (body.content && body.id) {\n      const payload = {};\n      payload.chatid = chatId;\n      payload.conversationid = body.conversation.id;\n      payload.inreply = body.content_attributes?.in_reply_to_external_id;\n      \n      if (!payload.inreply && body.content_attributes?.in_reply_to)\n        payload.inreply = `${extra.account}-${extra.inbox}-${body.content_attributes.in_reply_to}`;\n\n      if (body.content_type === 'integrations' && body.content_attributes?.type === 'dyte')      \n        body.content += '\\r\\n *** https://app.dyte.in/meeting/stage/' + body.content_attributes?.data.room_name;      \n\n      // leading with \\ at SHIFT+ENTER\n      if (body.content)       \n      {\n        body.content = body.content.replace(/\\n\\\\/g,\"\\n\").replace(/ \\\\/g,\"\");\n        payload.content = body.content; \n      }\n      \n      // should create an extra message for caption ?\n      const textmsg = (!body.attachments) || (body.attachments.length > 1);\n            \n      if (body.content && textmsg) {                \n        payload.messageid = `${body.id}`; // ensure as string \n                \n        const sender = body.sender?.available_name || body.sender?.name || $env['C8Q_UNKNOWN_SENDER'] || 'Auto Atendimento';\n        \n        const customs = body.conversation.meta?.sender?.custom_attributes;\n        const pat = !((customs?.hasOwnProperty('skipagenttitle') ?? false) && (customs?.skipagenttitle ?? false));\n\n        if (pat) payload.sender = sender;\n\n        // appending to response as new item\n        response.push({ payload: { ...payload }, extra: extra });\n        payload.content = undefined;\n      }\n\n      if (body.attachments) {\n        let counter = 0;\n        for (const attach of body.attachments) \n        {\n          // fixed payload counter for multiples attachs, 2024/05/06\n          const attachmentPayload = { ...payload }; // Criando uma nova instância de payload\n          attachmentPayload.messageid = `${body.id}-A${counter++}`; // ensure as string, adding an attach counter          \n          attachmentPayload.attachment = attach.data_url;\n          \n          // appending to response as new item\n          response.push({ payload: attachmentPayload, extra: extra });                   \n        }\n      }  \n      \n      continue;\n    }    \n    \n    // for each message, *not common to be more than one\n    for (const message of body.conversation.messages) \n    {  \n      const payload = {};\n      payload.chatid = chatId;\n      payload.conversationid = body.conversation.id ?? message.conversation_id;\n      payload.inreply = message.content_attributes?.in_reply_to_external_id;\n\n      if (!payload.inreply && message.content_attributes?.in_reply_to)\n        payload.inreply = `${extra.account}-${extra.inbox}-${message.content_attributes.in_reply_to}`;\n      \n      // obsolete, marked for remove, 2024/04/25\n      payload.token = token;\n\n      // -------------------------------------\n      \n      if (message.content_type === 'integrations' && message.content_attributes?.type === 'dyte')      \n        message.content += '\\r\\n *** https://app.dyte.in/meeting/stage/' + message.content_attributes?.data.room_name;      \n\n      // leading with \\ at SHIFT+ENTER\n      if (message.content)       \n      {\n        message.content = message.content.replace(/\\n\\\\/g,\"\\n\").replace(/ \\\\/g,\"\");\n        payload.content = message.content; \n      }\n      \n      // should create an extra message for caption ?\n      const textmsg = (!message.attachments) || (message.attachments.length > 1);\n            \n      if (message.content && textmsg) {                \n        payload.messageid = `${message.id}`; // ensure as string \n                \n        const sender = message.sender?.available_name || message.sender?.name || $env['C8Q_UNKNOWN_SENDER'] || 'Auto Atendimento';\n        \n        const customs = body.conversation.meta?.sender?.custom_attributes;\n        const pat = !((customs?.hasOwnProperty('skipagenttitle') ?? false) && (customs?.skipagenttitle ?? false));\n\n        if (pat) payload.sender = sender;\n\n        // appending to response as new item\n        response.push({ payload: { ...payload }, extra: extra });\n        payload.content = undefined;\n      }\n\n      if (message.attachments) {\n        let counter = 0;\n        for (const attach of message.attachments) \n        {\n          // fixed payload counter for multiples attachs, 2024/05/06\n          const attachmentPayload = { ...payload }; // Criando uma nova instância de payload\n          attachmentPayload.messageid = `${message.id}-A${counter++}`; // ensure as string, adding an attach counter          \n          attachmentPayload.attachment = attach.data_url;\n          \n          // appending to response as new item\n          response.push({ payload: attachmentPayload, extra: extra });                   \n        }\n      }  \n    }\n  }\n}\n\nreturn response;"
+        "jsCode": "const IsValidForWhatsapp = function (id){\n  if (typeof(id) === \"undefined\" || id === null) return false;\n  if (id.endsWith('@s.whatsapp.net')) return true;\n  if (id.endsWith('@g.us')) return true;\n  if (id.endsWith('@lid')) return true;\n  return false;\n}\n\nconst response = [];\nfor (const item of $input.all()) {\n  const body = item.json.body;\n  if (body) {     \n    \n    // obsolete, marked for remove, 2024/04/25\n    const token = item.json.extra.token;\n\n    // default extra content\n    const extra = item.json.extra;\n\n    let chatId = body.conversation.meta?.sender?.identifier;    \n    if (!IsValidForWhatsapp(chatId))\n    {\n      chatId = body.conversation.meta?.sender?.custom_attributes?.quepasa;\n      if (!chatId) {\n        chatId = body.conversation.meta?.sender?.phone_number;\n      }\n    }\n\n    // new aproach\n    if (body.content && body.id) {\n      const payload = {};\n      payload.chatid = chatId;\n      payload.conversationid = body.conversation.id;\n      payload.inreply = body.content_attributes?.in_reply_to_external_id;\n      \n      if (!payload.inreply && body.content_attributes?.in_reply_to)\n        payload.inreply = `${extra.account}-${extra.inbox}-${body.content_attributes.in_reply_to}`;\n\n      if (body.content_type === 'integrations' && body.content_attributes?.type === 'dyte')      \n        body.content += '\\r\\n *** https://app.dyte.in/meeting/stage/' + body.content_attributes?.data.room_name;      \n\n      // leading with \\ at SHIFT+ENTER\n      if (body.content)       \n      {\n        body.content = body.content.replace(/\\n\\\\/g,\"\\n\").replace(/ \\\\/g,\"\");\n        payload.content = body.content; \n      }\n      \n      // should create an extra message for caption ?\n      const textmsg = (!body.attachments) || (body.attachments.length > 1);\n            \n      if (body.content && textmsg) {                \n        payload.messageid = `${body.id}`; // ensure as string \n                \n        const sender = body.sender?.available_name || body.sender?.name || $env['C8Q_UNKNOWN_SENDER'] || 'Auto Atendimento';\n        \n        const customs = body.conversation.meta?.sender?.custom_attributes;\n        const pat = !((customs?.hasOwnProperty('skipagenttitle') ?? false) && (customs?.skipagenttitle ?? false));\n\n        if (pat) payload.sender = sender;\n\n        // appending to response as new item\n        response.push({ payload: { ...payload }, extra: extra });\n        payload.content = undefined;\n      }\n\n      if (body.attachments) {\n        let counter = 0;\n        for (const attach of body.attachments) \n        {\n          // fixed payload counter for multiples attachs, 2024/05/06\n          const attachmentPayload = { ...payload }; // Criando uma nova instância de payload\n          attachmentPayload.messageid = `${body.id}-A${counter++}`; // ensure as string, adding an attach counter          \n          attachmentPayload.attachment = attach.data_url;\n          \n          // appending to response as new item\n          response.push({ payload: attachmentPayload, extra: extra });                   \n        }\n      }  \n      \n      continue;\n    }    \n    \n    // for each message, *not common to be more than one\n    for (const message of body.conversation.messages) \n    {  \n      const payload = {};\n      payload.chatid = chatId;\n      payload.conversationid = body.conversation.id ?? message.conversation_id;\n      payload.inreply = message.content_attributes?.in_reply_to_external_id;\n\n      if (!payload.inreply && message.content_attributes?.in_reply_to)\n        payload.inreply = `${extra.account}-${extra.inbox}-${message.content_attributes.in_reply_to}`;\n      \n      // obsolete, marked for remove, 2024/04/25\n      payload.token = token;\n\n      // -------------------------------------\n      \n      if (message.content_type === 'integrations' && message.content_attributes?.type === 'dyte')      \n        message.content += '\\r\\n *** https://app.dyte.in/meeting/stage/' + message.content_attributes?.data.room_name;      \n\n      // leading with \\ at SHIFT+ENTER\n      if (message.content)       \n      {\n        message.content = message.content.replace(/\\n\\\\/g,\"\\n\").replace(/ \\\\/g,\"\");\n        payload.content = message.content; \n      }\n      \n      // should create an extra message for caption ?\n      const textmsg = (!message.attachments) || (message.attachments.length > 1);\n            \n      if (message.content && textmsg) {                \n        payload.messageid = `${message.id}`; // ensure as string \n                \n        const sender = message.sender?.available_name || message.sender?.name || $env['C8Q_UNKNOWN_SENDER'] || 'Auto Atendimento';\n        \n        const customs = body.conversation.meta?.sender?.custom_attributes;\n        const pat = !((customs?.hasOwnProperty('skipagenttitle') ?? false) && (customs?.skipagenttitle ?? false));\n\n        if (pat) payload.sender = sender;\n\n        // appending to response as new item\n        response.push({ payload: { ...payload }, extra: extra });\n        payload.content = undefined;\n      }\n\n      if (message.attachments) {\n        let counter = 0;\n        for (const attach of message.attachments) \n        {\n          // fixed payload counter for multiples attachs, 2024/05/06\n          const attachmentPayload = { ...payload }; // Criando uma nova instância de payload\n          attachmentPayload.messageid = `${message.id}-A${counter++}`; // ensure as string, adding an attach counter          \n          attachmentPayload.attachment = attach.data_url;\n          \n          // appending to response as new item\n          response.push({ payload: attachmentPayload, extra: extra });                   \n        }\n      }  \n    }\n  }\n}\n\nreturn response;"
       },
       "id": "21f4f961-7d92-4882-a375-bbdda1a83f37",
       "name": "Payload",
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -5820,
-        4440
+        -5824,
+        4448
       ]
     },
     {
@@ -667,7 +668,7 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        -6420,
+        -6416,
         6400
       ],
       "retryOnFail": true,
@@ -715,8 +716,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -5380,
-        5180
+        -5376,
+        5184
       ]
     },
     {
@@ -736,7 +737,7 @@
       "typeVersion": 1,
       "position": [
         -6960,
-        5140
+        5152
       ]
     },
     {
@@ -756,8 +757,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -6600,
-        5260
+        -6608,
+        5264
       ]
     },
     {
@@ -771,8 +772,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        -6440,
-        5180
+        -6448,
+        5184
       ]
     },
     {
@@ -802,8 +803,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -6100,
-        4420
+        -6096,
+        4432
       ]
     },
     {
@@ -818,7 +819,7 @@
       "typeVersion": 1,
       "position": [
         -9520,
-        4500
+        4512
       ]
     },
     {
@@ -846,8 +847,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        -8780,
-        4840
+        -8784,
+        4848
       ],
       "id": "93551886-88d0-4568-84b4-14ef7e991f4e"
     },
@@ -873,8 +874,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7140,
-        5160
+        -7136,
+        5168
       ]
     },
     {
@@ -899,7 +900,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -5060,
+        -5056,
         4320
       ]
     },
@@ -919,7 +920,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 1,
       "position": [
-        -4860,
+        -4864,
         4240
       ],
       "id": "0b8ec7e9-2fd8-4e5e-81b5-12f1ecf94cd0"
@@ -931,8 +932,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -4660,
-        4340
+        -4656,
+        4352
       ]
     },
     {
@@ -955,7 +956,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -6280,
+        -6288,
         5120
       ]
     },
@@ -975,7 +976,7 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        -3580,
+        -3584,
         5040
       ],
       "retryOnFail": true,
@@ -996,8 +997,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        -2280,
-        5000
+        -2288,
+        5008
       ]
     },
     {
@@ -1012,7 +1013,7 @@
       "typeVersion": 1,
       "position": [
         -1600,
-        4920
+        4928
       ],
       "id": "668c6424-ce01-4d73-91d5-8394db022701"
     },
@@ -1030,8 +1031,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -6860,
-        6420
+        -6864,
+        6432
       ],
       "id": "6cc7d0a6-2188-4b4b-86fe-8ecacc2a1ee9"
     },
@@ -1062,8 +1063,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -7080,
-        6440
+        -7088,
+        6448
       ],
       "id": "95eef3f9-14bd-4d8d-b7b6-10080ac4a096"
     },
@@ -1078,8 +1079,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -7580,
-        5500
+        -7584,
+        5504
       ]
     },
     {
@@ -1091,8 +1092,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        -7800,
-        5420
+        -7808,
+        5424
       ]
     },
     {
@@ -1106,8 +1107,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        -6760,
-        5260
+        -6768,
+        5264
       ],
       "credentials": {
         "postgres": {
@@ -1131,7 +1132,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -3780,
+        -3776,
         4960
       ],
       "id": "8daf93f0-5a6d-4090-bcb6-8a46574536dd"
@@ -1147,8 +1148,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        -2700,
-        4740
+        -2704,
+        4752
       ]
     },
     {
@@ -1173,7 +1174,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -2980,
+        -2976,
         5040
       ]
     },
@@ -1193,7 +1194,7 @@
       "typeVersion": 1,
       "position": [
         -1920,
-        4940
+        4944
       ]
     },
     {
@@ -1220,7 +1221,7 @@
       "typeVersion": 4.1,
       "position": [
         -1760,
-        4920
+        4928
       ]
     },
     {
@@ -1235,7 +1236,7 @@
       "typeVersion": 2.1,
       "position": [
         -2080,
-        4940
+        4944
       ]
     },
     {
@@ -1249,8 +1250,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -3080,
-        4660
+        -3088,
+        4672
       ]
     },
     {
@@ -1272,8 +1273,8 @@
       "type": "n8n-nodes-quepasa.quepasa",
       "typeVersion": 1,
       "position": [
-        -3220,
-        4900
+        -3216,
+        4912
       ],
       "retryOnFail": true,
       "maxTries": 3,
@@ -1293,7 +1294,7 @@
       "typeVersion": 1,
       "position": [
         -2480,
-        4740
+        4752
       ],
       "credentials": {
         "postgres": {
@@ -1310,7 +1311,7 @@
       "typeVersion": 1,
       "position": [
         -2480,
-        4920
+        4928
       ]
     },
     {
@@ -1341,7 +1342,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        -3580,
+        -3584,
         4880
       ]
     },
@@ -1354,7 +1355,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        -3400,
+        -3408,
         4800
       ],
       "webhookId": "4be09e3c-13a7-48f9-b649-d5942ef6e1e7"
@@ -1387,7 +1388,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        -7020,
+        -7024,
         4400
       ]
     },
@@ -1431,7 +1432,7 @@
       "typeVersion": 2,
       "position": [
         -6560,
-        3640
+        3648
       ]
     },
     {
@@ -1463,8 +1464,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        -6680,
-        4100
+        -6688,
+        4112
       ]
     },
     {
@@ -1474,8 +1475,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -6060,
-        4120
+        -6064,
+        4128
       ]
     },
     {
@@ -1498,8 +1499,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -6380,
-        3820
+        -6384,
+        3824
       ]
     },
     {
@@ -1514,7 +1515,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -6140,
+        -6144,
         4720
       ],
       "id": "6aab869d-4aed-4060-936e-dda76ccb406b"
@@ -1548,7 +1549,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -7020,
+        -7024,
         4560
       ],
       "id": "9408cd82-3cf7-4fe8-803e-e93735010fea"
@@ -1565,8 +1566,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -6200,
-        3560
+        -6208,
+        3568
       ],
       "id": "9935b611-27c1-4611-9a35-0ce6160e60ca"
     },
@@ -1581,7 +1582,7 @@
       "typeVersion": 1,
       "position": [
         -4480,
-        3940
+        3952
       ]
     },
     {
@@ -1595,8 +1596,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -5620,
-        4200
+        -5616,
+        4208
       ],
       "id": "52e7e08d-6a6a-4fa6-a568-b1ac76acfeb0"
     },
@@ -1612,8 +1613,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -2780,
-        4940
+        -2784,
+        4944
       ],
       "id": "51bc5110-835e-4636-a0fe-ab6bfe885e3f"
     },
@@ -1629,8 +1630,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -2780,
-        5140
+        -2784,
+        5152
       ],
       "id": "9e3e5773-53eb-4421-a1ba-0610d12c5c0b"
     },
@@ -1697,7 +1698,7 @@
       "typeVersion": 3,
       "position": [
         -6960,
-        3860
+        3872
       ]
     },
     {
@@ -1722,7 +1723,7 @@
       "typeVersion": 1,
       "position": [
         -5200,
-        5180
+        5184
       ]
     },
     {
@@ -1737,8 +1738,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -7080,
-        6600
+        -7088,
+        6608
       ]
     },
     {
@@ -1753,8 +1754,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -6860,
-        6600
+        -6864,
+        6608
       ]
     },
     {
@@ -1770,7 +1771,7 @@
       "typeVersion": 1,
       "position": [
         -6640,
-        6600
+        6608
       ]
     },
     {
@@ -1785,7 +1786,7 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -6220,
+        -6224,
         6400
       ]
     },
@@ -1801,8 +1802,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -7140,
-        5320
+        -7136,
+        5328
       ]
     },
     {
@@ -1818,7 +1819,7 @@
       "typeVersion": 1,
       "position": [
         -6960,
-        5320
+        5328
       ]
     },
     {
@@ -1833,8 +1834,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -6100,
-        4980
+        -6096,
+        4992
       ]
     },
     {
@@ -1849,8 +1850,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -5860,
-        4980
+        -5856,
+        4992
       ]
     },
     {
@@ -1865,8 +1866,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -4980,
-        5340
+        -4976,
+        5344
       ]
     },
     {
@@ -1881,8 +1882,8 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1,
       "position": [
-        -2280,
-        4740
+        -2288,
+        4752
       ]
     },
     {
@@ -1898,7 +1899,7 @@
       "typeVersion": 1,
       "position": [
         -1760,
-        5060
+        5072
       ]
     },
     {
@@ -1929,8 +1930,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        -6380,
-        3560
+        -6384,
+        3568
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -1973,8 +1974,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        -5900,
-        3700
+        -5904,
+        3712
       ],
       "credentials": {
         "postgres": {
@@ -1994,8 +1995,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.5,
       "position": [
-        -6120,
-        3820
+        -6128,
+        3824
       ],
       "credentials": {
         "postgres": {
@@ -2033,8 +2034,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1,
       "position": [
-        -8780,
-        4580
+        -8784,
+        4592
       ],
       "alwaysOutputData": false,
       "onError": "continueRegularOutput"
@@ -2050,8 +2051,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -8920,
-        4500
+        -8928,
+        4512
       ]
     },
     {
@@ -2074,7 +2075,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -6620,
+        -6624,
         6400
       ]
     },
@@ -2099,8 +2100,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -7140,
-        5020
+        -7136,
+        5024
       ],
       "id": "fdfdf145-0695-4756-9a28-770dfb958241",
       "name": "Clear-Session-TypeBot"
@@ -2144,7 +2145,7 @@
       "typeVersion": 2.2,
       "position": [
         -5200,
-        4660
+        4672
       ],
       "id": "77879f06-f456-4b1c-bdb6-377f9810fd54",
       "name": "Typebot?"
@@ -2176,7 +2177,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 2,
       "position": [
-        -4940,
+        -4944,
         4640
       ],
       "id": "4ad2832d-bbbe-4f96-86eb-65d3797b2ec0",
@@ -3227,174 +3228,39 @@
     "templateCredsSetupCompleted": true,
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
-  "pinData": {
-    "From ChatWoot": [
-      {
-        "json": {
-          "headers": {
-            "host": "webhook.developermaster.com.br",
-            "user-agent": "rest-client/2.1.0 (linux-musl x86_64) ruby/3.3.3p89",
-            "content-length": "3387",
-            "accept": "application/json",
-            "accept-encoding": "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-            "content-type": "application/json",
-            "x-forwarded-for": "172.18.0.1",
-            "x-forwarded-host": "webhook.developermaster.com.br",
-            "x-forwarded-port": "443",
-            "x-forwarded-proto": "https",
-            "x-forwarded-server": "fb8024019a50",
-            "x-real-ip": "172.18.0.1"
-          },
-          "params": {},
-          "query": {
-            "identifier": "c45BgZyXwERQ8LwGUqfE6jxA",
-            "utoken": "Wx832mMujwGsPXcKEhbCpf3n",
-            "atoken": "50e28457d06de6c3d456a01",
-            "typebot": "modelo",
-            "singlethread": "true",
-            "pat": "false"
-          },
-          "body": {
-            "account": {
-              "id": 1,
-              "name": "Chatwoot"
-            },
-            "additional_attributes": {},
-            "content_attributes": {},
-            "content_type": "text",
-            "content": "testando",
-            "conversation": {
-              "additional_attributes": {},
-              "can_reply": true,
-              "channel": "Channel::Api",
-              "contact_inbox": {
-                "id": 219,
-                "contact_id": 474,
-                "inbox_id": 1,
-                "source_id": "3819fdba-7124-44ac-ae93-535825c755c3",
-                "created_at": "2025-02-21T02:51:19.785Z",
-                "updated_at": "2025-02-21T02:51:19.785Z",
-                "hmac_verified": false,
-                "pubsub_token": "8JyYpsdDpCbGCBPTRDvEkoGq"
-              },
-              "id": 232,
-              "inbox_id": 1,
-              "messages": [
-                {
-                  "id": 6227,
-                  "content": "testando",
-                  "account_id": 1,
-                  "inbox_id": 1,
-                  "conversation_id": 232,
-                  "message_type": 1,
-                  "created_at": 1740106772,
-                  "updated_at": "2025-02-21T02:59:32.128Z",
-                  "private": false,
-                  "status": "sent",
-                  "source_id": null,
-                  "content_type": "text",
-                  "content_attributes": {},
-                  "sender_type": "User",
-                  "sender_id": 1,
-                  "external_source_ids": {},
-                  "additional_attributes": {},
-                  "processed_message_content": "testando",
-                  "sentiment": {},
-                  "conversation": {
-                    "assignee_id": null,
-                    "unread_count": 0,
-                    "last_activity_at": 1740106772,
-                    "contact_inbox": {
-                      "source_id": "3819fdba-7124-44ac-ae93-535825c755c3"
-                    }
-                  },
-                  "sender": {
-                    "id": 1,
-                    "name": "User Fixo",
-                    "available_name": "User Fixo",
-                    "avatar_url": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg",
-                    "type": "user",
-                    "availability_status": null,
-                    "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d2173f4d76cc54b6bcff934915594dd6c4707090/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hOeVpYTnBlbVZmZEc5ZlptbHNiRnNIYVFINk1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1db3c30574359a69daa6f6390cd3d881939d56ea/113ae491a48be1095b19e581666884b1.jpeg"
-                  }
-                }
-              ],
-              "labels": [],
-              "meta": {
-                "sender": {
-                  "additional_attributes": {},
-                  "custom_attributes": {},
-                  "email": null,
-                  "id": 474,
-                  "identifier": "556193743824@s.whatsapp.net",
-                  "name": "Deivid Martins",
-                  "phone_number": "+556193743824",
-                  "thumbnail": "https://app.developermaster.com.br/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbE1DIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--24c5cc74e78c0b648fa7e872f5a4ffe41989d0e5/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RTNKbGMybDZaVjkwYjE5bWFXeHNXd2RwQWZvdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--7bf3350aef61eb91b8bc855b7c3031a135fb139d/217326938_5613522131996588_7268782841462315352_n.jpg",
-                  "type": "contact"
-                },
-                "assignee": null,
-                "team": null,
-                "hmac_verified": false
-              },
-              "status": "open",
-              "custom_attributes": {},
-              "snoozed_until": null,
-              "unread_count": 0,
-              "first_reply_created_at": "2025-02-21T02:51:24.758Z",
-              "priority": null,
-              "waiting_since": 0,
-              "agent_last_seen_at": 1740106772,
-              "contact_last_seen_at": 0,
-              "last_activity_at": 1740106772,
-              "timestamp": 1740106772,
-              "created_at": 1740106279
-            },
-            "created_at": "2025-02-21T02:59:32.128Z",
-            "id": 6227,
-            "inbox": {
-              "id": 1,
-              "name": "Quepasa"
-            },
-            "message_type": "outgoing",
-            "status": "sent",
-            "private": false,
-            "sender": {
-              "id": 1,
-              "name": "User Fixo",
-              "email": "deivid.amsantos@gmail.com",
-              "type": "user"
-            },
-            "source_id": null,
-            "event": "message_created"
-          },
-          "webhookUrl": "https://webhook.developermaster.com.br/webhook/from-chatwoot",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
-  "versionId": "c629ad47-16e4-4081-8ddc-529aa121bed3",
+  "pinData": {},
+  "versionId": "e7040124-633d-4d10-9154-e8aa0a1dce94",
   "triggerCount": 1,
   "tags": [
-    {
-      "createdAt": "2022-10-13T15:26:11.519Z",
-      "updatedAt": "2023-08-25T18:50:53.269Z",
-      "id": "5",
-      "name": "quepasa"
-    },
-    {
-      "createdAt": "2024-05-24T01:34:15.401Z",
-      "updatedAt": "2024-05-24T01:34:15.401Z",
-      "id": "PHDp1yoMiVikbrb2",
-      "name": "chatwoot"
-    },
     {
       "createdAt": "2023-05-19T22:54:38.266Z",
       "updatedAt": "2023-05-19T22:54:38.266Z",
       "id": "13",
       "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
     }
   ],
   "versao-qp": "latest",
-  "Workflow-Nome": "ChatwootToQuepasa"
+  "Workflow-Nome": "ChatwootToQuepasa",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ]
 }
