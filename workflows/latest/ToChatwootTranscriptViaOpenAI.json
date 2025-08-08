@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-02-13T23:27:18.998Z",
+  "updatedAt": "2025-08-08T01:11:25.348Z",
   "id": "pi4APHD9F05Dv6FR",
   "name": "ToChatwootTranscriptViaOpenAI",
   "active": false,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -16,8 +17,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1460,
-        300
+        1472,
+        304
       ]
     },
     {
@@ -27,8 +28,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        1080,
-        280
+        1088,
+        288
       ]
     },
     {
@@ -66,8 +67,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1620,
-        380
+        1632,
+        384
       ],
       "notesInFlow": true,
       "alwaysOutputData": false
@@ -84,7 +85,7 @@
       "typeVersion": 2.5,
       "position": [
         1280,
-        360
+        368
       ],
       "notesInFlow": true,
       "alwaysOutputData": false,
@@ -106,7 +107,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1780,
+        1792,
         320
       ]
     },
@@ -129,8 +130,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2740,
-        140
+        2752,
+        144
       ]
     },
     {
@@ -156,8 +157,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2540,
-        140
+        2544,
+        144
       ],
       "notesInFlow": true
     },
@@ -189,7 +190,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2,
       "position": [
-        2140,
+        2144,
         320
       ]
     },
@@ -248,7 +249,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1960,
+        1968,
         320
       ]
     },
@@ -275,7 +276,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        3340,
+        3344,
         320
       ],
       "notesInFlow": true
@@ -300,7 +301,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3140,
+        3152,
         320
       ]
     },
@@ -311,7 +312,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2340,
+        2352,
         240
       ]
     },
@@ -326,8 +327,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        2940,
-        220
+        2944,
+        224
       ]
     },
     {
@@ -341,8 +342,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1020,
-        75.09870067627912
+        1024,
+        80
       ]
     }
   ],
@@ -514,9 +515,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "20311266-2bd2-4edd-beeb-6483f2913ed3",
+  "versionId": "95e5d18c-af1e-44c3-a8cf-f6f849c11e71",
   "triggerCount": 0,
-  "tags": [],
+  "tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ],
   "versao-qp": "latest",
-  "Workflow-Nome": "ToChatwootTranscriptViaOpenAI"
+  "Workflow-Nome": "ToChatwootTranscriptViaOpenAI",
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    },
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    }
+  ]
 }
