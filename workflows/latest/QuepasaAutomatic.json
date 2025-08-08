@@ -1,9 +1,10 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-06-18T00:36:36.569Z",
+  "updatedAt": "2025-08-08T01:09:14.713Z",
   "id": "1011",
   "name": "QuepasaAutomatic",
   "active": true,
+  "isArchived": false,
   "nodes": [
     {
       "parameters": {
@@ -39,7 +40,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 1,
       "position": [
-        460,
+        464,
         0
       ],
       "alwaysOutputData": false,
@@ -63,7 +64,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        -20
+        -16
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -172,7 +173,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        1320
+        1328
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -195,7 +196,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        1320
+        1328
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -216,7 +217,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1340,
+        -1344,
         720
       ]
     },
@@ -232,7 +233,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        920
+        928
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -255,7 +256,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        920
+        928
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -276,8 +277,8 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        280,
-        -100
+        288,
+        -96
       ]
     },
     {
@@ -311,7 +312,7 @@
       "typeVersion": 2,
       "position": [
         80,
-        -20
+        -16
       ]
     },
     {
@@ -336,7 +337,7 @@
       "typeVersion": 1,
       "position": [
         -1280,
-        920
+        928
       ],
       "credentials": {
         "postgres": {
@@ -397,8 +398,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        -280,
-        3300
+        -288,
+        3312
       ],
       "alwaysOutputData": false
     },
@@ -427,8 +428,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        -540,
-        3300
+        -544,
+        3312
       ]
     },
     {
@@ -451,7 +452,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.3,
       "position": [
-        -900,
+        -896,
         3280
       ]
     },
@@ -513,7 +514,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        2360
+        2368
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -536,7 +537,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        2360
+        2368
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -559,7 +560,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        1720
+        1728
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -582,7 +583,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        1720
+        1728
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -651,7 +652,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        360
+        368
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -697,8 +698,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -1060,
-        1020
+        -1056,
+        1024
       ]
     },
     {
@@ -713,7 +714,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        360
+        368
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -736,7 +737,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        540
+        544
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -759,7 +760,7 @@
       "typeVersion": 1,
       "position": [
         -160,
-        2760
+        2768
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -782,7 +783,7 @@
       "typeVersion": 1,
       "position": [
         80,
-        2760
+        2768
       ],
       "alwaysOutputData": false,
       "credentials": {
@@ -800,8 +801,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -600,
-        1240
+        -608,
+        1248
       ]
     },
     {
@@ -811,8 +812,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -600,
-        260
+        -608,
+        272
       ]
     },
     {
@@ -1225,29 +1226,38 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "1f006698-ab12-47a0-ad56-a71df70a79d3",
+  "versionId": "a6d8ce0b-88cf-4d7a-a77a-79be9fb1ed8b",
   "triggerCount": 3,
   "tags": [
-    {
-      "createdAt": "2022-10-13T15:26:11.519Z",
-      "updatedAt": "2023-08-25T18:50:53.269Z",
-      "id": "5",
-      "name": "quepasa"
-    },
-    {
-      "createdAt": "2023-05-18T18:59:53.449Z",
-      "updatedAt": "2023-05-18T18:59:53.449Z",
-      "id": "7",
-      "name": "EngajamentoFlow"
-    },
     {
       "createdAt": "2023-05-19T22:54:38.266Z",
       "updatedAt": "2023-05-19T22:54:38.266Z",
       "id": "13",
       "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
     }
   ],
   "versao-qp": "latest",
   "Workflow-Nome": "QuepasaAutomatic",
-  "dir": "workflows"
+  "dir": "workflows",
+  "Tag-Comparar": "apiqp-cw",
+  "Workflow-Tags": [
+    {
+      "createdAt": "2023-05-19T22:54:38.266Z",
+      "updatedAt": "2023-05-19T22:54:38.266Z",
+      "id": "13",
+      "name": "github.com/nocodeleaks"
+    },
+    {
+      "createdAt": "2025-08-08T00:44:31.388Z",
+      "updatedAt": "2025-08-08T00:44:31.388Z",
+      "id": "95HKVBfihMx9eAvs",
+      "name": "apiqp-cw"
+    }
+  ]
 }
