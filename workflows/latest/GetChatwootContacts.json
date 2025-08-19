@@ -1,6 +1,6 @@
 {
   "createdAt": "2025-02-07T01:25:28.896Z",
-  "updatedAt": "2025-08-08T01:05:18.275Z",
+  "updatedAt": "2025-08-19T01:08:35.403Z",
   "id": "1002",
   "name": "GetChatwootContacts",
   "active": false,
@@ -842,77 +842,18 @@
     },
     {
       "parameters": {
-        "baseUrl": "={{ $json.extra.cwhost }}",
-        "accessToken": "={{ $json.extra.utoken }}",
-        "resource": "contact",
-        "accountId": "={{ $json.extra.account }}",
-        "operation": "contactSearch",
-        "contactSearchQuery": "={{ $json.body.chat.phone || $json.body.chat.lid}}"
+        "content": "## Update LID\n",
+        "height": 256,
+        "width": 1008
       },
-      "type": "n8n-nodes-chatwoot.chatwoot",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        80,
+        704
+      ],
       "typeVersion": 1,
-      "position": [
-        336,
-        768
-      ],
-      "id": "f266655e-06a0-47fd-9212-906baeed4ca3",
-      "name": "Contact search"
-    },
-    {
-      "parameters": {
-        "baseUrl": "={{ $('When Called By Another Workflow').item.json.extra.cwhost }}",
-        "accessToken": "={{ $('When Called By Another Workflow').item.json.extra.utoken }}",
-        "resource": "contact",
-        "accountId": "={{ $('When Called By Another Workflow').item.json.extra.account }}",
-        "operation": "contactUpdate",
-        "contactId": "={{ $('Contact search').item.json.payload[0].id }}",
-        "contactIdentifier": "={{ $('When Called By Another Workflow').item.json.body.chat.lid }}",
-        "name": "={{ $('When Called By Another Workflow').item.json.body.chat.title }}",
-        "inboxId": "={{ $('Contact search').item.json.payload[0].contact_inboxes[0].inbox.id ?? \"\"}}",
-        "phoneNumber": "={{ $('When Called By Another Workflow').item.json.body.chat.phone }}"
-      },
-      "type": "n8n-nodes-chatwoot.chatwoot",
-      "typeVersion": 1,
-      "position": [
-        816,
-        768
-      ],
-      "id": "e70edd88-b243-4221-a073-2731499afb1b",
-      "name": "Contact update"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "9e6323f1-d3ed-46db-9c89-d6e8ca64d793",
-              "leftValue": "={{ $json.body.chat.lid }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        112,
-        768
-      ],
-      "id": "924c3df6-3d3b-409c-9e2a-d35300b28fe1",
-      "name": "Existe-LID?"
+      "id": "8d1996cf-0134-4afd-8c72-93720246e95d",
+      "name": "Sticky Note2"
     },
     {
       "parameters": {
@@ -959,18 +900,79 @@
     },
     {
       "parameters": {
-        "content": "## Update LID\n",
-        "height": 256,
-        "width": 1008
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9e6323f1-d3ed-46db-9c89-d6e8ca64d793",
+              "leftValue": "={{ $json.body.chat.lid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
       },
-      "type": "n8n-nodes-base.stickyNote",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
       "position": [
-        80,
-        704
+        112,
+        768
       ],
+      "id": "924c3df6-3d3b-409c-9e2a-d35300b28fe1",
+      "name": "Existe-LID?"
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{ $('When Called By Another Workflow').item.json.extra.cwhost }}",
+        "accessToken": "={{ $('When Called By Another Workflow').item.json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{ $('When Called By Another Workflow').item.json.extra.account }}",
+        "operation": "contactUpdate",
+        "contactId": "={{ $('Contact search').item.json.payload[0].id }}",
+        "contactIdentifier": "={{ $('When Called By Another Workflow').item.json.body.chat.lid }}",
+        "name": "={{ $('When Called By Another Workflow').item.json.body.chat.title }}",
+        "inboxId": "={{ $('Contact search').item.json.payload[0].contact_inboxes[0].inbox.id ?? \"\"}}",
+        "phoneNumber": "={{ $('When Called By Another Workflow').item.json.body.chat.phone }}"
+      },
+      "type": "n8n-nodes-chatwoot.chatwoot",
       "typeVersion": 1,
-      "id": "8d1996cf-0134-4afd-8c72-93720246e95d",
-      "name": "Sticky Note2"
+      "position": [
+        816,
+        768
+      ],
+      "id": "e70edd88-b243-4221-a073-2731499afb1b",
+      "name": "Contact update",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "baseUrl": "={{ $json.extra.cwhost }}",
+        "accessToken": "={{ $json.extra.utoken }}",
+        "resource": "contact",
+        "accountId": "={{ $json.extra.account }}",
+        "operation": "contactSearch",
+        "contactSearchQuery": "={{ $json.body.chat.phone || $json.body.chat.lid}}"
+      },
+      "type": "n8n-nodes-chatwoot.chatwoot",
+      "typeVersion": 1,
+      "position": [
+        336,
+        768
+      ],
+      "id": "f266655e-06a0-47fd-9212-906baeed4ca3",
+      "name": "Contact search",
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -1379,17 +1381,6 @@
         ]
       ]
     },
-    "Contact search": {
-      "main": [
-        [
-          {
-            "node": "Identifier≠LID?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Existe-LID?": {
       "main": [
         [
@@ -1398,8 +1389,7 @@
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
     "Identifier≠LID?": {
@@ -1410,13 +1400,18 @@
             "type": "main",
             "index": 0
           }
-        ],
-        []
+        ]
       ]
     },
-    "Contact update": {
+    "Contact search": {
       "main": [
-        []
+        [
+          {
+            "node": "Identifier≠LID?",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -1431,7 +1426,7 @@
     "instanceId": "2b4ab318d4f8eba20155e50db9998481bc305e3588e42ee69176091736c9d07e"
   },
   "pinData": {},
-  "versionId": "0f11d1b6-566f-4063-84ad-cf0f69aea2a0",
+  "versionId": "4df19020-1e18-4b1c-ac01-c92cd19e0281",
   "triggerCount": 0,
   "tags": [
     {
